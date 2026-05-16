@@ -42,11 +42,11 @@ export default function ContactPage() {
                   description="Share your project goal, service need, budget range, and timeline. Your enquiry is saved to the database when Supabase is configured."
                 />
                 <div className="mt-8 grid gap-3">
-                  <Info icon={Mail} label="Email" value={siteConfig.email} href={`mailto:${siteConfig.email}`} color="text-violet-300 bg-violet-500/10" />
-                  <Info icon={Phone} label="Phone" value={siteConfig.phone} href={`tel:${siteConfig.phone}`} color="text-fuchsia-200 bg-fuchsia-400/10" />
-                  <Info icon={MessageCircle} label="WhatsApp" value="Message Arixa Technologies" href={`https://wa.me/${siteConfig.whatsapp}`} color="text-purple-400 bg-purple-500/10" />
+                  <Info icon={Mail} label="Email" value={siteConfig.email} href={`mailto:${siteConfig.email}`} color="text-[#0797a5] bg-teal-500/10" />
+                  <Info icon={Phone} label="Phone" value={siteConfig.phone} href={`tel:${siteConfig.phone}`} color="text-[#c25231] bg-orange-400/10" />
+                  <Info icon={MessageCircle} label="WhatsApp" value="Message Arixa Technologies" href={`https://wa.me/${siteConfig.whatsapp}`} color="text-indigo-400 bg-indigo-500/10" />
                   <Info icon={MapPin} label="Address" value={siteConfig.address} color="text-cyan-400 bg-cyan-500/10" />
-                  <Info icon={Clock} label="Business Hours" value={siteConfig.hours} color="text-indigo-300 bg-indigo-500/10" />
+                  <Info icon={Clock} label="Business Hours" value={siteConfig.hours} color="text-[#0797a5] bg-cyan-500/10" />
                 </div>
                 <div className="mt-8">
                   <ImageSlot src={siteAssets.contact.src} alt={siteAssets.contact.alt} width={siteAssets.contact.width} height={siteAssets.contact.height} />
@@ -57,13 +57,13 @@ export default function ContactPage() {
             <AnimateIn variant="right">
               <div>
                 <ContactForm />
-                <div className="mt-6 rounded-lg border border-white/[0.08] bg-white/[0.03] p-5">
-                  <h2 className="text-base font-semibold text-white">Find us</h2>
-                  <div className="mt-4 flex h-52 items-center justify-center rounded-lg border border-white/[0.07] bg-[linear-gradient(135deg,rgba(139,92,246,0.1),rgba(232,121,249,0.07),rgba(34,211,238,0.1))] text-sm text-slate-400">
+                <div className="mt-6 rounded-lg border border-teal-500/20 bg-white/65 p-5">
+                  <h2 className="text-base font-semibold text-[#07304d]">Find us</h2>
+                  <div className="mt-4 flex h-52 items-center justify-center rounded-lg border border-teal-500/20 bg-[linear-gradient(135deg,rgba(7,151,165,0.1),rgba(244,127,95,0.07),rgba(70,199,199,0.1))] text-sm text-[#587487]">
                     <span className="flex max-w-xs flex-col items-center gap-3 text-center">
-                      <MapPin className="text-cyan-200" size={26} aria-hidden="true" />
+                      <MapPin className="text-[#087987]" size={26} aria-hidden="true" />
                       Office location
-                      <span className="text-xs text-slate-500">{siteConfig.address}</span>
+                      <span className="text-xs text-[#6d8797]">{siteConfig.address}</span>
                     </span>
                   </div>
                 </div>
@@ -91,13 +91,13 @@ function Info({
 }) {
   const [iconColor, iconBg] = color.split(" ");
   const content = (
-    <span className="card-hover flex gap-4 rounded-lg border border-white/[0.08] bg-white/[0.03] p-4">
+    <span className="card-hover flex gap-4 rounded-lg border border-teal-500/20 bg-white/65 p-4">
       <span className={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${iconBg}`}>
         <Icon className={iconColor} size={18} aria-hidden="true" />
       </span>
       <span>
-        <span className="block text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">{label}</span>
-        <span className="mt-1 block text-sm font-medium text-slate-200">{value}</span>
+        <span className="block text-xs font-semibold uppercase tracking-[0.14em] text-[#6d8797]">{label}</span>
+        <span className="mt-1 block text-sm font-medium text-[#173f5f]">{value}</span>
       </span>
     </span>
   );

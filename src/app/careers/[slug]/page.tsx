@@ -54,19 +54,19 @@ export default async function CareerDetailPage({ params }: Props) {
           />
           <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_0.9fr]">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-200">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#087987]">
                 {career.location} / {career.type}
               </p>
-              <h1 className="mt-4 text-5xl font-semibold tracking-normal text-white sm:text-6xl">
+              <h1 className="mt-4 text-5xl font-semibold tracking-normal text-[#07304d] sm:text-6xl">
                 {career.title}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">{career.summary}</p>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#365b70]">{career.summary}</p>
               <div className="mt-10">
                 <SectionHeading eyebrow="Responsibilities" title="What you will work on" />
                 <div className="mt-6 grid gap-4">
                   {career.responsibilities.map((item) => (
-                    <p key={item} className="flex gap-3 rounded-md border border-white/10 bg-white/[0.04] p-4 text-sm leading-7 text-slate-300">
-                      <CheckCircle2 className="mt-1 shrink-0 text-purple-300" size={18} aria-hidden="true" />
+                    <p key={item} className="flex gap-3 rounded-md border border-teal-500/20 bg-white/70 p-4 text-sm leading-7 text-[#365b70]">
+                      <CheckCircle2 className="mt-1 shrink-0 text-[#6968b8]" size={18} aria-hidden="true" />
                       {item}
                     </p>
                   ))}
@@ -74,7 +74,7 @@ export default async function CareerDetailPage({ params }: Props) {
               </div>
             </div>
             <div>
-              <h2 className="mb-4 text-2xl font-semibold text-white">Apply for this role</h2>
+              <h2 className="mb-4 text-2xl font-semibold text-[#07304d]">Apply for this role</h2>
               <CareerApplicationForm jobSlug={career.slug} />
             </div>
           </div>

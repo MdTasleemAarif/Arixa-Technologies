@@ -21,15 +21,15 @@ export default function AboutPage() {
       icon: Target,
       title: "Business-first thinking",
       text: "We connect design and engineering decisions to lead generation, operations, visibility, and long-term maintainability.",
-      color: "text-violet-300",
-      bg: "bg-violet-500/10",
+      color: "text-[#0797a5]",
+      bg: "bg-teal-500/10",
     },
     {
       icon: Gem,
       title: "Premium execution",
       text: "Every page, component, form, and admin workflow is planned to feel polished, usable, and credible.",
-      color: "text-fuchsia-200",
-      bg: "bg-fuchsia-400/10",
+      color: "text-[#c25231]",
+      bg: "bg-orange-400/10",
     },
     {
       icon: Compass,
@@ -58,15 +58,15 @@ export default function AboutPage() {
           <Breadcrumbs items={[{ label: "About", href: "/about" }]} />
           <div className="mt-10 grid items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
             <AnimateIn variant="left">
-              <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-fuchsia-200">
-                <span className="inline-block h-px w-4 bg-gradient-to-r from-violet-400 via-fuchsia-300 to-cyan-300" aria-hidden="true" />
+              <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#c25231]">
+                <span className="inline-block h-px w-4 bg-gradient-to-r from-teal-400 via-orange-300 to-cyan-300" aria-hidden="true" />
                 About Arixa
               </p>
-              <h1 className="mt-4 max-w-4xl text-5xl font-semibold tracking-tight text-white sm:text-6xl">
+              <h1 className="mt-4 max-w-4xl text-5xl font-semibold tracking-tight text-[#07304d] sm:text-6xl">
                 We build premium digital systems for{" "}
                 <span className="gradient-text">ambitious businesses.</span>
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#365b70]">
                 Arixa Technologies is a software and digital solutions company focused on websites, web apps, mobile apps, SEO, e-commerce, custom software, branding, digital marketing, and AI automation.
               </p>
             </AnimateIn>
@@ -87,23 +87,23 @@ export default function AboutPage() {
       <section className="px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2">
           <AnimateIn variant="left">
-            <div className="card-hover h-full rounded-lg border border-white/[0.08] bg-white/[0.03] p-7">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-violet-500/10">
-                <Eye className="text-violet-300" size={24} aria-hidden="true" />
+            <div className="card-hover h-full rounded-lg border border-teal-500/20 bg-white/65 p-7">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-teal-500/10">
+                <Eye className="text-[#0797a5]" size={24} aria-hidden="true" />
               </span>
-              <h2 className="mt-5 text-2xl font-semibold text-white">Vision</h2>
-              <p className="mt-4 leading-8 text-slate-300">
+              <h2 className="mt-5 text-2xl font-semibold text-[#07304d]">Vision</h2>
+              <p className="mt-4 leading-8 text-[#365b70]">
                 To become a trusted digital partner for businesses that want modern software, stronger search visibility, and operational systems that can scale.
               </p>
             </div>
           </AnimateIn>
           <AnimateIn variant="right">
-            <div className="card-hover h-full rounded-lg border border-white/[0.08] bg-white/[0.03] p-7">
-              <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-fuchsia-400/10">
-                <Target className="text-fuchsia-200" size={24} aria-hidden="true" />
+            <div className="card-hover h-full rounded-lg border border-teal-500/20 bg-white/65 p-7">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-orange-400/10">
+                <Target className="text-[#c25231]" size={24} aria-hidden="true" />
               </span>
-              <h2 className="mt-5 text-2xl font-semibold text-white">Mission</h2>
-              <p className="mt-4 leading-8 text-slate-300">
+              <h2 className="mt-5 text-2xl font-semibold text-[#07304d]">Mission</h2>
+              <p className="mt-4 leading-8 text-[#365b70]">
                 To design, develop, and maintain premium digital products that help businesses attract customers, automate workflows, and present themselves with confidence.
               </p>
             </div>
@@ -128,12 +128,12 @@ export default function AboutPage() {
             {values.map((value) => {
               const Icon = value.icon;
               return (
-                <div key={value.title} className="card-hover rounded-lg border border-white/[0.08] bg-white/[0.03] p-7">
+                <div key={value.title} className="card-hover rounded-lg border border-teal-500/20 bg-white/65 p-7">
                   <span className={`inline-flex h-12 w-12 items-center justify-center rounded-lg ${value.bg}`}>
                     <Icon size={22} className={value.color} aria-hidden="true" />
                   </span>
-                  <h3 className="mt-5 text-xl font-semibold text-white">{value.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-400">{value.text}</p>
+                  <h3 className="mt-5 text-xl font-semibold text-[#07304d]">{value.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#587487]">{value.text}</p>
                 </div>
               );
             })}
@@ -159,8 +159,8 @@ export default function AboutPage() {
                 "We build reusable components and clean data models so the site can grow.",
                 "We document deployment, SSL/TLS readiness, Search Console setup, image SEO, and VPS migration.",
               ].map((item) => (
-                <p key={item} className="card-hover flex gap-3 rounded-lg border border-white/[0.08] bg-white/[0.03] p-4 text-sm leading-7 text-slate-300">
-                  <CheckCircle2 className="mt-1 shrink-0 text-purple-300" size={17} aria-hidden="true" />
+                <p key={item} className="card-hover flex gap-3 rounded-lg border border-teal-500/20 bg-white/65 p-4 text-sm leading-7 text-[#365b70]">
+                  <CheckCircle2 className="mt-1 shrink-0 text-[#6968b8]" size={17} aria-hidden="true" />
                   {item}
                 </p>
               ))}

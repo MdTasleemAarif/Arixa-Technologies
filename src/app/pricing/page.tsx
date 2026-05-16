@@ -49,21 +49,21 @@ export default function PricingPage() {
                   className={`flex flex-col rounded-lg border p-6 transition ${
                     isPopular
                       ? "pricing-popular"
-                      : "border-white/[0.08] bg-white/[0.03] hover:border-violet-300/30 hover:bg-violet-500/5"
+                      : "border-teal-500/20 bg-white/65 hover:border-teal-300/30 hover:bg-teal-500/5"
                   }`}
                 >
                   {isPopular && (
-                    <span className="mb-3 inline-flex self-start items-center gap-1 rounded-full bg-gradient-to-r from-violet-500 via-fuchsia-400 to-cyan-400 px-3 py-0.5 text-xs font-bold text-[#15091f]">
+                    <span className="mb-3 inline-flex self-start items-center gap-1 rounded-full bg-gradient-to-r from-teal-500 via-orange-400 to-cyan-400 px-3 py-0.5 text-xs font-bold text-[#07304d]">
                       <Star size={10} aria-hidden="true" /> Most Popular
                     </span>
                   )}
-                  <h2 className="text-2xl font-semibold text-white">{plan.name}</h2>
+                  <h2 className="text-2xl font-semibold text-[#07304d]">{plan.name}</h2>
                   <p className="mt-2 text-xl font-bold gradient-text">{plan.price}</p>
-                  <p className="mt-4 min-h-20 text-sm leading-7 text-slate-400">{plan.description}</p>
+                  <p className="mt-4 min-h-20 text-sm leading-7 text-[#587487]">{plan.description}</p>
                   <ul className="mt-6 grid flex-1 gap-3">
                     {plan.features.map((feature) => (
-                      <li key={feature} className="flex gap-2.5 text-sm leading-6 text-slate-300">
-                        <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-purple-300" aria-hidden="true" />
+                      <li key={feature} className="flex gap-2.5 text-sm leading-6 text-[#365b70]">
+                        <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[#6968b8]" aria-hidden="true" />
                         {feature}
                       </li>
                     ))}
@@ -72,8 +72,8 @@ export default function PricingPage() {
                     href="/contact"
                     className={`mt-8 inline-flex h-11 items-center justify-center rounded-lg text-sm font-semibold transition ${
                       isPopular
-                        ? "btn-glow text-[#15091f]"
-                        : "border border-white/15 text-white hover:bg-white/[0.08]"
+                        ? "btn-glow text-[#07304d]"
+                        : "border border-teal-500/30 text-[#07304d] hover:bg-white/85"
                     }`}
                   >
                     {plan.cta}

@@ -86,17 +86,94 @@ export const metadata = createMetadata({
   path: "/",
 });
 
-const serviceIcons = [Globe2, Layers3, Smartphone, BarChart3, Code2, Palette, Bot, Sparkles];
+const homeServiceVisuals = [
+  {
+    icon: Globe2,
+    frame: "border-[#0797a5]/24 bg-gradient-to-br from-[#e4f8f5] via-white to-[#fff2df]",
+    corner: "bg-[#0797a5]/16",
+    soft: "bg-[#46c7c7]/18",
+    marker: "bg-[#0797a5] text-white",
+    iconBox: "bg-white text-[#087987] border-[#0797a5]/18",
+    eyebrow: "text-[#087987]",
+    button: "bg-[#0797a5] text-white",
+  },
+  {
+    icon: Layers3,
+    frame: "border-[#f47f5f]/24 bg-gradient-to-br from-[#fff1e8] via-white to-[#e9f7f4]",
+    corner: "bg-[#f47f5f]/16",
+    soft: "bg-[#f5c84b]/18",
+    marker: "bg-[#f47f5f] text-white",
+    iconBox: "bg-white text-[#c25231] border-[#f47f5f]/18",
+    eyebrow: "text-[#c25231]",
+    button: "bg-[#f47f5f] text-white",
+  },
+  {
+    icon: Smartphone,
+    frame: "border-[#46c7c7]/28 bg-gradient-to-br from-[#e6fbfb] via-white to-[#fff7df]",
+    corner: "bg-[#46c7c7]/18",
+    soft: "bg-[#0797a5]/14",
+    marker: "bg-[#46c7c7] text-[#07304d]",
+    iconBox: "bg-white text-[#087987] border-[#46c7c7]/20",
+    eyebrow: "text-[#087987]",
+    button: "bg-[#07304d] text-white",
+  },
+  {
+    icon: BarChart3,
+    frame: "border-[#f5c84b]/34 bg-gradient-to-br from-[#fff6d8] via-white to-[#e4f8f5]",
+    corner: "bg-[#f5c84b]/25",
+    soft: "bg-[#f47f5f]/12",
+    marker: "bg-[#f5c84b] text-[#07304d]",
+    iconBox: "bg-white text-[#a86b00] border-[#f5c84b]/25",
+    eyebrow: "text-[#a86b00]",
+    button: "bg-[#f5c84b] text-[#07304d]",
+  },
+  {
+    icon: Code2,
+    frame: "border-[#7978c8]/26 bg-gradient-to-br from-[#efeffb] via-white to-[#e4f8f5]",
+    corner: "bg-[#7978c8]/16",
+    soft: "bg-[#46c7c7]/14",
+    marker: "bg-[#7978c8] text-white",
+    iconBox: "bg-white text-[#5756a4] border-[#7978c8]/20",
+    eyebrow: "text-[#5756a4]",
+    button: "bg-[#7978c8] text-white",
+  },
+  {
+    icon: Palette,
+    frame: "border-[#f47f5f]/24 bg-gradient-to-br from-[#fff1e8] via-white to-[#fff7df]",
+    corner: "bg-[#f47f5f]/16",
+    soft: "bg-[#f5c84b]/20",
+    marker: "bg-[#f47f5f] text-white",
+    iconBox: "bg-white text-[#c25231] border-[#f47f5f]/18",
+    eyebrow: "text-[#c25231]",
+    button: "bg-[#f47f5f] text-white",
+  },
+  {
+    icon: Bot,
+    frame: "border-[#0797a5]/24 bg-gradient-to-br from-[#e4f8f5] via-white to-[#efeffb]",
+    corner: "bg-[#0797a5]/16",
+    soft: "bg-[#7978c8]/14",
+    marker: "bg-[#0797a5] text-white",
+    iconBox: "bg-white text-[#087987] border-[#0797a5]/18",
+    eyebrow: "text-[#087987]",
+    button: "bg-[#0797a5] text-white",
+  },
+  {
+    icon: Sparkles,
+    frame: "border-[#f5c84b]/34 bg-gradient-to-br from-[#fff7df] via-white to-[#e6fbfb]",
+    corner: "bg-[#f5c84b]/25",
+    soft: "bg-[#46c7c7]/18",
+    marker: "bg-[#f5c84b] text-[#07304d]",
+    iconBox: "bg-white text-[#a86b00] border-[#f5c84b]/25",
+    eyebrow: "text-[#a86b00]",
+    button: "bg-[#07304d] text-white",
+  },
+];
 
-const serviceColors = [
-  "from-violet-500/22 to-indigo-500/10 text-violet-200",
-  "from-fuchsia-400/22 to-purple-500/10 text-fuchsia-200",
-  "from-cyan-400/22 to-indigo-500/10 text-cyan-200",
-  "from-purple-400/22 to-violet-500/10 text-purple-200",
-  "from-indigo-500/22 to-violet-500/10 text-indigo-200",
-  "from-indigo-500/22 to-fuchsia-400/10 text-indigo-200",
-  "from-indigo-400/22 to-purple-400/10 text-indigo-200",
-  "from-fuchsia-400/18 to-cyan-400/10 text-fuchsia-200",
+const homeServiceOutcomes = [
+  { label: "Design", text: "Premium visual identity and page sections that build trust quickly." },
+  { label: "Build", text: "Fast websites, apps, stores, dashboards, CMS, and custom systems." },
+  { label: "Rank", text: "SEO, AEO, GEO, schema, blog structure, and clean internal linking." },
+  { label: "Convert", text: "Quote paths, WhatsApp actions, lead forms, and persuasive service copy." },
 ];
 
 const homePillars = [
@@ -104,19 +181,19 @@ const homePillars = [
     icon: Sparkles,
     title: "Premium design that sells",
     text: "Modern layouts, strong hierarchy, polished motion, and trust-building sections that make visitors feel they are dealing with a serious company.",
-    accent: "from-violet-500/20 to-indigo-500/10 text-violet-200",
+    accent: "from-teal-500/20 to-cyan-500/10 text-[#087987]",
   },
   {
     icon: Code2,
     title: "Engineering that can grow",
     text: "Next.js, TypeScript, PostgreSQL, Supabase, clean components, CMS workflows, and deployment planning built for real business use.",
-    accent: "from-cyan-400/20 to-purple-400/10 text-cyan-200",
+    accent: "from-cyan-400/20 to-indigo-400/10 text-[#087987]",
   },
   {
     icon: TrendingUp,
     title: "SEO structure from day one",
     text: "Service pages, blog architecture, schema, metadata, sitemap, RSS, image SEO, AEO, GEO, and internal links prepared before launch.",
-    accent: "from-fuchsia-400/20 to-purple-500/10 text-fuchsia-200",
+    accent: "from-orange-400/20 to-indigo-500/10 text-[#c25231]",
   },
 ];
 
@@ -160,12 +237,12 @@ const techGroups: { title: string; items: TechIcon[] }[] = [
       { name: "HTML5", icon: SiHtml5, color: "#e34f26" },
       { name: "CSS", icon: SiCss, color: "#663399" },
       { name: "React", icon: SiReact, color: "#61dafb" },
-      { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
+      { name: "Next.js", icon: SiNextdotjs, color: "#07304d" },
       { name: "Vue", icon: SiVuedotjs, color: "#4fc08d" },
       { name: "Angular", icon: SiAngular, color: "#dd0031" },
       { name: "Svelte", icon: SiSvelte, color: "#ff3e00" },
       { name: "Flutter", icon: SiFlutter, color: "#02569b" },
-      { name: "Tailwind", icon: SiTailwindcss, color: "#38bdf8" },
+      { name: "Tailwind", icon: SiTailwindcss, color: "#46c7c7" },
       { name: "Framer", icon: SiFramer, color: "#a78bfa" },
       { name: "Figma", icon: SiFigma, color: "#f24e1e" },
     ],
@@ -174,7 +251,7 @@ const techGroups: { title: string; items: TechIcon[] }[] = [
     title: "Backend, CMS & APIs",
     items: [
       { name: "Node.js", icon: SiNodedotjs, color: "#5fa04e" },
-      { name: "Express", icon: SiExpress, color: "#ffffff" },
+      { name: "Express", icon: SiExpress, color: "#07304d" },
       { name: "NestJS", icon: SiNestjs, color: "#e0234e" },
       { name: "Laravel", icon: SiLaravel, color: "#ff2d20" },
       { name: "WordPress", icon: SiWordpress, color: "#21759b" },
@@ -192,12 +269,12 @@ const techGroups: { title: string; items: TechIcon[] }[] = [
       { name: "MongoDB", icon: SiMongodb, color: "#47a248" },
       { name: "Supabase", icon: SiSupabase, color: "#3ecf8e" },
       { name: "Firebase", icon: SiFirebase, color: "#ffca28" },
-      { name: "Vercel", icon: SiVercel, color: "#ffffff" },
+      { name: "Vercel", icon: SiVercel, color: "#07304d" },
       { name: "Docker", icon: SiDocker, color: "#2496ed" },
       { name: "Kubernetes", icon: SiKubernetes, color: "#326ce5" },
       { name: "Cloudflare", icon: SiCloudflare, color: "#f38020" },
       { name: "Git", icon: SiGit, color: "#f05032" },
-      { name: "GitHub", icon: SiGithub, color: "#ffffff" },
+      { name: "GitHub", icon: SiGithub, color: "#07304d" },
       { name: "Linux", icon: SiLinux, color: "#fcc624" },
     ],
   },
@@ -209,32 +286,32 @@ const workflowSteps = [
     title: "Position",
     desc: "Clarify your offer, audience, services, competitors, and the action every page should drive.",
     icon: TrendingUp,
-    color: "text-violet-300",
-    glow: "rgba(139,92,246,0.22)",
+    color: "text-[#0797a5]",
+    glow: "rgba(7,151,165,0.22)",
   },
   {
     step: "02",
     title: "Shape",
     desc: "Create the visual direction, content hierarchy, UX flow, trust sections, and conversion paths.",
     icon: Palette,
-    color: "text-fuchsia-200",
-    glow: "rgba(232,121,249,0.22)",
+    color: "text-[#c25231]",
+    glow: "rgba(244,127,95,0.22)",
   },
   {
     step: "03",
     title: "Build",
     desc: "Develop the Next.js app, CMS, forms, database schema, admin routes, and integrations.",
     icon: Code2,
-    color: "text-cyan-300",
-    glow: "rgba(34,211,238,0.22)",
+    color: "text-[#0797a5]",
+    glow: "rgba(70,199,199,0.22)",
   },
   {
     step: "04",
     title: "Grow",
     desc: "Deploy, test, submit SEO assets, monitor leads, and plan content or automation upgrades.",
     icon: Zap,
-    color: "text-purple-300",
-    glow: "rgba(192,132,252,0.22)",
+    color: "text-[#6968b8]",
+    glow: "rgba(121,120,200,0.22)",
   },
 ];
 
@@ -242,7 +319,7 @@ function StarRating() {
   return (
     <div className="star-rating flex gap-0.5">
       {[...Array(5)].map((_, i) => (
-        <Star key={i} size={14} className="fill-fuchsia-300 text-fuchsia-300" aria-hidden="true" />
+        <Star key={i} size={14} className="fill-orange-500 text-[#e56842]" aria-hidden="true" />
       ))}
     </div>
   );
@@ -256,7 +333,7 @@ function AvatarInitial({ name, gradient }: { name: string; gradient: string }) {
     .join("");
   return (
     <span
-      className={`inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${gradient} text-sm font-bold text-white shrink-0`}
+      className={`inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br ${gradient} text-sm font-bold text-[#07304d] shrink-0`}
     >
       {initials}
     </span>
@@ -264,9 +341,9 @@ function AvatarInitial({ name, gradient }: { name: string; gradient: string }) {
 }
 
 const avatarGradients = [
-  "from-violet-500 to-indigo-500",
-  "from-fuchsia-400 to-purple-400",
-  "from-cyan-400 to-indigo-500",
+  "from-teal-500 to-cyan-500",
+  "from-orange-400 to-indigo-400",
+  "from-cyan-400 to-cyan-500",
 ];
 
 export default function Home() {
@@ -283,13 +360,13 @@ export default function Home() {
       <section className="section-band px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-fuchsia-200">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#c25231]">
               Technology expertise
             </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[#07304d] sm:text-3xl">
               Real languages, frameworks, databases, and cloud tools behind premium builds.
             </h2>
-            <p className="mt-3 text-sm leading-7 text-slate-400">
+            <p className="mt-3 text-sm leading-7 text-[#587487]">
               Arixa Technologies can plan the right stack for websites, CMS platforms, apps, automation, e-commerce, SEO systems, and scalable admin panels.
             </p>
           </div>
@@ -298,10 +375,10 @@ export default function Home() {
             {techGroups.map((group) => (
               <div key={group.title} className="premium-card-soft rounded-lg p-4 sm:p-5">
                 <div className="flex items-center justify-between gap-4">
-                  <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-200">
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#173f5f]">
                     {group.title}
                   </h3>
-                  <span className="h-px flex-1 bg-gradient-to-r from-violet-400/45 via-fuchsia-300/35 to-transparent" />
+                  <span className="h-px flex-1 bg-gradient-to-r from-teal-400/45 via-orange-300/35 to-transparent" />
                 </div>
 
                 <div className="mt-4 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6">
@@ -311,7 +388,7 @@ export default function Home() {
                     return (
                       <div
                         key={tech.name}
-                        className="tech-logo group flex min-w-0 flex-col items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.045] px-2 py-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition hover:border-violet-300/45 hover:bg-white/[0.075]"
+                        className="tech-logo group flex min-w-0 flex-col items-center gap-2 rounded-lg border border-teal-500/20 bg-white/80 px-2 py-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.55)] transition hover:border-teal-300/45 hover:bg-white"
                         title={tech.name}
                       >
                         <Icon
@@ -319,7 +396,7 @@ export default function Home() {
                           style={{ color: tech.color }}
                           aria-hidden="true"
                         />
-                        <span className="max-w-full truncate text-[11px] font-semibold leading-4 text-slate-300">
+                        <span className="max-w-full truncate text-[11px] font-semibold leading-4 text-[#365b70]">
                           {tech.name}
                         </span>
                       </div>
@@ -354,8 +431,8 @@ export default function Home() {
                   <span className={`inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br ${pillar.accent}`}>
                     <Icon size={22} className={pillar.accent.split(" ")[2]} aria-hidden="true" />
                   </span>
-                  <h3 className="mt-5 text-2xl font-semibold tracking-tight text-white">{pillar.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">{pillar.text}</p>
+                  <h3 className="mt-5 text-2xl font-semibold tracking-tight text-[#07304d]">{pillar.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#365b70]">{pillar.text}</p>
                 </div>
               );
             })}
@@ -364,38 +441,110 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8">
+      <section className="section-band relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
+        <div className="pointer-events-none absolute -left-16 top-8 h-40 w-64 rounded-br-[5rem] bg-[#46c7c7]/28" />
+        <div className="pointer-events-none absolute -right-14 bottom-10 h-44 w-64 rounded-tl-[5rem] bg-[#f5c84b]/26" />
+        <div className="pointer-events-none absolute left-[48%] top-14 hidden h-14 w-14 rotate-12 rounded-[1rem] bg-[#f47f5f]/18 lg:block" />
         <div className="mx-auto max-w-7xl">
           <AnimateIn>
-            <SectionHeading
-              eyebrow="Services"
-              title="Everything your business needs to look better, rank better, and work smarter."
-              description="Choose one focused service or combine website, app, SEO, e-commerce, branding, and automation into a complete digital growth system."
-            />
+            <div className="relative grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+              <div>
+                <p className="inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.18em] text-[#087987]">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#f47f5f]" />
+                  Services
+                </p>
+                <h2 className="mt-4 max-w-4xl font-display text-4xl font-extrabold leading-[1] text-[#07304d] sm:text-5xl lg:text-6xl">
+                  Services that make your brand look premium and your business easier to run.
+                </h2>
+                <p className="mt-5 max-w-2xl text-base leading-8 text-[#365b70]">
+                  Arixa combines design, development, SEO, e-commerce, apps, CMS, and automation into practical systems that can attract leads and support daily operations.
+                </p>
+                <div className="mt-7 flex flex-wrap gap-3">
+                  <Link
+                    href="/services"
+                    className="btn-glow inline-flex h-12 items-center gap-2 rounded-lg px-5 text-sm font-extrabold text-[#07304d]"
+                  >
+                    Explore all services <ArrowRight size={16} aria-hidden="true" />
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="inline-flex h-12 items-center gap-2 rounded-lg border border-teal-500/30 bg-white/70 px-5 text-sm font-bold text-[#07304d] transition hover:bg-white"
+                  >
+                    Get a free quote
+                  </Link>
+                </div>
+              </div>
+
+              <div className="relative overflow-hidden rounded-lg border border-teal-500/20 bg-white/75 p-5 shadow-[0_20px_52px_rgba(7,48,77,0.09)]">
+                <div className="pointer-events-none absolute right-0 top-0 h-24 w-32 rounded-bl-[3.5rem] bg-[#46c7c7]/20" />
+                <p className="relative text-xs font-extrabold uppercase tracking-[0.18em] text-[#c25231]">
+                  Growth system
+                </p>
+                <h3 className="relative mt-3 font-display text-3xl font-extrabold leading-tight text-[#07304d]">
+                  One section. Clear services. Strong reason to contact.
+                </h3>
+                <div className="relative mt-5 divide-y divide-teal-500/15">
+                  {homeServiceOutcomes.map((item) => (
+                    <div key={item.label} className="grid gap-2 py-3 sm:grid-cols-[90px_1fr] sm:items-start">
+                      <span className="text-sm font-extrabold text-[#087987]">{item.label}</span>
+                      <span className="text-sm leading-6 text-[#365b70]">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </AnimateIn>
+
           <AnimateInStagger
-            wrapperClassName="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+            wrapperClassName="relative mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4"
             stepDelay={60}
           >
             {services.slice(0, 8).map((service, index) => {
-              const Icon = serviceIcons[index] || Code2;
-              const colorClass = serviceColors[index] || serviceColors[0];
+              const visual = homeServiceVisuals[index] || homeServiceVisuals[0];
+              const Icon = visual.icon;
+              const highlights = [service.benefits[0], service.features[0]]
+                .filter((item): item is string => Boolean(item))
+                .slice(0, 2);
+
               return (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="premium-card-soft card-hover group rounded-lg p-5"
+                  className={`card-hover group relative flex min-h-[340px] flex-col overflow-hidden rounded-lg border p-5 shadow-[0_14px_36px_rgba(7,48,77,0.08)] ${visual.frame}`}
                 >
-                  <span className={`icon-glow inline-flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br ${colorClass.split(" ").slice(0,2).join(" ")}`}>
-                    <Icon size={20} className={colorClass.split(" ")[2]} aria-hidden="true" />
-                  </span>
-                  <p className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                  <span className={`pointer-events-none absolute right-0 top-0 h-24 w-28 rounded-bl-[3.5rem] ${visual.corner}`} />
+                  <span className={`pointer-events-none absolute -bottom-10 -left-8 h-28 w-28 rounded-full ${visual.soft}`} />
+
+                  <div className="relative flex items-start justify-between gap-4">
+                    <span className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-sm font-extrabold shadow-[0_10px_22px_rgba(7,48,77,0.1)] ${visual.marker}`}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className={`icon-glow inline-flex h-12 w-12 items-center justify-center rounded-lg border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] ${visual.iconBox}`}>
+                      <Icon size={22} aria-hidden="true" />
+                    </span>
+                  </div>
+
+                  <p className={`relative mt-6 text-xs font-extrabold uppercase tracking-[0.15em] ${visual.eyebrow}`}>
                     {service.eyebrow}
                   </p>
-                  <h3 className="mt-2 text-base font-semibold text-white">{service.title}</h3>
-                  <p className="mt-2.5 text-sm leading-7 text-slate-300">{servicePitches[index] || service.summary}</p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-fuchsia-200 opacity-0 transition-opacity group-hover:opacity-100">
-                    Learn more <ArrowRight size={12} />
+                  <h3 className="relative mt-2 font-display text-2xl font-extrabold leading-tight text-[#07304d] transition-colors group-hover:text-[#087987]">
+                    {service.title}
+                  </h3>
+                  <p className="relative mt-3 text-sm leading-7 text-[#365b70]">
+                    {servicePitches[index] || service.summary}
+                  </p>
+
+                  <div className="relative mt-5 grid gap-2">
+                    {highlights.map((highlight) => (
+                      <span key={highlight} className="flex items-start gap-2 text-xs font-semibold leading-5 text-[#365b70]">
+                        <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-[#0797a5]" aria-hidden="true" />
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
+
+                  <span className={`relative mt-auto inline-flex w-max items-center gap-2 rounded-full px-4 py-2 text-sm font-bold shadow-[0_10px_22px_rgba(7,48,77,0.12)] transition group-hover:gap-3 ${visual.button}`}>
+                    Learn more <ArrowRight size={14} aria-hidden="true" />
                   </span>
                 </Link>
               );
@@ -433,9 +582,9 @@ export default function Home() {
                   return (
                     <div
                       key={i}
-                      className="premium-card-soft card-hover flex gap-3 rounded-lg p-4 text-sm leading-7 text-slate-300"
+                      className="premium-card-soft card-hover flex gap-3 rounded-lg p-4 text-sm leading-7 text-[#365b70]"
                     >
-                      <Icon className="mt-1 shrink-0 text-cyan-300" size={17} aria-hidden="true" />
+                      <Icon className="mt-1 shrink-0 text-[#0797a5]" size={17} aria-hidden="true" />
                       {item.text}
                     </div>
                   );
@@ -468,13 +617,13 @@ export default function Home() {
               >
                 <ImageSlot src={item.image} alt={item.imageAlt} width={1200} height={900} className="shadow-none" />
                 <div className="mt-4 flex items-center gap-2">
-                  <span className="rounded-full border border-purple-300/20 bg-purple-400/12 px-2.5 py-0.5 text-xs font-semibold text-purple-200">
+                  <span className="rounded-full border border-indigo-300/20 bg-indigo-400/12 px-2.5 py-0.5 text-xs font-semibold text-[#5756a4]">
                     {item.category}
                   </span>
                 </div>
-                <h3 className="mt-3 text-lg font-semibold text-white transition-colors group-hover:text-fuchsia-100">{item.title}</h3>
-                <p className="mt-2 text-sm leading-7 text-slate-400 flex-1">{item.summary}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-cyan-200 opacity-0 transition-opacity group-hover:opacity-100">
+                <h3 className="mt-3 text-lg font-semibold text-[#07304d] transition-colors group-hover:text-[#c25231]">{item.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-[#587487] flex-1">{item.summary}</p>
+                <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#087987] transition-all group-hover:gap-2.5">
                   View case study <ArrowRight size={12} />
                 </span>
               </Link>
@@ -514,8 +663,8 @@ export default function Home() {
                     </span>
                     <Icon size={20} className={step.color} aria-hidden="true" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white">{step.title}</h3>
-                  <p className="mt-2.5 text-sm leading-7 text-slate-400">{step.desc}</p>
+                  <h3 className="text-lg font-semibold text-[#07304d]">{step.title}</h3>
+                  <p className="mt-2.5 text-sm leading-7 text-[#587487]">{step.desc}</p>
                 </div>
               );
             })}
@@ -543,14 +692,14 @@ export default function Home() {
                 className="premium-card-soft card-hover flex flex-col rounded-lg p-6"
               >
                 <StarRating />
-                <blockquote className="mt-4 flex-1 text-sm leading-7 text-slate-300">
+                <blockquote className="mt-4 flex-1 text-sm leading-7 text-[#365b70]">
                   &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
-                <figcaption className="mt-5 flex items-center gap-3 border-t border-white/[0.06] pt-5">
+                <figcaption className="mt-5 flex items-center gap-3 border-t border-teal-500/15 pt-5">
                   <AvatarInitial name={testimonial.name} gradient={avatarGradients[i % avatarGradients.length]} />
                   <div>
-                    <p className="text-sm font-semibold text-white">{testimonial.name}</p>
-                    <p className="mt-0.5 text-xs text-slate-500">{testimonial.role}</p>
+                    <p className="text-sm font-semibold text-[#07304d]">{testimonial.name}</p>
+                    <p className="mt-0.5 text-xs text-[#6d8797]">{testimonial.role}</p>
                   </div>
                 </figcaption>
               </figure>
@@ -569,7 +718,7 @@ export default function Home() {
                 title="A content engine for search, answers, and AI discovery."
                 description="The blog is ready for categories, tags, article schema, related posts, table of contents, FAQs, RSS, and long-term SEO publishing."
               />
-              <Link href="/blog" className="inline-flex h-11 shrink-0 items-center gap-2 rounded-lg border border-white/15 px-4 text-sm font-semibold text-white transition hover:bg-white/[0.08]">
+              <Link href="/blog" className="inline-flex h-11 shrink-0 items-center gap-2 rounded-lg border border-teal-500/30 px-4 text-sm font-semibold text-[#07304d] transition hover:bg-white/85">
                 View all posts <ArrowRight size={16} aria-hidden="true" />
               </Link>
             </div>
@@ -584,14 +733,14 @@ export default function Home() {
                 href={`/blog/${post.slug}`}
                 className="premium-card-soft card-hover group flex flex-col rounded-lg p-5"
               >
-                <span className="inline-flex self-start rounded-full border border-violet-300/20 bg-violet-500/12 px-2.5 py-0.5 text-xs font-semibold text-violet-200">
+                <span className="inline-flex self-start rounded-full border border-teal-300/20 bg-teal-500/12 px-2.5 py-0.5 text-xs font-semibold text-[#087987]">
                   {post.category}
                 </span>
-                <h3 className="mt-4 text-lg font-semibold text-white transition-colors group-hover:text-violet-100">{post.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-7 text-slate-400">{post.excerpt}</p>
-                <div className="mt-5 flex items-center justify-between border-t border-white/[0.06] pt-4">
-                  <span className="text-xs text-slate-500">{new Date(post.publishedAt).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}</span>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-fuchsia-200 opacity-0 transition-opacity group-hover:opacity-100">
+                <h3 className="mt-4 text-lg font-semibold text-[#07304d] transition-colors group-hover:text-[#087987]">{post.title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-7 text-[#587487]">{post.excerpt}</p>
+                <div className="mt-5 flex items-center justify-between border-t border-teal-500/15 pt-4">
+                  <span className="text-xs text-[#6d8797]">{new Date(post.publishedAt).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}</span>
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#c25231] transition-all group-hover:gap-2.5">
                     Read more <ArrowRight size={12} aria-hidden="true" />
                   </span>
                 </div>
@@ -640,21 +789,21 @@ export default function Home() {
                   className={`flex flex-col rounded-lg border p-6 transition ${
                     isPopular
                       ? "pricing-popular"
-                      : "premium-card-soft hover:border-violet-300/30 hover:bg-violet-500/5"
+                      : "premium-card-soft hover:border-teal-300/30 hover:bg-teal-500/5"
                   }`}
                 >
                   {isPopular && (
-                    <span className="mb-3 inline-flex self-start items-center gap-1 rounded-full bg-gradient-to-r from-violet-500 via-fuchsia-400 to-cyan-400 px-3 py-0.5 text-xs font-bold text-[#15091f]">
+                    <span className="mb-3 inline-flex self-start items-center gap-1 rounded-full bg-gradient-to-r from-teal-500 via-orange-400 to-cyan-400 px-3 py-0.5 text-xs font-bold text-[#07304d]">
                       <Star size={10} /> Most Popular
                     </span>
                   )}
-                  <h3 className="text-xl font-semibold text-white">{plan.name}</h3>
+                  <h3 className="text-xl font-semibold text-[#07304d]">{plan.name}</h3>
                   <p className="mt-2 text-lg font-bold gradient-text">{plan.price}</p>
-                  <p className="mt-3 text-sm leading-6 text-slate-400">{plan.description}</p>
+                  <p className="mt-3 text-sm leading-6 text-[#587487]">{plan.description}</p>
                   <ul className="mt-5 grid gap-2.5 flex-1">
                     {plan.features.map((feature) => (
-                      <li key={feature} className="flex gap-2 text-sm text-slate-300">
-                        <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-purple-300" aria-hidden="true" />
+                      <li key={feature} className="flex gap-2 text-sm text-[#365b70]">
+                        <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[#6968b8]" aria-hidden="true" />
                         {feature}
                       </li>
                     ))}
@@ -663,8 +812,8 @@ export default function Home() {
                     href="/contact"
                     className={`mt-6 inline-flex h-11 items-center justify-center rounded-lg text-sm font-semibold transition ${
                       isPopular
-                        ? "btn-glow text-[#15091f]"
-                        : "border border-white/15 text-white hover:bg-white/[0.08]"
+                        ? "btn-glow text-[#07304d]"
+                        : "border border-teal-500/30 text-[#07304d] hover:bg-white/85"
                     }`}
                   >
                     {plan.cta}

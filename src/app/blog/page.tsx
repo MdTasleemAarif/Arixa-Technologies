@@ -50,18 +50,18 @@ export default async function BlogPage({ searchParams }: Props) {
                 <form className="mt-8 flex max-w-xl gap-2" action="/blog">
                   <label className="sr-only" htmlFor="blog-search">Search blog</label>
                   <div className="relative flex-1">
-                    <Search className="pointer-events-none absolute left-3 top-3 text-slate-500" size={18} aria-hidden="true" />
+                    <Search className="pointer-events-none absolute left-3 top-3 text-[#6d8797]" size={18} aria-hidden="true" />
                     <input
                       id="blog-search"
                       name="query"
                       defaultValue={query}
                       placeholder="Search articles..."
-                      className="h-11 w-full rounded-lg border border-white/[0.08] bg-white/[0.05] pl-10 pr-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-violet-300/60 focus:ring-1 focus:ring-violet-300/40"
+                      className="h-11 w-full rounded-lg border border-teal-500/20 bg-white/75 pl-10 pr-3 text-sm text-[#07304d] outline-none transition placeholder:text-[#6d8797] focus:border-teal-300/60 focus:ring-1 focus:ring-teal-300/40"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="btn-glow h-11 rounded-lg px-5 text-sm font-semibold text-[#15091f] focus:outline-none focus:ring-2 focus:ring-violet-300"
+                    className="btn-glow h-11 rounded-lg px-5 text-sm font-semibold text-[#07304d] focus:outline-none focus:ring-2 focus:ring-teal-300"
                   >
                     Search
                   </button>
@@ -71,8 +71,8 @@ export default async function BlogPage({ searchParams }: Props) {
 
             {/* Sidebar */}
             <AnimateIn variant="right">
-              <aside className="rounded-lg border border-white/[0.08] bg-white/[0.03] p-5">
-                <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-200">
+              <aside className="rounded-lg border border-teal-500/20 bg-white/65 p-5">
+                <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#173f5f]">
                   Categories
                 </h2>
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -80,13 +80,13 @@ export default async function BlogPage({ searchParams }: Props) {
                     <Link
                       key={category.slug}
                       href={`/blog/category/${category.slug}`}
-                      className="rounded-full border border-white/[0.08] px-3 py-1.5 text-xs font-medium text-slate-300 transition hover:border-violet-300/40 hover:bg-violet-500/10 hover:text-violet-100"
+                      className="rounded-full border border-teal-500/20 px-3 py-1.5 text-xs font-medium text-[#365b70] transition hover:border-teal-300/40 hover:bg-teal-500/10 hover:text-[#087987]"
                     >
                       {category.name}
                     </Link>
                   ))}
                 </div>
-                <h2 className="mt-6 text-sm font-semibold uppercase tracking-[0.16em] text-slate-200">
+                <h2 className="mt-6 text-sm font-semibold uppercase tracking-[0.16em] text-[#173f5f]">
                   Tags
                 </h2>
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -94,7 +94,7 @@ export default async function BlogPage({ searchParams }: Props) {
                     <Link
                       key={tag.slug}
                       href={`/blog/tag/${tag.slug}`}
-                      className="rounded-full border border-white/[0.08] px-3 py-1.5 text-xs font-medium text-slate-400 transition hover:border-cyan-300/30 hover:bg-cyan-400/10 hover:text-cyan-100"
+                      className="rounded-full border border-teal-500/20 px-3 py-1.5 text-xs font-medium text-[#587487] transition hover:border-cyan-300/30 hover:bg-cyan-400/10 hover:text-[#087987]"
                     >
                       {tag.name}
                     </Link>
@@ -113,17 +113,17 @@ export default async function BlogPage({ searchParams }: Props) {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="card-hover group flex flex-col rounded-lg border border-white/[0.08] bg-white/[0.03] p-4"
+                className="card-hover group flex flex-col rounded-lg border border-teal-500/20 bg-white/65 p-4"
               >
                 <ImageSlot src={post.featuredImage} alt={post.featuredImageAlt} width={1200} height={675} className="shadow-none" />
                 <div className="mt-4 flex-1">
-                  <span className="inline-flex rounded-full border border-violet-300/20 bg-violet-500/12 px-2.5 py-0.5 text-xs font-semibold text-violet-200">
+                  <span className="inline-flex rounded-full border border-teal-300/20 bg-teal-500/12 px-2.5 py-0.5 text-xs font-semibold text-[#087987]">
                     {post.category}
                   </span>
-                  <h2 className="mt-3 text-lg font-semibold text-white transition-colors group-hover:text-fuchsia-100">{post.title}</h2>
-                  <p className="mt-2 text-sm leading-7 text-slate-400">{post.excerpt}</p>
+                  <h2 className="mt-3 text-lg font-semibold text-[#07304d] transition-colors group-hover:text-[#c25231]">{post.title}</h2>
+                  <p className="mt-2 text-sm leading-7 text-[#587487]">{post.excerpt}</p>
                 </div>
-                <div className="mt-5 flex items-center justify-between border-t border-white/[0.06] pt-4 text-xs text-slate-500">
+                <div className="mt-5 flex items-center justify-between border-t border-teal-500/15 pt-4 text-xs text-[#6d8797]">
                   <span>{formatDate(post.publishedAt)}</span>
                   <span>{readingTime(post.content).text}</span>
                 </div>

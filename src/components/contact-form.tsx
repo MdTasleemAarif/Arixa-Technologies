@@ -4,7 +4,7 @@ import { services } from "@/data/site-data";
 
 export function ContactForm() {
   return (
-    <form action={submitContact} className="grid gap-5 rounded-lg border border-white/[0.08] bg-white/[0.03] p-6 sm:p-7">
+    <form action={submitContact} className="grid gap-5 rounded-lg border border-teal-500/20 bg-white/65 p-6 sm:p-7">
       <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
 
       <div className="grid gap-5 sm:grid-cols-2">
@@ -33,20 +33,20 @@ export function ContactForm() {
           <option>Need guidance</option>
         </SelectField>
       </div>
-      <label className="grid gap-2 text-sm font-medium text-slate-200">
+      <label className="grid gap-2 text-sm font-medium text-[#173f5f]">
         Project details
         <textarea
           name="message"
           required
           rows={5}
           minLength={10}
-          className="resize-none rounded-lg border border-white/[0.08] bg-white/[0.04] px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-violet-300/60 focus:bg-white/[0.07] focus:ring-1 focus:ring-violet-300/40"
+          className="resize-none rounded-lg border border-teal-500/20 bg-white/70 px-4 py-3 text-sm text-[#07304d] outline-none transition placeholder:text-[#6d8797] focus:border-teal-300/60 focus:bg-white/85 focus:ring-1 focus:ring-teal-300/40"
           placeholder="Tell us what you want to build, improve, or automate."
         />
       </label>
       <button
         type="submit"
-        className="btn-glow inline-flex h-12 items-center justify-center gap-2 rounded-lg px-6 text-sm font-semibold text-[#15091f] focus:outline-none focus:ring-2 focus:ring-violet-300"
+        className="btn-glow inline-flex h-12 items-center justify-center gap-2 rounded-lg px-6 text-sm font-semibold text-[#07304d] focus:outline-none focus:ring-2 focus:ring-teal-300"
       >
         Send Enquiry <Send size={17} aria-hidden="true" />
       </button>
@@ -68,7 +68,7 @@ function Field({
   placeholder?: string;
 }) {
   return (
-    <label className="grid gap-2 text-sm font-medium text-slate-200">
+    <label className="grid gap-2 text-sm font-medium text-[#173f5f]">
       {label}
       {required && <span className="sr-only"> (required)</span>}
       <input
@@ -76,7 +76,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="h-11 rounded-lg border border-white/[0.08] bg-white/[0.04] px-4 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-violet-300/60 focus:bg-white/[0.07] focus:ring-1 focus:ring-violet-300/40"
+        className="h-11 rounded-lg border border-teal-500/20 bg-white/70 px-4 text-sm text-[#07304d] outline-none transition placeholder:text-[#6d8797] focus:border-teal-300/60 focus:bg-white/85 focus:ring-1 focus:ring-teal-300/40"
       />
     </label>
   );
@@ -92,12 +92,12 @@ function SelectField({
   children: React.ReactNode;
 }) {
   return (
-    <label className="grid gap-2 text-sm font-medium text-slate-200">
+    <label className="grid gap-2 text-sm font-medium text-[#173f5f]">
       {label}
       <select
         name={name}
         defaultValue=""
-        className="h-11 rounded-lg border border-white/[0.08] bg-[#12091c] px-4 text-sm text-white outline-none transition focus:border-violet-300/60 focus:ring-1 focus:ring-violet-300/40"
+        className="h-11 rounded-lg border border-teal-500/20 bg-[#fff4e1] px-4 text-sm text-[#07304d] outline-none transition focus:border-teal-300/60 focus:ring-1 focus:ring-teal-300/40"
       >
         {children}
       </select>

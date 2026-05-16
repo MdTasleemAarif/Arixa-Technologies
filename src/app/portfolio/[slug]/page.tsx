@@ -57,16 +57,16 @@ export default async function PortfolioDetailPage({ params }: Props) {
           />
           <div className="mt-10 grid items-center gap-12 lg:grid-cols-[1fr_0.95fr]">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-200">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#087987]">
                 {item.category}
               </p>
-              <h1 className="mt-4 text-5xl font-semibold tracking-normal text-white sm:text-6xl">
+              <h1 className="mt-4 text-5xl font-semibold tracking-normal text-[#07304d] sm:text-6xl">
                 {item.title}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">{item.summary}</p>
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#365b70]">{item.summary}</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {item.stack.map((tech) => (
-                  <span key={tech} className="rounded-md border border-white/10 bg-white/[0.05] px-3 py-2 text-sm text-slate-300">
+                  <span key={tech} className="rounded-md border border-teal-500/20 bg-white/75 px-3 py-2 text-sm text-[#365b70]">
                     {tech}
                   </span>
                 ))}
@@ -84,9 +84,9 @@ export default async function PortfolioDetailPage({ params }: Props) {
             ["Solution", item.solution],
             ["Result", item.result],
           ].map(([title, text]) => (
-            <div key={title} className="rounded-md border border-white/10 bg-white/[0.04] p-6">
-              <h2 className="text-2xl font-semibold text-white">{title}</h2>
-              <p className="mt-4 text-sm leading-7 text-slate-300">{text}</p>
+            <div key={title} className="rounded-md border border-teal-500/20 bg-white/70 p-6">
+              <h2 className="text-2xl font-semibold text-[#07304d]">{title}</h2>
+              <p className="mt-4 text-sm leading-7 text-[#365b70]">{text}</p>
             </div>
           ))}
         </div>
@@ -99,7 +99,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
             title="Want a project structure like this for your business?"
             description="Arixa can plan the offer, content structure, UX, CMS, data model, SEO, and deployment path around your goals."
           />
-          <Link href="/contact" className="mt-8 inline-flex h-12 items-center gap-2 rounded-md bg-gradient-to-r from-violet-500 via-fuchsia-400 to-cyan-400 px-5 text-sm font-semibold text-[#15091f] transition hover:scale-[1.01]">
+          <Link href="/contact" className="mt-8 inline-flex h-12 items-center gap-2 rounded-md bg-gradient-to-r from-teal-500 via-orange-400 to-cyan-400 px-5 text-sm font-semibold text-[#07304d] transition hover:scale-[1.01]">
             Discuss Your Project <ArrowRight size={18} aria-hidden="true" />
           </Link>
         </div>

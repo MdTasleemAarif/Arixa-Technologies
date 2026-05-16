@@ -29,8 +29,8 @@ const heroSlides = [
       "Arixa Technologies creates high-end websites, apps, SEO engines, e-commerce experiences, and automation systems that make your business look sharper, load faster, and convert better.",
     cta: { label: "Start Your Project", href: "/contact" },
     secondaryCta: { label: "Explore Services", href: "/services" },
-    accentColor: "from-violet-500 via-fuchsia-400 to-cyan-400",
-    gradientText: "from-violet-200 via-fuchsia-200 to-cyan-200",
+    accentColor: "from-[#0797a5] via-[#46c7c7] to-[#f5c84b]",
+    gradientText: "from-[#0797a5] via-[#f47f5f] to-[#07304d]",
     badge: "Website / Web App / Mobile App / SEO / Automation",
     proof: ["Lead-focused pages", "Premium UI/UX", "CMS and SEO ready"],
     panelTitle: "Launch stack",
@@ -57,8 +57,8 @@ const heroSlides = [
       "We plan and build CRM systems, billing software, admin dashboards, portals, mobile apps, and AI-assisted workflows around the way your team actually operates.",
     cta: { label: "Get Free Quote", href: "/pricing" },
     secondaryCta: { label: "View Portfolio", href: "/portfolio" },
-    accentColor: "from-fuchsia-400 via-purple-400 to-cyan-400",
-    gradientText: "from-fuchsia-200 via-purple-200 to-cyan-200",
+    accentColor: "from-[#f47f5f] via-[#f5c84b] to-[#46c7c7]",
+    gradientText: "from-[#f47f5f] via-[#0797a5] to-[#07304d]",
     badge: "Custom Software / CRM / Billing / Admin Panels",
     proof: ["Role-based dashboards", "PostgreSQL data models", "Portable deployment"],
     panelTitle: "Operations console",
@@ -85,8 +85,8 @@ const heroSlides = [
       "We structure pages, blogs, FAQs, metadata, schema, image SEO, sitemaps, RSS, AEO, GEO, and llms.txt so search engines and AI systems understand your brand clearly.",
     cta: { label: "Get SEO Audit", href: "/contact" },
     secondaryCta: { label: "SEO Services", href: "/services/seo-services" },
-    accentColor: "from-purple-400 via-cyan-400 to-violet-400",
-    gradientText: "from-purple-200 via-cyan-200 to-violet-200",
+    accentColor: "from-[#7978c8] via-[#46c7c7] to-[#0797a5]",
+    gradientText: "from-[#7978c8] via-[#0797a5] to-[#07304d]",
     badge: "Technical SEO / AEO / GEO / Blog Growth",
     proof: ["Answer-first content", "Structured data", "Internal linking"],
     panelTitle: "Growth signals",
@@ -116,9 +116,9 @@ function ProgressBar({
   paused: boolean;
 }) {
   return (
-    <div className="h-0.5 flex-1 overflow-hidden rounded-full bg-white/15">
+    <div className="h-0.5 flex-1 overflow-hidden rounded-full bg-white/85">
       <div
-        className={`h-full rounded-full bg-gradient-to-r from-violet-400 via-fuchsia-300 to-cyan-300 transition-all ${
+        className={`h-full rounded-full bg-gradient-to-r from-teal-400 via-orange-300 to-cyan-300 transition-all ${
           active && !paused ? "ease-linear" : "ease-out"
         }`}
         style={{
@@ -175,6 +175,9 @@ export function HeroSlider() {
       onMouseLeave={() => setPaused(false)}
       aria-label="Hero slideshow"
     >
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-24 w-40 rounded-br-[4rem] bg-[#46c7c7]/70 sm:h-32 sm:w-56" />
+      <div className="pointer-events-none absolute right-0 bottom-0 z-10 h-28 w-44 rounded-tl-[4.5rem] bg-[#0797a5]/75 sm:h-36 sm:w-64" />
+      <div className="pointer-events-none absolute right-10 top-16 z-10 hidden h-14 w-14 rotate-12 rounded-[1.25rem] border border-[#f5c84b]/45 bg-[#f5c84b]/35 lg:block" />
       {/* Background image layer */}
       <div
         className={`relative min-h-[92vh] transition-opacity duration-500 ${
@@ -192,29 +195,29 @@ export function HeroSlider() {
             className="object-cover object-center"
           />
           {/* Dark overlay for readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#090611]/96 via-[#111024]/78 to-[#090611]/42" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#090611]/64 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#fff8ea]/96 via-[#fff2df]/78 to-[#fff8ea]/42" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#fff8ea]/64 via-transparent to-transparent" />
         </div>
 
         {/* Accent overlay */}
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,rgba(139,92,246,0.20),transparent_30%),linear-gradient(75deg,transparent_45%,rgba(34,211,238,0.15)_72%,transparent),linear-gradient(180deg,rgba(232,121,249,0.10),transparent_56%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,rgba(7,151,165,0.20),transparent_30%),linear-gradient(75deg,transparent_45%,rgba(70,199,199,0.15)_72%,transparent),linear-gradient(180deg,rgba(244,127,95,0.10),transparent_56%)]" />
 
         {/* Content */}
-        <div className="relative mx-auto grid min-h-[92vh] max-w-7xl items-center gap-10 px-4 py-24 sm:px-6 lg:grid-cols-[minmax(0,1fr)_430px] lg:px-8">
+        <div className="relative z-20 mx-auto grid min-h-[92vh] max-w-7xl items-center gap-10 px-4 py-24 sm:px-6 lg:grid-cols-[minmax(0,1fr)_430px] lg:px-8">
           <div className="max-w-4xl">
             {/* Eyebrow badge */}
             <div
-              className={`hero-badge mb-6 inline-flex items-center gap-2 rounded-full border border-white/18 bg-black/25 px-4 py-2 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md transition-all duration-500 ${
+              className={`hero-badge mb-6 inline-flex items-center gap-2 rounded-full border border-teal-500/30 bg-white/75 px-4 py-2 text-sm font-semibold text-[#07304d] shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md transition-all duration-500 ${
                 transitioning ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
               }`}
             >
-              <EyebrowIcon size={14} className="shrink-0 text-fuchsia-200" aria-hidden="true" />
+              <EyebrowIcon size={14} className="shrink-0 text-[#c25231]" aria-hidden="true" />
               {slide.eyebrow}
             </div>
 
             {/* Headline */}
             <h1
-              className={`font-display text-balance text-4xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-[5.35rem] transition-all duration-500 delay-75 ${
+              className={`font-display text-balance text-4xl font-black tracking-tight text-[#07304d] sm:text-6xl lg:text-7xl xl:text-[5.35rem] transition-all duration-500 delay-75 ${
                 transitioning ? "opacity-0 translate-y-5" : "opacity-100 translate-y-0"
               }`}
             >
@@ -229,7 +232,7 @@ export function HeroSlider() {
 
             {/* Subtext */}
             <p
-              className={`text-pretty mt-6 max-w-2xl text-lg leading-8 text-slate-200 transition-all duration-500 delay-100 ${
+              className={`text-pretty mt-6 max-w-2xl text-lg leading-8 text-[#173f5f] transition-all duration-500 delay-100 ${
                 transitioning ? "opacity-0 translate-y-5" : "opacity-100 translate-y-0"
               }`}
             >
@@ -244,9 +247,9 @@ export function HeroSlider() {
               {slide.proof.map((item) => (
                 <span
                   key={item}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/10 px-3 py-1.5 text-xs font-semibold text-slate-100 backdrop-blur"
+                  className="inline-flex items-center gap-2 rounded-full border border-teal-500/25 bg-white/75 px-3 py-1.5 text-xs font-semibold text-[#123a56] backdrop-blur"
                 >
-                  <CheckCircle2 size={13} className="text-purple-200" aria-hidden="true" />
+                  <CheckCircle2 size={13} className="text-[#5756a4]" aria-hidden="true" />
                   {item}
                 </span>
               ))}
@@ -254,7 +257,7 @@ export function HeroSlider() {
 
             {/* Service badge */}
             <p
-              className={`mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 transition-all duration-500 delay-150 ${
+              className={`mt-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#6d8797] transition-all duration-500 delay-150 ${
                 transitioning ? "opacity-0" : "opacity-100"
               }`}
             >
@@ -269,19 +272,19 @@ export function HeroSlider() {
             >
               <Link
                 href={slide.cta.href}
-                className={`btn-glow inline-flex h-13 items-center justify-center gap-2 rounded-lg bg-gradient-to-r ${slide.accentColor} px-7 py-3.5 text-sm font-bold text-[#15091f] shadow-lg focus:outline-none focus:ring-2 focus:ring-violet-300`}
+                className={`btn-glow inline-flex h-13 items-center justify-center gap-2 rounded-lg bg-gradient-to-r ${slide.accentColor} px-7 py-3.5 text-sm font-bold text-[#07304d] shadow-lg focus:outline-none focus:ring-2 focus:ring-teal-300`}
               >
                 {slide.cta.label} <ArrowRight size={18} aria-hidden="true" />
               </Link>
               <Link
                 href={slide.secondaryCta.href}
-                className="inline-flex h-13 items-center justify-center rounded-lg border border-white/20 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:border-fuchsia-200/40 hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-white/30"
+                className="inline-flex h-13 items-center justify-center rounded-lg border border-teal-500/35 bg-white/75 px-7 py-3.5 text-sm font-semibold text-[#07304d] backdrop-blur-sm transition hover:border-orange-200/40 hover:bg-white/85 focus:outline-none focus:ring-2 focus:ring-white/30"
               >
                 {slide.secondaryCta.label}
               </Link>
               <Link
                 href={`https://wa.me/${siteConfig.whatsapp}`}
-                className="inline-flex h-13 items-center justify-center gap-2 rounded-lg border border-purple-300/35 bg-purple-400/10 px-7 py-3.5 text-sm font-semibold text-purple-200 backdrop-blur-sm transition hover:bg-purple-400/20 focus:outline-none focus:ring-2 focus:ring-purple-300"
+                className="inline-flex h-13 items-center justify-center gap-2 rounded-lg border border-indigo-300/35 bg-indigo-400/10 px-7 py-3.5 text-sm font-semibold text-[#5756a4] backdrop-blur-sm transition hover:bg-indigo-400/20 focus:outline-none focus:ring-2 focus:ring-indigo-300"
               >
                 <MessageCircle size={17} aria-hidden="true" /> WhatsApp Us
               </Link>
@@ -296,15 +299,15 @@ export function HeroSlider() {
           >
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-fuchsia-200">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#c25231]">
                   {slide.panelTitle}
                 </p>
-                <h2 className="mt-2 text-2xl font-semibold tracking-tight text-white">
+                <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[#07304d]">
                   Built to look premium and work hard.
                 </h2>
               </div>
               <span className={`inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br ${slide.accentColor}`}>
-                <EyebrowIcon size={18} className="text-[#15091f]" aria-hidden="true" />
+                <EyebrowIcon size={18} className="text-[#07304d]" aria-hidden="true" />
               </span>
             </div>
 
@@ -312,19 +315,19 @@ export function HeroSlider() {
               {slide.panelRows.map(([label, detail]) => (
                 <div key={label} className="premium-card-soft rounded-lg p-4">
                   <div className="flex items-center justify-between gap-3">
-                    <p className="text-sm font-semibold text-white">{label}</p>
-                    <span className="h-2 w-2 rounded-full bg-purple-300 shadow-[0_0_18px_rgba(192,132,252,0.55)]" />
+                    <p className="text-sm font-semibold text-[#07304d]">{label}</p>
+                    <span className="h-2 w-2 rounded-full bg-indigo-300 shadow-[0_0_18px_rgba(121,120,200,0.55)]" />
                   </div>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">{detail}</p>
+                  <p className="mt-2 text-sm leading-6 text-[#587487]">{detail}</p>
                 </div>
               ))}
             </div>
 
             <div className="mt-5 grid grid-cols-3 gap-2">
               {slide.stats.map(([value, label]) => (
-                <div key={value} className="rounded-lg border border-white/10 bg-black/20 p-3">
+                <div key={value} className="rounded-lg border border-teal-500/20 bg-white/75 p-3">
                   <p className="gradient-text text-lg font-black">{value}</p>
-                  <p className="mt-1 text-[11px] leading-4 text-slate-400">{label}</p>
+                  <p className="mt-1 text-[11px] leading-4 text-[#587487]">{label}</p>
                 </div>
               ))}
             </div>
@@ -333,7 +336,7 @@ export function HeroSlider() {
       </div>
 
       {/* Controls overlay */}
-      <div className="absolute inset-x-0 bottom-8 flex items-center justify-center gap-6 px-4">
+      <div className="absolute inset-x-0 bottom-8 z-20 flex items-center justify-center gap-6 px-4">
         {/* Progress bars */}
         <div className="flex w-full max-w-xs items-center gap-2">
           {heroSlides.map((s, i) => (
@@ -361,8 +364,8 @@ export function HeroSlider() {
               aria-label={`Slide ${i + 1}`}
               className={`rounded-full transition-all duration-300 ${
                 i === current
-                  ? "h-2.5 w-7 bg-white"
-                  : "h-2 w-2 bg-white/35 hover:bg-white/60"
+                  ? "h-2.5 w-7 bg-[#0797a5]"
+                  : "h-2 w-2 bg-[#0797a5]/25 hover:bg-[#0797a5]/45"
               }`}
             />
           ))}
@@ -373,27 +376,27 @@ export function HeroSlider() {
           <button
             onClick={prev}
             aria-label="Previous slide"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:border-violet-300/40 hover:bg-white/20"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-teal-500/35 bg-white/75 text-[#07304d] backdrop-blur-sm transition hover:border-teal-300/40 hover:bg-white/20"
           >
             <ChevronLeft size={18} aria-hidden="true" />
           </button>
           <button
             onClick={next}
             aria-label="Next slide"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition hover:border-cyan-300/40 hover:bg-white/20"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-teal-500/35 bg-white/75 text-[#07304d] backdrop-blur-sm transition hover:border-cyan-300/40 hover:bg-white/20"
           >
             <ChevronRight size={18} aria-hidden="true" />
           </button>
         </div>
 
         {/* Slide counter */}
-        <p className="text-xs font-semibold tabular-nums text-white/50">
+        <p className="text-xs font-semibold tabular-nums text-[#07304d]/50">
           {String(current + 1).padStart(2, "0")} / {String(heroSlides.length).padStart(2, "0")}
         </p>
       </div>
 
       {/* Slide number */}
-      <div className="pointer-events-none absolute right-8 top-1/2 -translate-y-1/2 text-[10rem] font-black leading-none text-white/[0.03] select-none">
+      <div className="pointer-events-none absolute right-8 top-1/2 -translate-y-1/2 text-[10rem] font-black leading-none text-[#07304d]/5 select-none">
         {String(current + 1).padStart(2, "0")}
       </div>
     </section>

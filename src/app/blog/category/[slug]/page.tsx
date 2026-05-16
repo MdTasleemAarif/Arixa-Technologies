@@ -58,10 +58,10 @@ export default async function BlogCategoryPage({ params }: Props) {
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {posts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className="rounded-md border border-white/10 bg-white/[0.04] p-5 transition hover:border-violet-300/30 hover:bg-white/[0.07]">
-                <h2 className="text-xl font-semibold text-white">{post.title}</h2>
-                <p className="mt-3 text-sm leading-7 text-slate-400">{post.excerpt}</p>
-                <p className="mt-5 text-xs text-slate-500">{formatDate(post.publishedAt)} / {readingTime(post.content).text}</p>
+              <Link key={post.slug} href={`/blog/${post.slug}`} className="rounded-md border border-teal-500/20 bg-white/70 p-5 transition hover:border-teal-300/30 hover:bg-white/85">
+                <h2 className="text-xl font-semibold text-[#07304d]">{post.title}</h2>
+                <p className="mt-3 text-sm leading-7 text-[#587487]">{post.excerpt}</p>
+                <p className="mt-5 text-xs text-[#6d8797]">{formatDate(post.publishedAt)} / {readingTime(post.content).text}</p>
               </Link>
             ))}
           </div>

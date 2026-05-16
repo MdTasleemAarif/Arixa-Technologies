@@ -90,25 +90,25 @@ export default async function ServiceDetailPage({ params }: Props) {
           />
           <div className="mt-10 grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-200">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#087987]">
                 {service.eyebrow}
               </p>
-              <h1 className="mt-4 text-5xl font-semibold tracking-normal text-white sm:text-6xl">
+              <h1 className="mt-4 text-5xl font-semibold tracking-normal text-[#07304d] sm:text-6xl">
                 {service.title}
               </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[#365b70]">
                 {service.description}
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link
                   href="/contact"
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[linear-gradient(135deg,#ccfbf1,#a78bfa,#38bdf8)] px-5 text-sm font-semibold text-slate-950 transition hover:scale-[1.01]"
+                  className="btn-glow inline-flex h-12 items-center justify-center gap-2 rounded-md px-5 text-sm font-semibold text-[#07304d] transition hover:scale-[1.01]"
                 >
                   Request Service Quote <ArrowRight size={18} aria-hidden="true" />
                 </Link>
                 <Link
                   href="/portfolio"
-                  className="inline-flex h-12 items-center justify-center rounded-md border border-white/15 px-5 text-sm font-semibold text-white transition hover:bg-white/10"
+                  className="inline-flex h-12 items-center justify-center rounded-md border border-teal-500/30 px-5 text-sm font-semibold text-[#07304d] transition hover:bg-white/75"
                 >
                   View Portfolio
                 </Link>
@@ -135,8 +135,8 @@ export default async function ServiceDetailPage({ params }: Props) {
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:col-span-2">
             {service.benefits.map((benefit) => (
-              <p key={benefit} className="flex gap-3 rounded-md border border-white/10 bg-white/[0.04] p-4 text-sm leading-7 text-slate-300">
-                <CheckCircle2 className="mt-1 shrink-0 text-cyan-200" size={18} aria-hidden="true" />
+              <p key={benefit} className="flex gap-3 rounded-md border border-teal-500/20 bg-white/70 p-4 text-sm leading-7 text-[#365b70]">
+                <CheckCircle2 className="mt-1 shrink-0 text-[#087987]" size={18} aria-hidden="true" />
                 {benefit}
               </p>
             ))}
@@ -153,8 +153,8 @@ export default async function ServiceDetailPage({ params }: Props) {
           />
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {service.features.map((feature) => (
-              <div key={feature} className="rounded-md border border-white/10 bg-white/[0.04] p-5">
-                <h2 className="text-lg font-semibold text-white">{feature}</h2>
+              <div key={feature} className="rounded-md border border-teal-500/20 bg-white/70 p-5">
+                <h2 className="text-lg font-semibold text-[#07304d]">{feature}</h2>
               </div>
             ))}
           </div>
@@ -170,9 +170,9 @@ export default async function ServiceDetailPage({ params }: Props) {
           />
           <div className="mt-10 grid gap-4 md:grid-cols-4">
             {service.process.map((step, index) => (
-              <div key={step} className="rounded-md border border-white/10 bg-white/[0.04] p-5">
-                <p className="text-sm font-semibold text-fuchsia-200">0{index + 1}</p>
-                <h2 className="mt-3 text-lg font-semibold text-white">{step}</h2>
+              <div key={step} className="rounded-md border border-teal-500/20 bg-white/70 p-5">
+                <p className="text-sm font-semibold text-[#c25231]">0{index + 1}</p>
+                <h2 className="mt-3 text-lg font-semibold text-[#07304d]">{step}</h2>
               </div>
             ))}
           </div>
@@ -194,9 +194,9 @@ export default async function ServiceDetailPage({ params }: Props) {
           />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {related.map((item) => (
-              <Link key={item.slug} href={`/services/${item.slug}`} className="rounded-md border border-white/10 bg-white/[0.04] p-5 transition hover:border-violet-300/30 hover:bg-white/[0.07]">
-                <h2 className="text-xl font-semibold text-white">{item.title}</h2>
-                <p className="mt-3 text-sm leading-7 text-slate-400">{item.summary}</p>
+              <Link key={item.slug} href={`/services/${item.slug}`} className="rounded-md border border-teal-500/20 bg-white/70 p-5 transition hover:border-teal-300/30 hover:bg-white/85">
+                <h2 className="text-xl font-semibold text-[#07304d]">{item.title}</h2>
+                <p className="mt-3 text-sm leading-7 text-[#587487]">{item.summary}</p>
               </Link>
             ))}
           </div>

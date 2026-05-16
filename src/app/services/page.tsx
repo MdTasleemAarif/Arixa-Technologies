@@ -47,7 +47,7 @@ export default async function ServicesPage() {
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="card-hover group grid gap-5 rounded-lg border border-white/[0.08] bg-white/[0.03] p-5 lg:grid-cols-[200px_1fr]"
+                className="card-hover group grid gap-5 rounded-lg border border-teal-500/20 bg-white/65 p-5 lg:grid-cols-[200px_1fr]"
               >
                 <ImageSlot
                   src={service.image}
@@ -57,10 +57,10 @@ export default async function ServicesPage() {
                   className="shadow-none"
                 />
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-fuchsia-200">{service.eyebrow}</p>
-                  <h2 className="mt-2 text-xl font-semibold text-white transition-colors group-hover:text-violet-100">{service.title}</h2>
-                  <p className="mt-3 text-sm leading-7 text-slate-400">{service.summary}</p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 opacity-0 transition-opacity group-hover:opacity-100">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#c25231]">{service.eyebrow}</p>
+                  <h2 className="mt-2 text-xl font-semibold text-[#07304d] transition-colors group-hover:text-[#087987]">{service.title}</h2>
+                  <p className="mt-3 text-sm leading-7 text-[#587487]">{service.summary}</p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#087987] transition-all group-hover:gap-2.5">
                     View service <ArrowRight size={14} aria-hidden="true" />
                   </span>
                 </div>

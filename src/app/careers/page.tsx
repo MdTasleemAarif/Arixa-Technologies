@@ -46,24 +46,24 @@ export default async function CareersPage() {
               <Link
                 key={job.slug}
                 href={`/careers/${job.slug}`}
-                className="card-hover group grid gap-5 rounded-lg border border-white/[0.08] bg-white/[0.03] p-5 md:grid-cols-[auto_1fr_auto] md:items-center"
+                className="card-hover group grid gap-5 rounded-lg border border-teal-500/20 bg-white/65 p-5 md:grid-cols-[auto_1fr_auto] md:items-center"
               >
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-violet-500/10">
-                  <BriefcaseBusiness size={22} className="text-violet-300" aria-hidden="true" />
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-teal-500/10">
+                  <BriefcaseBusiness size={22} className="text-[#0797a5]" aria-hidden="true" />
                 </span>
                 <span>
-                  <span className="block text-lg font-semibold text-white transition-colors group-hover:text-fuchsia-100">{job.title}</span>
-                  <span className="mt-2 block text-sm leading-7 text-slate-400">{job.summary}</span>
+                  <span className="block text-lg font-semibold text-[#07304d] transition-colors group-hover:text-[#c25231]">{job.title}</span>
+                  <span className="mt-2 block text-sm leading-7 text-[#587487]">{job.summary}</span>
                   <span className="mt-2 flex flex-wrap gap-3">
-                    <span className="inline-flex items-center gap-1 text-xs text-slate-500">
+                    <span className="inline-flex items-center gap-1 text-xs text-[#6d8797]">
                       <MapPin size={12} aria-hidden="true" /> {job.location}
                     </span>
-                    <span className="inline-flex items-center gap-1 text-xs text-slate-500">
+                    <span className="inline-flex items-center gap-1 text-xs text-[#6d8797]">
                       <Clock size={12} aria-hidden="true" /> {job.type}
                     </span>
                   </span>
                 </span>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 opacity-60 transition-all group-hover:gap-3 group-hover:opacity-100">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#087987] transition-all group-hover:gap-3">
                   View role <ArrowRight size={16} aria-hidden="true" />
                 </span>
               </Link>

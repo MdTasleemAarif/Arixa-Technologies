@@ -44,8 +44,8 @@ function FacebookIcon() {
 
 export function SiteFooter() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/[0.07] bg-[#090611] px-4 py-14 sm:px-6 lg:px-8">
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-[linear-gradient(115deg,rgba(139,92,246,0.1),transparent_34%),linear-gradient(74deg,transparent_45%,rgba(34,211,238,0.08),transparent_78%),linear-gradient(0deg,rgba(232,121,249,0.07),transparent)]" />
+    <footer className="relative overflow-hidden border-t border-teal-500/20 bg-[#fff8ea] px-4 py-14 sm:px-6 lg:px-8">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-[linear-gradient(115deg,rgba(7,151,165,0.1),transparent_34%),linear-gradient(74deg,transparent_45%,rgba(70,199,199,0.08),transparent_78%),linear-gradient(0deg,rgba(244,127,95,0.07),transparent)]" />
 
       <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
         {/* Brand column */}
@@ -61,20 +61,20 @@ export function SiteFooter() {
                 className="h-full w-full object-contain"
               />
             </span>
-            <span className="font-display text-base font-semibold text-white">{siteConfig.name}</span>
+            <span className="font-display text-base font-semibold text-[#07304d]">{siteConfig.name}</span>
           </Link>
-          <p className="mt-4 max-w-sm text-sm leading-7 text-slate-400">
+          <p className="mt-4 max-w-sm text-sm leading-7 text-[#587487]">
             Premium websites, apps, SEO systems, custom software, and automation built to make your brand look sharper and your operations run smarter.
           </p>
-          <div className="mt-6 space-y-3 text-sm text-slate-400">
-            <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 transition-colors hover:text-cyan-300">
-              <Mail size={15} aria-hidden="true" className="text-violet-300" /> {siteConfig.email}
+          <div className="mt-6 space-y-3 text-sm text-[#587487]">
+            <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 transition-colors hover:text-[#0797a5]">
+              <Mail size={15} aria-hidden="true" className="text-[#0797a5]" /> {siteConfig.email}
             </a>
-            <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-2 transition-colors hover:text-fuchsia-200">
-              <Phone size={15} aria-hidden="true" className="text-fuchsia-300" /> {siteConfig.phone}
+            <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-2 transition-colors hover:text-[#c25231]">
+              <Phone size={15} aria-hidden="true" className="text-[#e56842]" /> {siteConfig.phone}
             </a>
             <p className="flex items-center gap-2">
-              <MapPin size={15} aria-hidden="true" className="shrink-0 text-purple-300" /> {siteConfig.address}
+              <MapPin size={15} aria-hidden="true" className="shrink-0 text-[#6968b8]" /> {siteConfig.address}
             </p>
           </div>
           {/* Social icons */}
@@ -84,7 +84,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Arixa Technologies on LinkedIn"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-slate-400 transition hover:border-violet-300/40 hover:bg-violet-500/10 hover:text-violet-200"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-teal-500/20 text-[#587487] transition hover:border-teal-300/40 hover:bg-teal-500/10 hover:text-[#087987]"
             >
               <LinkedInIcon />
             </a>
@@ -93,7 +93,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Arixa Technologies on Instagram"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-slate-400 transition hover:border-fuchsia-300/40 hover:bg-fuchsia-400/10 hover:text-fuchsia-200"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-teal-500/20 text-[#587487] transition hover:border-orange-300/40 hover:bg-orange-400/10 hover:text-[#c25231]"
             >
               <InstagramIcon />
             </a>
@@ -102,7 +102,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Arixa Technologies on X"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-slate-400 transition hover:border-cyan-300/40 hover:bg-cyan-400/10 hover:text-cyan-200"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-teal-500/20 text-[#587487] transition hover:border-cyan-300/40 hover:bg-cyan-400/10 hover:text-[#087987]"
             >
               <XIcon />
             </a>
@@ -111,7 +111,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Arixa Technologies on Facebook"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 text-slate-400 transition hover:border-purple-300/40 hover:bg-purple-400/10 hover:text-purple-200"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-teal-500/20 text-[#587487] transition hover:border-indigo-300/40 hover:bg-indigo-400/10 hover:text-[#5756a4]"
             >
               <FacebookIcon />
             </a>
@@ -120,7 +120,7 @@ export function SiteFooter() {
 
         {/* Services */}
         <div>
-          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-200">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#173f5f]">
             Services
           </h2>
           <div className="mt-4 grid gap-3 text-sm">
@@ -128,7 +128,7 @@ export function SiteFooter() {
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="text-slate-400 transition hover:text-fuchsia-200"
+                className="text-[#587487] transition hover:text-[#c25231]"
               >
                 {service.title}
               </Link>
@@ -138,7 +138,7 @@ export function SiteFooter() {
 
         {/* Company */}
         <div>
-          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-200">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#173f5f]">
             Company
           </h2>
           <div className="mt-4 grid gap-3 text-sm">
@@ -152,7 +152,7 @@ export function SiteFooter() {
               ["Privacy Policy", "/privacy-policy"],
               ["Terms", "/terms-and-conditions"],
             ].map(([label, href]) => (
-              <Link key={href} href={href} className="text-slate-400 transition hover:text-cyan-200">
+              <Link key={href} href={href} className="text-[#587487] transition hover:text-[#087987]">
                 {label}
               </Link>
             ))}
@@ -161,10 +161,10 @@ export function SiteFooter() {
 
         {/* Newsletter */}
         <div>
-          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-slate-200">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#173f5f]">
             Stay Updated
           </h2>
-          <p className="mt-4 text-sm leading-7 text-slate-400">
+          <p className="mt-4 text-sm leading-7 text-[#587487]">
             Get practical ideas on websites, apps, SEO, design, automation, and digital growth.
           </p>
           <form action={submitNewsletter} className="mt-5 flex gap-2">
@@ -177,11 +177,11 @@ export function SiteFooter() {
               type="email"
               required
               placeholder="you@example.com"
-              className="min-w-0 flex-1 rounded-lg border border-white/10 bg-white/[0.05] px-3 py-2 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-violet-300/60 focus:bg-white/[0.08]"
+              className="min-w-0 flex-1 rounded-lg border border-teal-500/20 bg-white/75 px-3 py-2 text-sm text-[#07304d] outline-none transition placeholder:text-[#6d8797] focus:border-teal-300/60 focus:bg-white/85"
             />
             <button
               type="submit"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-violet-500 via-fuchsia-400 to-cyan-400 text-[#15091f] shadow-[0_0_18px_rgba(139,92,246,0.32)] transition hover:scale-105 hover:shadow-[0_0_24px_rgba(34,211,238,0.32)]"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-teal-500 via-orange-400 to-cyan-400 text-[#07304d] shadow-[0_0_18px_rgba(7,151,165,0.32)] transition hover:scale-105 hover:shadow-[0_0_24px_rgba(70,199,199,0.32)]"
               aria-label="Subscribe"
             >
               <ArrowRight size={18} aria-hidden="true" />
@@ -191,7 +191,7 @@ export function SiteFooter() {
       </div>
 
       {/* Bottom bar */}
-      <div className="relative mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/[0.07] pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+      <div className="relative mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-teal-500/20 pt-6 text-sm text-[#6d8797] sm:flex-row sm:items-center sm:justify-between">
         <p>(c) {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
         <p>Built with Next.js / Supabase / Vercel</p>
       </div>

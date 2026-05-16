@@ -35,20 +35,20 @@ export default async function AdminDashboardPage() {
         {cards.map((card) => {
           const Icon = card.icon;
           return (
-            <div key={card.label} className="rounded-md border border-white/10 bg-white/[0.04] p-5">
-              <Icon size={20} className="text-cyan-200" aria-hidden="true" />
+            <div key={card.label} className="rounded-md border border-teal-500/20 bg-white/70 p-5">
+              <Icon size={20} className="text-[#087987]" aria-hidden="true" />
               <p className="mt-4 text-3xl font-semibold">{card.value}</p>
-              <p className="mt-1 text-sm text-slate-400">{card.label}</p>
+              <p className="mt-1 text-sm text-[#587487]">{card.label}</p>
             </div>
           );
         })}
       </div>
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {adminNav.map((item) => (
-          <Link key={item.href} href={item.href} className="group card-hover rounded-lg border border-white/[0.08] bg-white/[0.03] p-5 transition hover:border-violet-300/30 hover:bg-white/[0.07]">
+          <Link key={item.href} href={item.href} className="group card-hover rounded-lg border border-teal-500/20 bg-white/65 p-5 transition hover:border-teal-300/30 hover:bg-white/85">
             <span className="flex items-center justify-between gap-4">
-              <span className="text-lg font-semibold text-white">{item.label}</span>
-              <ArrowRight size={18} className="text-slate-500 transition group-hover:text-white" aria-hidden="true" />
+              <span className="text-lg font-semibold text-[#07304d]">{item.label}</span>
+              <ArrowRight size={18} className="text-[#6d8797] transition group-hover:text-[#07304d]" aria-hidden="true" />
             </span>
           </Link>
         ))}
