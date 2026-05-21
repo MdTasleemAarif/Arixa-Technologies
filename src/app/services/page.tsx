@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { AnimateIn, AnimateInStagger } from "@/components/animate-in";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CtaSection } from "@/components/cta-section";
@@ -40,14 +40,14 @@ export default async function ServicesPage() {
             </AnimateIn>
           </div>
           <AnimateInStagger
-            wrapperClassName="mt-10 grid gap-5 md:grid-cols-2"
+            wrapperClassName="mt-10 grid gap-5"
             stepDelay={70}
           >
-            {services.map((service) => (
+            {services.map((service, index) => (
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="card-hover group grid gap-5 rounded-lg border border-teal-500/20 bg-white/65 p-5 lg:grid-cols-[200px_1fr]"
+                className="premium-card card-hover group grid gap-5 rounded-lg p-5 lg:grid-cols-[280px_1fr_auto] lg:items-center"
               >
                 <ImageSlot
                   src={service.image}
@@ -56,14 +56,36 @@ export default async function ServicesPage() {
                   height={900}
                   className="shadow-none"
                 />
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#c25231]">{service.eyebrow}</p>
-                  <h2 className="mt-2 text-xl font-semibold text-[#07304d] transition-colors group-hover:text-[#087987]">{service.title}</h2>
-                  <p className="mt-3 text-sm leading-7 text-[#587487]">{service.summary}</p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[#087987] transition-all group-hover:gap-2.5">
-                    View service <ArrowRight size={14} aria-hidden="true" />
-                  </span>
+                <div className="relative">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#071525] text-xs font-bold text-[#67eee0] shadow-[0_12px_30px_rgba(7,21,37,0.2)]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#8b4af5]">
+                      {service.eyebrow}
+                    </p>
+                  </div>
+                  <h2 className="mt-3 font-display text-2xl font-bold text-[#071525] transition-colors group-hover:text-[#075c70]">
+                    {service.title}
+                  </h2>
+                  <p className="mt-3 max-w-3xl text-sm leading-7 text-[#49657a]">
+                    {service.summary}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {service.features.slice(0, 2).map((feature) => (
+                      <span
+                        key={feature}
+                        className="inline-flex items-start gap-2 rounded-full border border-[#071525]/10 bg-white/76 px-3 py-1.5 text-xs font-semibold text-[#28475d]"
+                      >
+                        <CheckCircle2 size={13} className="mt-px shrink-0 text-[#0b8ea6]" aria-hidden="true" />
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+                <span className="premium-link justify-self-start text-sm font-bold transition-all group-hover:gap-3 lg:justify-self-end">
+                  View service <ArrowRight size={14} aria-hidden="true" />
+                </span>
               </Link>
             ))}
           </AnimateInStagger>

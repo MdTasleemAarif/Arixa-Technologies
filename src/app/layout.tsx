@@ -1,23 +1,22 @@
 import type { Metadata } from "next";
 import type { Viewport } from "next";
-import { Barlow_Condensed, JetBrains_Mono, Nunito_Sans, Sora } from "next/font/google";
+import { JetBrains_Mono, Manrope, Sora, Space_Grotesk } from "next/font/google";
 import { SiteChrome } from "@/components/site-chrome";
 import { logoAsset } from "@/config/site-assets";
 import { defaultOpenGraph, siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/utils";
 import "./globals.css";
 
-const bodyFont = Nunito_Sans({
+const bodyFont = Manrope({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
-const displayFont = Barlow_Condensed({
+const displayFont = Space_Grotesk({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -74,7 +73,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#fff8ea",
+  themeColor: "#07111f",
   colorScheme: "light",
   width: "device-width",
   initialScale: 1,

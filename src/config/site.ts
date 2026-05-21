@@ -28,6 +28,7 @@ export const siteConfig = {
     "e-commerce development",
   ],
   nav: [
+    { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Pricing", href: "/pricing" },

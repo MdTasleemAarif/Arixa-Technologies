@@ -44,14 +44,14 @@ function FacebookIcon() {
 
 export function SiteFooter() {
   return (
-    <footer className="relative overflow-hidden border-t border-teal-500/20 bg-[#fff8ea] px-4 py-14 sm:px-6 lg:px-8">
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-[linear-gradient(115deg,rgba(7,151,165,0.1),transparent_34%),linear-gradient(74deg,transparent_45%,rgba(70,199,199,0.08),transparent_78%),linear-gradient(0deg,rgba(244,127,95,0.07),transparent)]" />
+    <footer className="ink-section relative overflow-hidden border-t border-white/10 px-4 py-14 sm:px-6 lg:px-8">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/65 to-transparent" />
 
       <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
         {/* Brand column */}
         <div>
           <Link href="/" className="inline-flex items-center gap-3 group">
-            <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden">
+            <span className="relative inline-flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg border border-white/14 bg-white/10">
               <Image
                 src={logoAsset.src}
                 alt={logoAsset.alt}
@@ -61,20 +61,20 @@ export function SiteFooter() {
                 className="h-full w-full object-contain"
               />
             </span>
-            <span className="font-display text-base font-semibold text-[#07304d]">{siteConfig.name}</span>
+            <span className="font-display text-base font-semibold text-white">{siteConfig.name}</span>
           </Link>
-          <p className="mt-4 max-w-sm text-sm leading-7 text-[#587487]">
+          <p className="mt-4 max-w-sm text-sm leading-7 text-[#c7d8ea]">
             Premium websites, apps, SEO systems, custom software, and automation built to make your brand look sharper and your operations run smarter.
           </p>
-          <div className="mt-6 space-y-3 text-sm text-[#587487]">
-            <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 transition-colors hover:text-[#0797a5]">
-              <Mail size={15} aria-hidden="true" className="text-[#0797a5]" /> {siteConfig.email}
+          <div className="mt-6 space-y-3 text-sm text-[#c7d8ea]">
+            <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 transition-colors hover:text-[#67eee0]">
+              <Mail size={15} aria-hidden="true" className="text-[#67eee0]" /> {siteConfig.email}
             </a>
-            <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-2 transition-colors hover:text-[#c25231]">
-              <Phone size={15} aria-hidden="true" className="text-[#e56842]" /> {siteConfig.phone}
+            <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-2 transition-colors hover:text-[#ffb785]">
+              <Phone size={15} aria-hidden="true" className="text-[#ffb785]" /> {siteConfig.phone}
             </a>
             <p className="flex items-center gap-2">
-              <MapPin size={15} aria-hidden="true" className="shrink-0 text-[#6968b8]" /> {siteConfig.address}
+              <MapPin size={15} aria-hidden="true" className="shrink-0 text-[#cabdff]" /> {siteConfig.address}
             </p>
           </div>
           {/* Social icons */}
@@ -84,7 +84,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Arixa Technologies on LinkedIn"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-teal-500/20 text-[#587487] transition hover:border-teal-300/40 hover:bg-teal-500/10 hover:text-[#087987]"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/12 bg-white/6 text-white/62 transition hover:border-cyan-200/35 hover:bg-cyan-200/12 hover:text-[#67eee0]"
             >
               <LinkedInIcon />
             </a>
@@ -93,7 +93,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Arixa Technologies on Instagram"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-teal-500/20 text-[#587487] transition hover:border-orange-300/40 hover:bg-orange-400/10 hover:text-[#c25231]"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/12 bg-white/6 text-white/62 transition hover:border-orange-200/35 hover:bg-orange-200/12 hover:text-[#ffb785]"
             >
               <InstagramIcon />
             </a>
@@ -102,7 +102,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Arixa Technologies on X"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-teal-500/20 text-[#587487] transition hover:border-cyan-300/40 hover:bg-cyan-400/10 hover:text-[#087987]"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/12 bg-white/6 text-white/62 transition hover:border-cyan-200/35 hover:bg-cyan-200/12 hover:text-[#67eee0]"
             >
               <XIcon />
             </a>
@@ -111,7 +111,7 @@ export function SiteFooter() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Arixa Technologies on Facebook"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-teal-500/20 text-[#587487] transition hover:border-indigo-300/40 hover:bg-indigo-400/10 hover:text-[#5756a4]"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/12 bg-white/6 text-white/62 transition hover:border-violet-200/35 hover:bg-violet-200/12 hover:text-[#cabdff]"
             >
               <FacebookIcon />
             </a>
@@ -120,7 +120,7 @@ export function SiteFooter() {
 
         {/* Services */}
         <div>
-          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#173f5f]">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-white">
             Services
           </h2>
           <div className="mt-4 grid gap-3 text-sm">
@@ -128,7 +128,7 @@ export function SiteFooter() {
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="text-[#587487] transition hover:text-[#c25231]"
+                className="text-[#c7d8ea] transition hover:text-[#ffb785]"
               >
                 {service.title}
               </Link>
@@ -138,7 +138,7 @@ export function SiteFooter() {
 
         {/* Company */}
         <div>
-          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#173f5f]">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-white">
             Company
           </h2>
           <div className="mt-4 grid gap-3 text-sm">
@@ -152,7 +152,7 @@ export function SiteFooter() {
               ["Privacy Policy", "/privacy-policy"],
               ["Terms", "/terms-and-conditions"],
             ].map(([label, href]) => (
-              <Link key={href} href={href} className="text-[#587487] transition hover:text-[#087987]">
+              <Link key={href} href={href} className="text-[#c7d8ea] transition hover:text-[#67eee0]">
                 {label}
               </Link>
             ))}
@@ -161,10 +161,10 @@ export function SiteFooter() {
 
         {/* Newsletter */}
         <div>
-          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#173f5f]">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-white">
             Stay Updated
           </h2>
-          <p className="mt-4 text-sm leading-7 text-[#587487]">
+          <p className="mt-4 text-sm leading-7 text-[#c7d8ea]">
             Get practical ideas on websites, apps, SEO, design, automation, and digital growth.
           </p>
           <form action={submitNewsletter} className="mt-5 flex gap-2">
@@ -177,11 +177,11 @@ export function SiteFooter() {
               type="email"
               required
               placeholder="you@example.com"
-              className="min-w-0 flex-1 rounded-lg border border-teal-500/20 bg-white/75 px-3 py-2 text-sm text-[#07304d] outline-none transition placeholder:text-[#6d8797] focus:border-teal-300/60 focus:bg-white/85"
+              className="min-w-0 flex-1 rounded-lg border border-white/14 bg-white/10 px-3 py-2 text-sm text-white outline-none transition placeholder:text-white/42 focus:border-cyan-200/45 focus:bg-white/14"
             />
             <button
               type="submit"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-r from-teal-500 via-orange-400 to-cyan-400 text-[#07304d] shadow-[0_0_18px_rgba(7,151,165,0.32)] transition hover:scale-105 hover:shadow-[0_0_24px_rgba(70,199,199,0.32)]"
+              className="btn-glow inline-flex h-10 w-10 items-center justify-center rounded-lg text-[#071525]"
               aria-label="Subscribe"
             >
               <ArrowRight size={18} aria-hidden="true" />
@@ -191,7 +191,7 @@ export function SiteFooter() {
       </div>
 
       {/* Bottom bar */}
-      <div className="relative mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-teal-500/20 pt-6 text-sm text-[#6d8797] sm:flex-row sm:items-center sm:justify-between">
+      <div className="relative mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/10 pt-6 text-sm text-white/48 sm:flex-row sm:items-center sm:justify-between">
         <p>(c) {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
         <p>Built with Next.js / Supabase / Vercel</p>
       </div>

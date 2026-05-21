@@ -62,6 +62,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { AnimateIn, AnimateInStagger } from "@/components/animate-in";
+import { CountUp } from "@/components/count-up";
 import { CtaSection } from "@/components/cta-section";
 import { Faq } from "@/components/faq";
 import { HeroSlider } from "@/components/hero-slider";
@@ -89,83 +90,75 @@ export const metadata = createMetadata({
 const homeServiceVisuals = [
   {
     icon: Globe2,
-    frame: "border-[#0797a5]/24 bg-gradient-to-br from-[#e4f8f5] via-white to-[#fff2df]",
-    corner: "bg-[#0797a5]/16",
-    soft: "bg-[#46c7c7]/18",
-    marker: "bg-[#0797a5] text-white",
-    iconBox: "bg-white text-[#087987] border-[#0797a5]/18",
-    eyebrow: "text-[#087987]",
-    button: "bg-[#0797a5] text-white",
+    frame: "bg-[linear-gradient(145deg,#07111f,#092b38_58%,#08111f)]",
+    corner: "bg-[linear-gradient(135deg,rgba(56,214,209,0.38),transparent)]",
+    marker: "bg-[#67eee0] text-[#071525]",
+    iconBox: "border-cyan-100/18 bg-cyan-100/12 text-[#67eee0]",
+    eyebrow: "text-[#67eee0]",
+    button: "bg-[#67eee0] text-[#071525]",
   },
   {
     icon: Layers3,
-    frame: "border-[#f47f5f]/24 bg-gradient-to-br from-[#fff1e8] via-white to-[#e9f7f4]",
-    corner: "bg-[#f47f5f]/16",
-    soft: "bg-[#f5c84b]/18",
-    marker: "bg-[#f47f5f] text-white",
-    iconBox: "bg-white text-[#c25231] border-[#f47f5f]/18",
-    eyebrow: "text-[#c25231]",
-    button: "bg-[#f47f5f] text-white",
+    frame: "bg-[linear-gradient(145deg,#07111f,#251c39_58%,#08111f)]",
+    corner: "bg-[linear-gradient(135deg,rgba(143,124,255,0.42),transparent)]",
+    marker: "bg-[#cabdff] text-[#071525]",
+    iconBox: "border-violet-100/18 bg-violet-100/12 text-[#cabdff]",
+    eyebrow: "text-[#cabdff]",
+    button: "bg-[#cabdff] text-[#071525]",
   },
   {
     icon: Smartphone,
-    frame: "border-[#46c7c7]/28 bg-gradient-to-br from-[#e6fbfb] via-white to-[#fff7df]",
-    corner: "bg-[#46c7c7]/18",
-    soft: "bg-[#0797a5]/14",
-    marker: "bg-[#46c7c7] text-[#07304d]",
-    iconBox: "bg-white text-[#087987] border-[#46c7c7]/20",
-    eyebrow: "text-[#087987]",
-    button: "bg-[#07304d] text-white",
+    frame: "bg-[linear-gradient(145deg,#07111f,#11313b_58%,#08111f)]",
+    corner: "bg-[linear-gradient(135deg,rgba(246,201,91,0.38),transparent)]",
+    marker: "bg-[#f6c95b] text-[#071525]",
+    iconBox: "border-amber-100/18 bg-amber-100/12 text-[#f6c95b]",
+    eyebrow: "text-[#f6c95b]",
+    button: "bg-[#f6c95b] text-[#071525]",
   },
   {
     icon: BarChart3,
-    frame: "border-[#f5c84b]/34 bg-gradient-to-br from-[#fff6d8] via-white to-[#e4f8f5]",
-    corner: "bg-[#f5c84b]/25",
-    soft: "bg-[#f47f5f]/12",
-    marker: "bg-[#f5c84b] text-[#07304d]",
-    iconBox: "bg-white text-[#a86b00] border-[#f5c84b]/25",
-    eyebrow: "text-[#a86b00]",
-    button: "bg-[#f5c84b] text-[#07304d]",
+    frame: "bg-[linear-gradient(145deg,#07111f,#30201f_58%,#08111f)]",
+    corner: "bg-[linear-gradient(135deg,rgba(255,133,109,0.42),transparent)]",
+    marker: "bg-[#ffb785] text-[#071525]",
+    iconBox: "border-orange-100/18 bg-orange-100/12 text-[#ffb785]",
+    eyebrow: "text-[#ffb785]",
+    button: "bg-[#ffb785] text-[#071525]",
   },
   {
     icon: Code2,
-    frame: "border-[#7978c8]/26 bg-gradient-to-br from-[#efeffb] via-white to-[#e4f8f5]",
-    corner: "bg-[#7978c8]/16",
-    soft: "bg-[#46c7c7]/14",
-    marker: "bg-[#7978c8] text-white",
-    iconBox: "bg-white text-[#5756a4] border-[#7978c8]/20",
-    eyebrow: "text-[#5756a4]",
-    button: "bg-[#7978c8] text-white",
+    frame: "bg-[linear-gradient(145deg,#07111f,#122642_58%,#08111f)]",
+    corner: "bg-[linear-gradient(135deg,rgba(92,174,255,0.38),transparent)]",
+    marker: "bg-[#8dcfff] text-[#071525]",
+    iconBox: "border-sky-100/18 bg-sky-100/12 text-[#8dcfff]",
+    eyebrow: "text-[#8dcfff]",
+    button: "bg-[#8dcfff] text-[#071525]",
   },
   {
     icon: Palette,
-    frame: "border-[#f47f5f]/24 bg-gradient-to-br from-[#fff1e8] via-white to-[#fff7df]",
-    corner: "bg-[#f47f5f]/16",
-    soft: "bg-[#f5c84b]/20",
-    marker: "bg-[#f47f5f] text-white",
-    iconBox: "bg-white text-[#c25231] border-[#f47f5f]/18",
-    eyebrow: "text-[#c25231]",
-    button: "bg-[#f47f5f] text-white",
+    frame: "bg-[linear-gradient(145deg,#07111f,#321c34_58%,#08111f)]",
+    corner: "bg-[linear-gradient(135deg,rgba(201,96,255,0.4),transparent)]",
+    marker: "bg-[#e4a7ff] text-[#071525]",
+    iconBox: "border-fuchsia-100/18 bg-fuchsia-100/12 text-[#e4a7ff]",
+    eyebrow: "text-[#e4a7ff]",
+    button: "bg-[#e4a7ff] text-[#071525]",
   },
   {
     icon: Bot,
-    frame: "border-[#0797a5]/24 bg-gradient-to-br from-[#e4f8f5] via-white to-[#efeffb]",
-    corner: "bg-[#0797a5]/16",
-    soft: "bg-[#7978c8]/14",
-    marker: "bg-[#0797a5] text-white",
-    iconBox: "bg-white text-[#087987] border-[#0797a5]/18",
-    eyebrow: "text-[#087987]",
-    button: "bg-[#0797a5] text-white",
+    frame: "bg-[linear-gradient(145deg,#07111f,#123038_58%,#08111f)]",
+    corner: "bg-[linear-gradient(135deg,rgba(56,214,209,0.34),transparent)]",
+    marker: "bg-[#6ce9d1] text-[#071525]",
+    iconBox: "border-emerald-100/18 bg-emerald-100/12 text-[#6ce9d1]",
+    eyebrow: "text-[#6ce9d1]",
+    button: "bg-[#6ce9d1] text-[#071525]",
   },
   {
     icon: Sparkles,
-    frame: "border-[#f5c84b]/34 bg-gradient-to-br from-[#fff7df] via-white to-[#e6fbfb]",
-    corner: "bg-[#f5c84b]/25",
-    soft: "bg-[#46c7c7]/18",
-    marker: "bg-[#f5c84b] text-[#07304d]",
-    iconBox: "bg-white text-[#a86b00] border-[#f5c84b]/25",
-    eyebrow: "text-[#a86b00]",
-    button: "bg-[#07304d] text-white",
+    frame: "bg-[linear-gradient(145deg,#07111f,#2c2619_58%,#08111f)]",
+    corner: "bg-[linear-gradient(135deg,rgba(246,201,91,0.4),transparent)]",
+    marker: "bg-[#ffe08c] text-[#071525]",
+    iconBox: "border-yellow-100/18 bg-yellow-100/12 text-[#ffe08c]",
+    eyebrow: "text-[#ffe08c]",
+    button: "bg-[#ffe08c] text-[#071525]",
   },
 ];
 
@@ -206,6 +199,13 @@ const servicePitches = [
   "Replace spreadsheets with CRM, billing, reporting, and automation systems.",
   "Upgrade your brand, UI, graphics, and conversion-focused visual language.",
   "Automate leads, support, reporting, and repeated operations with practical AI.",
+];
+
+const homeMetrics = [
+  { value: 8, suffix: "", label: "Service tracks", detail: "Website, apps, software, SEO, design, and automation." },
+  { value: 10, suffix: "", label: "Starter blog topics", detail: "Publishing structure ready for long-term search growth." },
+  { value: 4, suffix: "", label: "Launch layers", detail: "Brand, product UX, CMS control, and lead generation." },
+  { value: 1, suffix: "", label: "Custom CMS", detail: "Admin workflows built inside the website stack." },
 ];
 
 type TechIcon = {
@@ -355,9 +355,23 @@ export default function Home() {
       {/* Hero Slider */}
       <HeroSlider />
 
+      <section className="relative z-20 px-4 sm:px-6 lg:px-8">
+        <div className="hero-metrics mx-auto grid max-w-7xl gap-px overflow-hidden rounded-lg bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+          {homeMetrics.map((metric, index) => (
+            <div key={metric.label} className="relative bg-[#08111f]/82 p-5 sm:p-6">
+              <span className="metric-trace absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/70 to-transparent" style={{ animationDelay: `${index * 0.35}s` }} />
+              <p className="font-display text-3xl font-bold text-white">
+                <CountUp end={metric.value} suffix={metric.suffix} />
+              </p>
+              <p className="mt-2 text-sm font-semibold text-[#67eee0]">{metric.label}</p>
+              <p className="mt-2 text-sm leading-6 text-[#b9cadd]">{metric.detail}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Tech Stack Strip */}
-      <section className="section-band px-4 py-12 sm:px-6 lg:px-8">
+      <section className="section-band px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#c25231]">
@@ -441,53 +455,51 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="section-band relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
-        <div className="pointer-events-none absolute -left-16 top-8 h-40 w-64 rounded-br-[5rem] bg-[#46c7c7]/28" />
-        <div className="pointer-events-none absolute -right-14 bottom-10 h-44 w-64 rounded-tl-[5rem] bg-[#f5c84b]/26" />
-        <div className="pointer-events-none absolute left-[48%] top-14 hidden h-14 w-14 rotate-12 rounded-[1rem] bg-[#f47f5f]/18 lg:block" />
+      <section className="ink-section relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/60 to-transparent" />
+        <div className="pointer-events-none absolute bottom-0 right-0 h-px w-1/2 bg-gradient-to-l from-transparent via-orange-200/45 to-transparent" />
         <div className="mx-auto max-w-7xl">
           <AnimateIn>
             <div className="relative grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
               <div>
-                <p className="inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.18em] text-[#087987]">
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#f47f5f]" />
+                <p className="inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-[0.18em] text-[#67eee0]">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#ffb785]" />
                   Services
                 </p>
-                <h2 className="mt-4 max-w-4xl font-display text-4xl font-extrabold leading-[1] text-[#07304d] sm:text-5xl lg:text-6xl">
+                <h2 className="mt-4 max-w-4xl font-display text-4xl font-bold leading-[1.04] text-white sm:text-5xl lg:text-6xl">
                   Services that make your brand look premium and your business easier to run.
                 </h2>
-                <p className="mt-5 max-w-2xl text-base leading-8 text-[#365b70]">
+                <p className="mt-5 max-w-2xl text-base leading-8 text-[#c7d8ea]">
                   Arixa combines design, development, SEO, e-commerce, apps, CMS, and automation into practical systems that can attract leads and support daily operations.
                 </p>
                 <div className="mt-7 flex flex-wrap gap-3">
                   <Link
                     href="/services"
-                    className="btn-glow inline-flex h-12 items-center gap-2 rounded-lg px-5 text-sm font-extrabold text-[#07304d]"
+                    className="btn-glow inline-flex h-12 items-center gap-2 rounded-lg px-5 text-sm font-extrabold text-[#071525]"
                   >
                     Explore all services <ArrowRight size={16} aria-hidden="true" />
                   </Link>
                   <Link
                     href="/contact"
-                    className="inline-flex h-12 items-center gap-2 rounded-lg border border-teal-500/30 bg-white/70 px-5 text-sm font-bold text-[#07304d] transition hover:bg-white"
+                    className="inline-flex h-12 items-center gap-2 rounded-lg border border-white/18 bg-white/9 px-5 text-sm font-bold text-white transition hover:bg-white/16"
                   >
                     Get a free quote
                   </Link>
                 </div>
               </div>
 
-              <div className="relative overflow-hidden rounded-lg border border-teal-500/20 bg-white/75 p-5 shadow-[0_20px_52px_rgba(7,48,77,0.09)]">
-                <div className="pointer-events-none absolute right-0 top-0 h-24 w-32 rounded-bl-[3.5rem] bg-[#46c7c7]/20" />
-                <p className="relative text-xs font-extrabold uppercase tracking-[0.18em] text-[#c25231]">
+              <div className="hero-console relative rounded-lg p-5">
+                <p className="relative text-xs font-extrabold uppercase tracking-[0.18em] text-[#ffb785]">
                   Growth system
                 </p>
-                <h3 className="relative mt-3 font-display text-3xl font-extrabold leading-tight text-[#07304d]">
+                <h3 className="relative mt-3 font-display text-3xl font-bold leading-tight text-white">
                   One section. Clear services. Strong reason to contact.
                 </h3>
-                <div className="relative mt-5 divide-y divide-teal-500/15">
+                <div className="relative mt-5 divide-y divide-white/10">
                   {homeServiceOutcomes.map((item) => (
                     <div key={item.label} className="grid gap-2 py-3 sm:grid-cols-[90px_1fr] sm:items-start">
-                      <span className="text-sm font-extrabold text-[#087987]">{item.label}</span>
-                      <span className="text-sm leading-6 text-[#365b70]">{item.text}</span>
+                      <span className="text-sm font-extrabold text-[#67eee0]">{item.label}</span>
+                      <span className="text-sm leading-6 text-[#c7d8ea]">{item.text}</span>
                     </div>
                   ))}
                 </div>
@@ -510,16 +522,15 @@ export default function Home() {
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className={`card-hover group relative flex min-h-[340px] flex-col overflow-hidden rounded-lg border p-5 shadow-[0_14px_36px_rgba(7,48,77,0.08)] ${visual.frame}`}
+                  className={`premium-service-card card-hover group relative flex min-h-[360px] flex-col rounded-lg p-5 ${visual.frame}`}
                 >
                   <span className={`pointer-events-none absolute right-0 top-0 h-24 w-28 rounded-bl-[3.5rem] ${visual.corner}`} />
-                  <span className={`pointer-events-none absolute -bottom-10 -left-8 h-28 w-28 rounded-full ${visual.soft}`} />
 
                   <div className="relative flex items-start justify-between gap-4">
-                    <span className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-sm font-extrabold shadow-[0_10px_22px_rgba(7,48,77,0.1)] ${visual.marker}`}>
+                    <span className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-sm font-extrabold shadow-[0_12px_30px_rgba(0,0,0,0.24)] ${visual.marker}`}>
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className={`icon-glow inline-flex h-12 w-12 items-center justify-center rounded-lg border shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] ${visual.iconBox}`}>
+                    <span className={`icon-glow inline-flex h-12 w-12 items-center justify-center rounded-lg border shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] ${visual.iconBox}`}>
                       <Icon size={22} aria-hidden="true" />
                     </span>
                   </div>
@@ -527,23 +538,23 @@ export default function Home() {
                   <p className={`relative mt-6 text-xs font-extrabold uppercase tracking-[0.15em] ${visual.eyebrow}`}>
                     {service.eyebrow}
                   </p>
-                  <h3 className="relative mt-2 font-display text-2xl font-extrabold leading-tight text-[#07304d] transition-colors group-hover:text-[#087987]">
+                  <h3 className="relative mt-2 font-display text-2xl font-bold leading-tight text-white transition-colors group-hover:text-[#f5fbff]">
                     {service.title}
                   </h3>
-                  <p className="relative mt-3 text-sm leading-7 text-[#365b70]">
+                  <p className="relative mt-3 text-sm leading-7 text-[#c7d8ea]">
                     {servicePitches[index] || service.summary}
                   </p>
 
                   <div className="relative mt-5 grid gap-2">
                     {highlights.map((highlight) => (
-                      <span key={highlight} className="flex items-start gap-2 text-xs font-semibold leading-5 text-[#365b70]">
-                        <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-[#0797a5]" aria-hidden="true" />
+                      <span key={highlight} className="flex items-start gap-2 text-xs font-semibold leading-5 text-white/78">
+                        <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-[#67eee0]" aria-hidden="true" />
                         {highlight}
                       </span>
                     ))}
                   </div>
 
-                  <span className={`relative mt-auto inline-flex w-max items-center gap-2 rounded-full px-4 py-2 text-sm font-bold shadow-[0_10px_22px_rgba(7,48,77,0.12)] transition group-hover:gap-3 ${visual.button}`}>
+                  <span className={`relative mt-auto inline-flex w-max items-center gap-2 rounded-full px-4 py-2 text-sm font-bold shadow-[0_12px_28px_rgba(0,0,0,0.2)] transition group-hover:gap-3 ${visual.button}`}>
                     Learn more <ArrowRight size={14} aria-hidden="true" />
                   </span>
                 </Link>
@@ -623,7 +634,7 @@ export default function Home() {
                 </div>
                 <h3 className="mt-3 text-lg font-semibold text-[#07304d] transition-colors group-hover:text-[#c25231]">{item.title}</h3>
                 <p className="mt-2 text-sm leading-7 text-[#587487] flex-1">{item.summary}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#087987] transition-all group-hover:gap-2.5">
+                <span className="premium-link mt-4 text-xs font-semibold transition-all group-hover:gap-2.5">
                   View case study <ArrowRight size={12} />
                 </span>
               </Link>
@@ -740,7 +751,7 @@ export default function Home() {
                 <p className="mt-3 flex-1 text-sm leading-7 text-[#587487]">{post.excerpt}</p>
                 <div className="mt-5 flex items-center justify-between border-t border-teal-500/15 pt-4">
                   <span className="text-xs text-[#6d8797]">{new Date(post.publishedAt).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}</span>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#c25231] transition-all group-hover:gap-2.5">
+                  <span className="premium-link text-xs font-semibold transition-all group-hover:gap-2.5">
                     Read more <ArrowRight size={12} aria-hidden="true" />
                   </span>
                 </div>
