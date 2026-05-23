@@ -107,10 +107,10 @@ export default async function ServiceDetailPage({ params }: Props) {
                   Request Service Quote <ArrowRight size={18} aria-hidden="true" />
                 </Link>
                 <Link
-                  href="/portfolio"
+                  href="/contact"
                   className="inline-flex h-12 items-center justify-center rounded-md border border-teal-500/30 px-5 text-sm font-semibold text-[#07304d] transition hover:bg-white/75"
                 >
-                  View Portfolio
+                  Discuss Project
                 </Link>
               </div>
             </div>

@@ -72,8 +72,6 @@ import { SectionHeading } from "@/components/section-heading";
 import { siteAssets } from "@/config/site-assets";
 import {
   blogPosts,
-  portfolioItems,
-  pricingPlans,
   services,
   siteFaqs,
   testimonials,
@@ -584,7 +582,7 @@ export default function Home() {
               />
               <div className="mt-8 grid gap-3">
                 {[
-                  { icon: Shield, text: "A private CMS for blogs, portfolio, careers, leads, media, FAQs, and SEO fields." },
+                  { icon: Shield, text: "A private CMS for blogs, careers, leads, media, FAQs, and SEO fields." },
                   { icon: Code2, text: "A clean Next.js codebase designed for Vercel now and Hostinger VPS migration later." },
                   { icon: TrendingUp, text: "SEO foundations built into pages, images, schema, sitemap, RSS, and answer-ready content." },
                   { icon: CheckCircle2, text: "Lead forms, WhatsApp CTAs, validation, protected admin routes, and launch documentation." },
@@ -603,43 +601,6 @@ export default function Home() {
               </div>
             </div>
           </AnimateIn>
-        </div>
-      </section>
-
-      {/* Portfolio */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <AnimateIn>
-            <SectionHeading
-              eyebrow="Portfolio preview"
-              title="Case-study layouts that show problem, solution, and business value."
-              description="Portfolio pages are structured to make your work look credible: clear project visuals, stack details, challenges, solutions, results, and conversion paths."
-            />
-          </AnimateIn>
-          <AnimateInStagger
-            wrapperClassName="mt-10 grid gap-5 md:grid-cols-3"
-            stepDelay={80}
-          >
-            {portfolioItems.slice(0, 3).map((item) => (
-              <Link
-                key={item.slug}
-                href={`/portfolio/${item.slug}`}
-                className="premium-card-soft card-hover group flex flex-col rounded-lg p-4"
-              >
-                <ImageSlot src={item.image} alt={item.imageAlt} width={1200} height={900} className="shadow-none" />
-                <div className="mt-4 flex items-center gap-2">
-                  <span className="rounded-full border border-indigo-300/20 bg-indigo-400/12 px-2.5 py-0.5 text-xs font-semibold text-[#5756a4]">
-                    {item.category}
-                  </span>
-                </div>
-                <h3 className="mt-3 text-lg font-semibold text-[#07304d] transition-colors group-hover:text-[#c25231]">{item.title}</h3>
-                <p className="mt-2 text-sm leading-7 text-[#587487] flex-1">{item.summary}</p>
-                <span className="premium-link mt-4 text-xs font-semibold transition-all group-hover:gap-2.5">
-                  View case study <ArrowRight size={12} />
-                </span>
-              </Link>
-            ))}
-          </AnimateInStagger>
         </div>
       </section>
 
@@ -774,65 +735,6 @@ export default function Home() {
           <AnimateIn variant="right">
             <Faq items={siteFaqs} />
           </AnimateIn>
-        </div>
-      </section>
-
-      {/* Pricing Preview */}
-      <section className="px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <AnimateIn>
-            <SectionHeading
-              eyebrow="Pricing preview"
-              title="Simple starting points for serious digital work."
-              description="Use these ranges to choose the right direction. Custom software, automation, and app projects receive tailored planning and quotes."
-              align="center"
-            />
-          </AnimateIn>
-          <AnimateInStagger
-            wrapperClassName="mt-10 grid gap-5 md:grid-cols-4"
-            stepDelay={70}
-          >
-            {pricingPlans.map((plan) => {
-              const isPopular = plan.slug === "business";
-              return (
-                <div
-                  key={plan.slug}
-                  className={`flex flex-col rounded-lg border p-6 transition ${
-                    isPopular
-                      ? "pricing-popular"
-                      : "premium-card-soft hover:border-teal-300/30 hover:bg-teal-500/5"
-                  }`}
-                >
-                  {isPopular && (
-                    <span className="mb-3 inline-flex self-start items-center gap-1 rounded-full bg-gradient-to-r from-teal-500 via-orange-400 to-cyan-400 px-3 py-0.5 text-xs font-bold text-[#07304d]">
-                      <Star size={10} /> Most Popular
-                    </span>
-                  )}
-                  <h3 className="text-xl font-semibold text-[#07304d]">{plan.name}</h3>
-                  <p className="mt-2 text-lg font-bold gradient-text">{plan.price}</p>
-                  <p className="mt-3 text-sm leading-6 text-[#587487]">{plan.description}</p>
-                  <ul className="mt-5 grid gap-2.5 flex-1">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex gap-2 text-sm text-[#365b70]">
-                        <CheckCircle2 size={15} className="mt-0.5 shrink-0 text-[#6968b8]" aria-hidden="true" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/contact"
-                    className={`mt-6 inline-flex h-11 items-center justify-center rounded-lg text-sm font-semibold transition ${
-                      isPopular
-                        ? "btn-glow text-[#07304d]"
-                        : "border border-teal-500/30 text-[#07304d] hover:bg-white/85"
-                    }`}
-                  >
-                    {plan.cta}
-                  </Link>
-                </div>
-              );
-            })}
-          </AnimateInStagger>
         </div>
       </section>
 

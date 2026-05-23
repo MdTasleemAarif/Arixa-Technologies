@@ -5,7 +5,6 @@ Place generated WebP assets in these folders:
 - `home/`
 - `about/`
 - `services/`
-- `portfolio/`
 - `blog/`
 - `contact/`
 - `og/`

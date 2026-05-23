@@ -33,19 +33,19 @@ export default function TermsPage() {
             <section>
               <h2 className="text-xl font-semibold text-[#07304d]">Website use</h2>
               <p className="mt-3">
-                This website provides information about Arixa Technologies services, content, pricing ranges, career opportunities, and contact methods.
+                This website provides information about Arixa Technologies services, content, career opportunities, and contact methods.
               </p>
             </section>
             <section>
               <h2 className="text-xl font-semibold text-[#07304d]">Project discussions</h2>
               <p className="mt-3">
-                Form submissions and pricing ranges do not create a binding contract. Final scope, timeline, payment terms, and deliverables should be confirmed in a written proposal or agreement.
+                Form submissions and project discussions do not create a binding contract. Final scope, timeline, payment terms, and deliverables should be confirmed in a written proposal or agreement.
               </p>
             </section>
             <section>
               <h2 className="text-xl font-semibold text-[#07304d]">Content</h2>
               <p className="mt-3">
-                Starter portfolio, testimonials, and blog entries are placeholders until replaced with real business content from the CMS.
+                Starter testimonials and blog entries are placeholders until replaced with real business content from the CMS.
               </p>
             </section>
             <section>

@@ -15,7 +15,6 @@ export function CareerApplicationForm({ jobSlug }: { jobSlug: string }) {
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <Field label="Phone" name="phone" />
-        <Field label="Portfolio URL" name="portfolioUrl" type="url" />
       </div>
       <label className="grid gap-2 text-sm font-medium text-[#173f5f]">
         Resume

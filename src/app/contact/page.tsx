@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Mail, MapPin, MessageCircle, Phone, Clock } from "lucide-react";
 import { AnimateIn } from "@/components/animate-in";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -8,6 +7,7 @@ import { JsonLd } from "@/components/json-ld";
 import { SectionHeading } from "@/components/section-heading";
 import { siteConfig } from "@/config/site";
 import { siteAssets } from "@/config/site-assets";
+import { gmailComposeUrl } from "@/lib/contact-links";
 import { breadcrumbSchema, createMetadata, organizationSchema } from "@/lib/seo";
 
 export const metadata = createMetadata({
@@ -42,9 +42,22 @@ export default function ContactPage() {
                   description="Share your project goal, service need, budget range, and timeline. Your enquiry is saved to the database when Supabase is configured."
                 />
                 <div className="mt-8 grid gap-3">
-                  <Info icon={Mail} label="Email" value={siteConfig.email} href={`mailto:${siteConfig.email}`} color="text-[#0797a5] bg-teal-500/10" />
-                  <Info icon={Phone} label="Phone" value={siteConfig.phone} href={`tel:${siteConfig.phone}`} color="text-[#c25231] bg-orange-400/10" />
-                  <Info icon={MessageCircle} label="WhatsApp" value="Message Arixa Technologies" href={`https://wa.me/${siteConfig.whatsapp}`} color="text-indigo-400 bg-indigo-500/10" />
+                  <Info
+                    icon={Mail}
+                    label="Email"
+                    value={siteConfig.email}
+                    href={gmailComposeUrl({ to: siteConfig.email })}
+                    external
+                    color="text-[#0797a5] bg-teal-500/10"
+                  />
+                  <Info
+                    icon={Phone}
+                    label="Phone"
+                    value={`${siteConfig.phone} / ${siteConfig.phoneSecondary}`}
+                    href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`}
+                    color="text-[#c25231] bg-orange-400/10"
+                  />
+                  <Info icon={MessageCircle} label="WhatsApp" value="Message Arixa Technologies" href={`https://wa.me/${siteConfig.whatsapp}`} external color="text-indigo-400 bg-indigo-500/10" />
                   <Info icon={MapPin} label="Address" value={siteConfig.address} color="text-cyan-400 bg-cyan-500/10" />
                   <Info icon={Clock} label="Business Hours" value={siteConfig.hours} color="text-[#0797a5] bg-cyan-500/10" />
                 </div>
@@ -81,12 +94,14 @@ function Info({
   label,
   value,
   href,
+  external,
   color,
 }: {
   icon: React.ElementType;
   label: string;
   value: string;
   href?: string;
+  external?: boolean;
   color: string;
 }) {
   const [iconColor, iconBg] = color.split(" ");
@@ -102,5 +117,11 @@ function Info({
     </span>
   );
 
-  return href ? <Link href={href}>{content}</Link> : content;
+  return href ? (
+    <a href={href} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined}>
+      {content}
+    </a>
+  ) : (
+    content
+  );
 }

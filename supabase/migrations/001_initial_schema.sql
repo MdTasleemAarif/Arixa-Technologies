@@ -134,23 +134,6 @@ create table if not exists public.services (
 
 create index if not exists services_status_order_idx on public.services(status, sort_order);
 
-create table if not exists public.portfolio_items (
-  id uuid primary key default gen_random_uuid(),
-  title text not null,
-  slug text not null unique,
-  category text not null,
-  summary text not null,
-  problem text,
-  solution text,
-  result text,
-  stack text[] not null default '{}',
-  image text,
-  image_alt text,
-  status text not null default 'draft' check (status in ('draft', 'published', 'archived')),
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
-);
-
 create table if not exists public.testimonials (
   id uuid primary key default gen_random_uuid(),
   name text not null,
@@ -167,20 +150,6 @@ create table if not exists public.faqs (
   answer text not null,
   page_path text,
   category text,
-  status text not null default 'draft' check (status in ('draft', 'published', 'archived')),
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
-);
-
-create table if not exists public.pricing_plans (
-  id uuid primary key default gen_random_uuid(),
-  name text not null,
-  slug text not null unique,
-  price text not null,
-  description text,
-  features text[] not null default '{}',
-  cta text,
-  sort_order integer not null default 0,
   status text not null default 'draft' check (status in ('draft', 'published', 'archived')),
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
@@ -222,7 +191,6 @@ create table if not exists public.career_applications (
   name text not null,
   email text not null,
   phone text,
-  portfolio_url text,
   resume_url text,
   message text not null,
   status text not null default 'new' check (status in ('new', 'reviewing', 'shortlisted', 'rejected', 'hired')),
@@ -295,10 +263,8 @@ begin
     'blog_tags',
     'blog_posts',
     'services',
-    'portfolio_items',
     'testimonials',
     'faqs',
-    'pricing_plans',
     'leads',
     'careers',
     'career_applications',
@@ -319,10 +285,8 @@ alter table public.blog_tags enable row level security;
 alter table public.blog_posts enable row level security;
 alter table public.blog_post_tags enable row level security;
 alter table public.services enable row level security;
-alter table public.portfolio_items enable row level security;
 alter table public.testimonials enable row level security;
 alter table public.faqs enable row level security;
-alter table public.pricing_plans enable row level security;
 alter table public.leads enable row level security;
 alter table public.careers enable row level security;
 alter table public.career_applications enable row level security;
@@ -354,16 +318,10 @@ create policy "Public published blog posts" on public.blog_posts
 create policy "Public published services" on public.services
   for select to anon, authenticated using (status = 'published');
 
-create policy "Public published portfolio" on public.portfolio_items
-  for select to anon, authenticated using (status = 'published');
-
 create policy "Public published testimonials" on public.testimonials
   for select to anon, authenticated using (status = 'published');
 
 create policy "Public published faqs" on public.faqs
-  for select to anon, authenticated using (status = 'published');
-
-create policy "Public published pricing" on public.pricing_plans
   for select to anon, authenticated using (status = 'published');
 
 create policy "Public published careers" on public.careers
@@ -391,10 +349,8 @@ begin
     'blog_posts',
     'blog_post_tags',
     'services',
-    'portfolio_items',
     'testimonials',
     'faqs',
-    'pricing_plans',
     'leads',
     'careers',
     'career_applications',

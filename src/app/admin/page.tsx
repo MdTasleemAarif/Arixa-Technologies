@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, FileText, Inbox, Layers3, Settings, Users } from "lucide-react";
+import { ArrowRight, FileText, Inbox, Layers3, Users } from "lucide-react";
 import { AdminShell } from "@/components/admin/admin-shell";
 import { adminNav } from "@/config/admin-resources";
 import { getAdminDashboardStats } from "@/lib/admin-data";
@@ -20,7 +20,6 @@ export default async function AdminDashboardPage() {
   const cards = [
     { label: "Blog posts", value: stats.posts, icon: FileText },
     { label: "Services", value: stats.services, icon: Layers3 },
-    { label: "Portfolio", value: stats.portfolio, icon: Settings },
     { label: "Leads", value: stats.leads, icon: Inbox },
     { label: "Applications", value: stats.applications, icon: Users },
   ];
@@ -31,7 +30,7 @@ export default async function AdminDashboardPage() {
       description={`Signed in as ${user.email || "admin"}. Manage website content, leads, media, SEO settings, and publishing workflows.`}
       localPreview={stats.localPreview}
     >
-      <div className="grid gap-4 md:grid-cols-5">
+      <div className="grid gap-4 md:grid-cols-4">
         {cards.map((card) => {
           const Icon = card.icon;
           return (

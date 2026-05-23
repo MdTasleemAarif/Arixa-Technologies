@@ -20,19 +20,6 @@ export type Service = {
   faqs: FaqItem[];
 };
 
-export type PortfolioItem = {
-  slug: string;
-  title: string;
-  category: string;
-  summary: string;
-  problem: string;
-  solution: string;
-  result: string;
-  stack: string[];
-  image: string;
-  imageAlt: string;
-};
-
 export type BlogPost = {
   slug: string;
   title: string;
@@ -395,148 +382,6 @@ export const services: Service[] = [
   },
 ];
 
-export const portfolioItems: PortfolioItem[] = [
-  {
-    slug: "luxury-service-business-website",
-    title: "Luxury Service Business Website",
-    category: "Website",
-    summary:
-      "A premium lead-generation website concept for a service business with conversion-focused sections and strong local SEO structure.",
-    problem:
-      "The business needed a more credible digital presence and clearer paths for visitors to request quotes.",
-    solution:
-      "We created a premium site architecture with service pages, proof sections, FAQ schema, and high-contrast CTA areas.",
-    result:
-      "The structure is ready for local ranking, paid campaign landing traffic, and measurable lead generation.",
-    stack: ["Next.js", "Tailwind CSS", "PostgreSQL", "Supabase"],
-    image: siteAssets.portfolioCover.src,
-    imageAlt: siteAssets.portfolioCover.alt,
-  },
-  {
-    slug: "operations-admin-dashboard",
-    title: "Operations Admin Dashboard",
-    category: "Web App",
-    summary:
-      "A custom admin dashboard concept for leads, clients, invoices, tasks, and operational reporting.",
-    problem:
-      "The team was tracking operations through scattered spreadsheets and manual updates.",
-    solution:
-      "We planned a role-based dashboard with centralized records, filtered views, and practical reporting.",
-    result:
-      "The workflow reduces duplication and gives managers a cleaner view of active business activity.",
-    stack: ["Next.js", "Supabase Auth", "PostgreSQL", "Server Actions"],
-    image: siteAssets.portfolioCover.src,
-    imageAlt: siteAssets.portfolioCover.alt,
-  },
-  {
-    slug: "ecommerce-growth-storefront",
-    title: "E-Commerce Growth Storefront",
-    category: "E-Commerce",
-    summary:
-      "A modern storefront concept with product discovery, conversion-focused product pages, and SEO-friendly category structure.",
-    problem:
-      "The store needed a cleaner shopping journey and stronger product visibility in search.",
-    solution:
-      "We mapped product categories, checkout flow, image SEO, structured content, and conversion sections.",
-    result:
-      "The storefront is ready for performance tuning, analytics, and search-driven product discovery.",
-    stack: ["Next.js", "Commerce APIs", "Tailwind CSS", "SEO Schema"],
-    image: siteAssets.portfolioCover.src,
-    imageAlt: siteAssets.portfolioCover.alt,
-  },
-  {
-    slug: "mobile-booking-app-experience",
-    title: "Mobile Booking App Experience",
-    category: "Mobile App",
-    summary:
-      "A mobile product concept for bookings, customer accounts, service discovery, and business admin control.",
-    problem:
-      "Customers needed an easier way to view services, book slots, and track requests.",
-    solution:
-      "We designed app flows for service browsing, booking, account history, notifications, and admin updates.",
-    result:
-      "The experience improves repeat usage and makes the business easier to access from mobile.",
-    stack: ["React Native-ready UX", "API Design", "Supabase", "Figma"],
-    image: siteAssets.portfolioCover.src,
-    imageAlt: siteAssets.portfolioCover.alt,
-  },
-  {
-    slug: "seo-content-engine",
-    title: "SEO Content Engine",
-    category: "SEO",
-    summary:
-      "A blog and service content system designed for on-page SEO, AEO, GEO, internal linking, and article schema.",
-    problem:
-      "The business wanted to publish consistently without losing metadata quality or search structure.",
-    solution:
-      "We built a CMS-backed blog with categories, tags, FAQ support, related posts, metadata, and sitemap inclusion.",
-    result:
-      "The content system supports long-term publishing and clearer machine-readable brand signals.",
-    stack: ["Next.js", "Supabase", "Markdown", "Structured Data"],
-    image: siteAssets.portfolioCover.src,
-    imageAlt: siteAssets.portfolioCover.alt,
-  },
-];
-
-export const pricingPlans = [
-  {
-    name: "Starter",
-    slug: "starter",
-    price: "Starting from Rs 24,999",
-    description: "For small businesses that need a polished online presence.",
-    features: [
-      "Up to 5 website pages",
-      "Responsive design",
-      "Basic on-page SEO",
-      "Contact form",
-      "Launch support",
-    ],
-    cta: "Start with Starter",
-  },
-  {
-    name: "Business",
-    slug: "business",
-    price: "Starting from Rs 59,999",
-    description: "For brands that need stronger content, SEO, and conversion structure.",
-    features: [
-      "Up to 12 pages",
-      "Blog-ready structure",
-      "Advanced SEO setup",
-      "Lead generation sections",
-      "Performance optimization",
-    ],
-    cta: "Choose Business",
-  },
-  {
-    name: "Premium",
-    slug: "premium",
-    price: "Starting from Rs 1,49,999",
-    description: "For companies that need custom UX, CMS, integrations, and premium polish.",
-    features: [
-      "Custom design system",
-      "CMS/admin panel",
-      "Portfolio or service modules",
-      "Supabase integration",
-      "Deployment and training",
-    ],
-    cta: "Build Premium",
-  },
-  {
-    name: "Custom",
-    slug: "custom",
-    price: "Custom quote",
-    description: "For web apps, mobile apps, automation, CRM, billing, and custom software.",
-    features: [
-      "Requirement discovery",
-      "Custom database schema",
-      "Role-based workflows",
-      "Integrations",
-      "Maintenance options",
-    ],
-    cta: "Request Quote",
-  },
-];
-
 export const testimonials = [
   {
     name: "Rohit Sharma",
@@ -567,7 +412,7 @@ export const siteFaqs: FaqItem[] = [
   {
     question: "Can you build a custom CMS?",
     answer:
-      "Yes. This website includes a custom CMS/admin panel pattern for blogs, services, portfolio items, leads, careers, media, SEO settings, and site settings.",
+      "Yes. This website includes a custom CMS/admin panel pattern for blogs, services, leads, careers, media, SEO settings, and site settings.",
   },
   {
     question: "Do you support SEO from launch?",
@@ -693,7 +538,7 @@ A strong website needs fast loading, mobile-first design, clear CTAs, semantic h
     content: `
 ## The direct answer
 
-SEO helps local businesses appear when nearby customers search for services, pricing, reviews, directions, and trusted providers.
+SEO helps local businesses appear when nearby customers search for services, reviews, directions, and trusted providers.
 
 ## Why local intent matters
 
@@ -739,7 +584,7 @@ Build a website when your main goal is visibility, trust, content, and leads. Bu
 
 ## When a website is enough
 
-A marketing website is right for service companies, portfolios, landing pages, blogs, and businesses that need a premium public presence.
+A marketing website is right for service companies, landing pages, blogs, and businesses that need a premium public presence.
 
 ## When a web app is better
 
@@ -891,7 +736,7 @@ Forms should ask only for useful information, pages should load fast, and naviga
 
 ## Add trust signals
 
-Testimonials, portfolios, clear contact details, process sections, and FAQs help visitors evaluate the business before enquiring.
+Testimonials, clear service details, contact details, process sections, and FAQs help visitors evaluate the business before enquiring.
 `,
     faqs: [
       {

@@ -57,7 +57,7 @@ export async function getCurrentUser() {
   if (!supabase) {
     return {
       id: "local-preview",
-      email: "local-preview@arixatechnologies.com",
+      email: "local-preview@arixatechnologies.in",
       role: "admin",
       isLocalPreview: true,
     };

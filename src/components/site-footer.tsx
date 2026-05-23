@@ -5,6 +5,7 @@ import { logoAsset } from "@/config/site-assets";
 import { siteConfig } from "@/config/site";
 import { services } from "@/data/site-data";
 import { submitNewsletter } from "@/app/actions";
+import { gmailComposeUrl } from "@/lib/contact-links";
 
 function LinkedInIcon() {
   return (
@@ -43,6 +44,33 @@ function FacebookIcon() {
 }
 
 export function SiteFooter() {
+  const socialLinks = [
+    {
+      href: siteConfig.social.linkedin,
+      ariaLabel: "Arixa Technologies on LinkedIn",
+      className: "hover:border-cyan-200/35 hover:bg-cyan-200/12 hover:text-[#67eee0]",
+      icon: <LinkedInIcon />,
+    },
+    {
+      href: siteConfig.social.instagram,
+      ariaLabel: "Arixa Technologies on Instagram",
+      className: "hover:border-orange-200/35 hover:bg-orange-200/12 hover:text-[#ffb785]",
+      icon: <InstagramIcon />,
+    },
+    {
+      href: siteConfig.social.x,
+      ariaLabel: "Arixa Technologies on X",
+      className: "hover:border-cyan-200/35 hover:bg-cyan-200/12 hover:text-[#67eee0]",
+      icon: <XIcon />,
+    },
+    {
+      href: siteConfig.social.facebook,
+      ariaLabel: "Arixa Technologies on Facebook",
+      className: "hover:border-violet-200/35 hover:bg-violet-200/12 hover:text-[#cabdff]",
+      icon: <FacebookIcon />,
+    },
+  ].filter((link) => link.href);
+
   return (
     <footer className="ink-section relative overflow-hidden border-t border-white/10 px-4 py-14 sm:px-6 lg:px-8">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/65 to-transparent" />
@@ -67,55 +95,46 @@ export function SiteFooter() {
             Premium websites, apps, SEO systems, custom software, and automation built to make your brand look sharper and your operations run smarter.
           </p>
           <div className="mt-6 space-y-3 text-sm text-[#c7d8ea]">
-            <a href={`mailto:${siteConfig.email}`} className="flex items-center gap-2 transition-colors hover:text-[#67eee0]">
+            <a
+              href={gmailComposeUrl({ to: siteConfig.email })}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 transition-colors hover:text-[#67eee0]"
+            >
               <Mail size={15} aria-hidden="true" className="text-[#67eee0]" /> {siteConfig.email}
             </a>
-            <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-2 transition-colors hover:text-[#ffb785]">
+            <a
+              href={`tel:${siteConfig.phone.replace(/[^\d+]/g, "")}`}
+              className="flex items-center gap-2 transition-colors hover:text-[#ffb785]"
+            >
               <Phone size={15} aria-hidden="true" className="text-[#ffb785]" /> {siteConfig.phone}
+            </a>
+            <a
+              href={`tel:${siteConfig.phoneSecondary.replace(/[^\d+]/g, "")}`}
+              className="flex items-center gap-2 transition-colors hover:text-[#ffb785]"
+            >
+              <Phone size={15} aria-hidden="true" className="text-[#ffb785]" /> {siteConfig.phoneSecondary}
             </a>
             <p className="flex items-center gap-2">
               <MapPin size={15} aria-hidden="true" className="shrink-0 text-[#cabdff]" /> {siteConfig.address}
             </p>
           </div>
-          {/* Social icons */}
-          <div className="mt-6 flex items-center gap-3">
-            <a
-              href={siteConfig.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Arixa Technologies on LinkedIn"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/12 bg-white/6 text-white/62 transition hover:border-cyan-200/35 hover:bg-cyan-200/12 hover:text-[#67eee0]"
-            >
-              <LinkedInIcon />
-            </a>
-            <a
-              href={siteConfig.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Arixa Technologies on Instagram"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/12 bg-white/6 text-white/62 transition hover:border-orange-200/35 hover:bg-orange-200/12 hover:text-[#ffb785]"
-            >
-              <InstagramIcon />
-            </a>
-            <a
-              href={siteConfig.social.x}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Arixa Technologies on X"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/12 bg-white/6 text-white/62 transition hover:border-cyan-200/35 hover:bg-cyan-200/12 hover:text-[#67eee0]"
-            >
-              <XIcon />
-            </a>
-            <a
-              href={siteConfig.social.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Arixa Technologies on Facebook"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/12 bg-white/6 text-white/62 transition hover:border-violet-200/35 hover:bg-violet-200/12 hover:text-[#cabdff]"
-            >
-              <FacebookIcon />
-            </a>
-          </div>
+          {socialLinks.length ? (
+            <div className="mt-6 flex items-center gap-3">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.ariaLabel}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.ariaLabel}
+                  className={`inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/12 bg-white/6 text-white/62 transition ${link.className}`}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+          ) : null}
         </div>
 
         {/* Services */}
@@ -144,8 +163,6 @@ export function SiteFooter() {
           <div className="mt-4 grid gap-3 text-sm">
             {[
               ["About", "/about"],
-              ["Portfolio", "/portfolio"],
-              ["Pricing", "/pricing"],
               ["Blog", "/blog"],
               ["Careers", "/careers"],
               ["Contact", "/contact"],

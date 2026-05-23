@@ -596,15 +596,60 @@ summary {
     linear-gradient(130deg, rgba(255, 255, 255, 0.12), transparent 24%);
 }
 
+.site-header {
+  isolation: isolate;
+}
+
+.site-header-shell {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 4% 0, rgba(56, 214, 209, 0.26), transparent 30%),
+    radial-gradient(circle at 68% -42%, rgba(143, 124, 255, 0.28), transparent 34%),
+    radial-gradient(circle at 100% 18%, rgba(255, 133, 109, 0.22), transparent 28%),
+    linear-gradient(120deg, rgba(5, 13, 25, 0.94), rgba(8, 20, 38, 0.9) 42%, rgba(18, 14, 39, 0.92) 74%, rgba(7, 17, 31, 0.94));
+  box-shadow:
+    0 22px 72px rgba(3, 8, 18, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.site-header-shell::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(110deg, rgba(255, 255, 255, 0.14), transparent 22%),
+    linear-gradient(90deg, transparent 34%, rgba(255, 255, 255, 0.08), transparent 62%);
+}
+
+.site-header-shell::after {
+  position: absolute;
+  inset: auto 18% 0;
+  height: 1px;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 183, 133, 0.56), rgba(103, 238, 224, 0.58), transparent);
+}
+
+.site-header-menu {
+  background:
+    radial-gradient(circle at 10% 0, rgba(56, 214, 209, 0.18), transparent 36%),
+    radial-gradient(circle at 90% 0, rgba(143, 124, 255, 0.2), transparent 36%),
+    rgba(5, 13, 25, 0.86);
+}
+
 .site-header .brand-wordmark-main {
-  background: linear-gradient(100deg, #ffffff 0%, #66eee0 34%, #cabdff 68%, #ffac82 100%);
+  background: linear-gradient(100deg, #ffffff 0%, #67eee0 34%, #cabdff 68%, #ffb785 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .site-header .brand-wordmark-sub {
-  color: rgba(231, 243, 255, 0.78);
+  color: rgba(231, 243, 255, 0.76);
 }
 
 .reveal {
@@ -742,17 +787,6 @@ summary {
     0 0 18px var(--glow-teal),
     0 0 22px var(--glow-gold);
   filter: saturate(1.15);
-}
-
-.pricing-popular {
-  position: relative;
-  border-color: rgba(244, 127, 95, 0.48) !important;
-  background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(255, 248, 234, 0.82), rgba(245, 200, 75, 0.16), rgba(70, 199, 199, 0.13)) !important;
-  box-shadow:
-    0 18px 42px rgba(244, 127, 95, 0.12),
-    0 10px 28px rgba(7, 151, 165, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.78);
 }
 
 .star-rating span,

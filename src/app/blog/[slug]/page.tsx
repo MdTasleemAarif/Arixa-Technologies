@@ -10,6 +10,7 @@ import { JsonLd } from "@/components/json-ld";
 import { MarkdownContent } from "@/components/markdown-content";
 import { SectionHeading } from "@/components/section-heading";
 import { blogPosts as staticBlogPosts } from "@/data/site-data";
+import { gmailComposeUrl } from "@/lib/contact-links";
 import { getBlogPost, listBlogPosts } from "@/lib/supabase/data";
 import { absoluteUrl, formatDate, slugify } from "@/lib/utils";
 import { breadcrumbSchema, createMetadata, faqSchema } from "@/lib/seo";
@@ -158,7 +159,12 @@ export default async function BlogDetailPage({ params }: Props) {
                 <Link href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(post.title)}`} className="inline-flex items-center gap-2 text-sm text-[#365b70] hover:text-[#07304d]">
                   <Share2 size={16} aria-hidden="true" /> X
                 </Link>
-                <Link href={`mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent(url)}`} className="inline-flex items-center gap-2 text-sm text-[#365b70] hover:text-[#07304d]">
+                <Link
+                  href={gmailComposeUrl({ subject: post.title, body: url })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-[#365b70] hover:text-[#07304d]"
+                >
                   <Mail size={16} aria-hidden="true" /> Email
                 </Link>
               </div>

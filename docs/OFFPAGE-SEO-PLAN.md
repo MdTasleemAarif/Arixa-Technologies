@@ -5,7 +5,7 @@ Off-page SEO is not only code. Use this plan after launch to build trust, citati
 ## Backlink Strategy
 
 - Publish useful service and blog content first so outreach has strong destination pages.
-- Build links to service pages, case studies, and high-value articles.
+- Build links to service pages and high-value articles.
 - Prioritize relevant business, SaaS, web design, startup, local business, and technology sites.
 - Avoid paid link farms, spam directories, automated comments, and irrelevant guest posts.
 
@@ -29,13 +29,13 @@ Create consistent profiles with the same company name, phone, website, descripti
 - Link all social profiles back to the website.
 - Link the website footer to official profiles.
 - Keep name, logo, description, and services consistent.
-- Post portfolio updates, articles, launch notes, and client education content.
+- Post service updates, articles, launch notes, and client education content.
 
 ## Content Amplification
 
 - Convert every blog into LinkedIn posts, carousels, short videos, and newsletter snippets.
 - Share service explainers with local business groups and founder communities.
-- Use internal links from new articles to service pages and relevant case studies.
+- Use internal links from new articles to relevant service pages and guides.
 
 ## Guest Post Strategy
 
@@ -60,7 +60,7 @@ Create consistent profiles with the same company name, phone, website, descripti
 
 - Partner with local agencies, accountants, consultants, and business coaches.
 - Offer co-branded webinars on websites, SEO, automation, and software planning.
-- Publish launch announcements and case-study posts.
+- Publish launch announcements and expert articles.
 - Contribute expert quotes to journalists and industry roundups.
 
 ## Measurement

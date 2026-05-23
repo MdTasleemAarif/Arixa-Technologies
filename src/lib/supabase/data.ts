@@ -3,13 +3,10 @@ import "server-only";
 import {
   blogPosts,
   careers,
-  portfolioItems,
-  pricingPlans,
   services,
   siteFaqs,
   testimonials,
   type BlogPost,
-  type PortfolioItem,
   type Service,
 } from "@/data/site-data";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
@@ -53,21 +50,6 @@ function normalizeService(row: Record<string, unknown>): Service {
     features: Array.isArray(row.features) ? (row.features as string[]) : [],
     process: Array.isArray(row.process) ? (row.process as string[]) : [],
     faqs: Array.isArray(row.faqs) ? (row.faqs as Service["faqs"]) : [],
-  };
-}
-
-function normalizePortfolio(row: Record<string, unknown>): PortfolioItem {
-  return {
-    slug: String(row.slug),
-    title: String(row.title),
-    category: String(row.category || "Project"),
-    summary: String(row.summary || ""),
-    problem: String(row.problem || ""),
-    solution: String(row.solution || ""),
-    result: String(row.result || ""),
-    stack: Array.isArray(row.stack) ? (row.stack as string[]) : [],
-    image: String(row.image || "/images/portfolio/arixa-portfolio-project-showcase.png"),
-    imageAlt: String(row.image_alt || row.title),
   };
 }
 
@@ -167,35 +149,6 @@ export async function getBlogPost(slug: string) {
   }
 
   return blogPosts.find((post) => post.slug === slug);
-}
-
-export async function listPortfolioItems() {
-  const supabase = await createSupabaseServerClient();
-
-  if (!supabase) {
-    return portfolioItems;
-  }
-
-  const { data, error } = await supabase
-    .from("portfolio_items")
-    .select("*")
-    .eq("status", "published")
-    .order("created_at", { ascending: false });
-
-  if (error || !data?.length) {
-    return portfolioItems;
-  }
-
-  return data.map((row) => normalizePortfolio(row));
-}
-
-export async function getPortfolioItem(slug: string) {
-  const items = await listPortfolioItems();
-  return items.find((item) => item.slug === slug);
-}
-
-export async function listPricingPlans() {
-  return pricingPlans;
 }
 
 export async function listTestimonials() {

@@ -12,7 +12,6 @@ export function GET() {
     `- Home: ${siteConfig.url}/`,
     `- About: ${siteConfig.url}/about`,
     `- Services: ${siteConfig.url}/services`,
-    `- Portfolio: ${siteConfig.url}/portfolio`,
     `- Blog: ${siteConfig.url}/blog`,
     `- Contact: ${siteConfig.url}/contact`,
     "",
@@ -25,6 +24,7 @@ export function GET() {
     "## Contact",
     `- Email: ${siteConfig.email}`,
     `- Phone: ${siteConfig.phone}`,
+    `- Alternate phone: ${siteConfig.phoneSecondary}`,
   ];
 
   return new NextResponse(lines.join("\n"), {

@@ -16,7 +16,6 @@ export const careerApplicationSchema = z.object({
   name: z.string().min(2).max(120),
   email: z.string().email(),
   phone: z.string().max(40).optional(),
-  portfolioUrl: z.string().url().optional().or(z.literal("")),
   message: z.string().min(10).max(4000),
   website: z.string().max(0).optional(),
 });

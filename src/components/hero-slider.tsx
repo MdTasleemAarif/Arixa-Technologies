@@ -36,7 +36,7 @@ const heroSlides = [
     panelTitle: "Launch stack",
     panelRows: [
       ["Brand Website", "Hero, service pages, trust sections, CTAs"],
-      ["Custom CMS", "Blog, portfolio, media, leads, careers"],
+      ["Custom CMS", "Blog, media, leads, careers"],
       ["Search System", "Metadata, schema, sitemap, RSS, llms.txt"],
     ],
     stats: [
@@ -55,8 +55,8 @@ const heroSlides = [
     headlineEnd: "with clean systems.",
     subtext:
       "We plan and build CRM systems, billing software, admin dashboards, portals, mobile apps, and AI-assisted workflows around the way your team actually operates.",
-    cta: { label: "Get Free Quote", href: "/pricing" },
-    secondaryCta: { label: "View Portfolio", href: "/portfolio" },
+    cta: { label: "Get Free Quote", href: "/contact" },
+    secondaryCta: { label: "Explore Services", href: "/services" },
     accentColor: "from-[#ff9a6b] via-[#f6c95b] to-[#8f7cff]",
     gradientText: "from-white via-[#ffb785] to-[#67eee0]",
     badge: "Custom Software / CRM / Billing / Admin Panels",

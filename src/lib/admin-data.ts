@@ -4,8 +4,6 @@ import { adminResources, type AdminResource, type AdminResourceKey } from "@/con
 import {
   blogPosts,
   careers,
-  portfolioItems,
-  pricingPlans,
   services,
   siteFaqs,
   testimonials,
@@ -29,24 +27,10 @@ function fallbackRows(resourceKey: string): Record<string, unknown>[] {
         status: "published",
         sort_order: index + 1,
       }));
-    case "portfolio":
-      return portfolioItems.map((item) => ({
-        title: item.title,
-        slug: item.slug,
-        category: item.category,
-        status: "published",
-      }));
     case "testimonials":
       return testimonials.map((item) => ({
         name: item.name,
         role: item.role,
-        status: "published",
-      }));
-    case "pricing-plans":
-      return pricingPlans.map((plan, index) => ({
-        name: plan.name,
-        price: plan.price,
-        sort_order: index + 1,
         status: "published",
       }));
     case "faqs":
@@ -96,17 +80,15 @@ export async function getAdminDashboardStats() {
     return {
       posts: blogPosts.length,
       services: services.length,
-      portfolio: portfolioItems.length,
       leads: 0,
       applications: 0,
       localPreview: true,
     };
   }
 
-  const [posts, serviceRows, portfolioRows, leads, applications] = await Promise.all([
+  const [posts, serviceRows, leads, applications] = await Promise.all([
     supabase.from("blog_posts").select("id", { count: "exact", head: true }),
     supabase.from("services").select("id", { count: "exact", head: true }),
-    supabase.from("portfolio_items").select("id", { count: "exact", head: true }),
     supabase.from("leads").select("id", { count: "exact", head: true }),
     supabase.from("career_applications").select("id", { count: "exact", head: true }),
   ]);
@@ -114,7 +96,6 @@ export async function getAdminDashboardStats() {
   return {
     posts: posts.count || 0,
     services: serviceRows.count || 0,
-    portfolio: portfolioRows.count || 0,
     leads: leads.count || 0,
     applications: applications.count || 0,
     localPreview: false,

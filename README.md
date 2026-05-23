@@ -30,10 +30,10 @@ Premium Next.js website and custom CMS for Arixa Technologies, built for Vercel 
 ## Features
 
 - Premium dark company website with responsive pages
-- Home, About, Services, Portfolio, Pricing, Blog, Careers, Contact, Privacy, Terms, Thank You, 404, error page
-- Individual service, portfolio, blog, category, tag, and career pages
+- Home, About, Services, Blog, Careers, Contact, Privacy, Terms, Thank You, 404, error page
+- Individual service, blog, category, tag, and career pages
 - Custom CMS/admin panel at `/admin`
-- Admin resources for blog posts, categories, tags, services, portfolio, testimonials, pricing, FAQs, careers, applications, leads, media, SEO overrides, and site settings
+- Admin resources for blog posts, categories, tags, services, testimonials, FAQs, careers, applications, leads, media, SEO overrides, and site settings
 - Contact, newsletter, and career application forms
 - Supabase auth, RLS-ready schema, media buckets, resume bucket
 - SEO metadata, canonical URLs, sitemap, robots, RSS feed, JSON-LD, FAQ schema, breadcrumbs, Article schema, and `llms.txt`
@@ -51,7 +51,7 @@ cp .env.example .env.local
 Required for database-backed production:
 
 ```txt
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
+NEXT_PUBLIC_SITE_URL=https://www.arixatechnologies.in
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
@@ -60,12 +60,13 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 Optional:
 
 ```txt
-NEXT_PUBLIC_CONTACT_EMAIL=hello@arixatechnologies.com
-NEXT_PUBLIC_CONTACT_PHONE=+91 90000 00000
-NEXT_PUBLIC_WHATSAPP_NUMBER=919000000000
+NEXT_PUBLIC_CONTACT_EMAIL=arixatechnologies@gmail.com
+NEXT_PUBLIC_CONTACT_PHONE=+91 74169 98886
+NEXT_PUBLIC_CONTACT_PHONE_SECONDARY=+91 74169 98887
+NEXT_PUBLIC_WHATSAPP_NUMBER=917416998886
 RESEND_API_KEY=
 LEAD_NOTIFICATION_EMAIL=
-LEAD_EMAIL_FROM=Arixa Website <noreply@arixatechnologies.com>
+LEAD_EMAIL_FROM=Arixa Website <noreply@arixatechnologies.in>
 NEXT_PUBLIC_GA_MEASUREMENT_ID=
 NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=
 ```
@@ -107,7 +108,7 @@ where email = 'your-email@example.com';
 
 The schema creates:
 
-- content tables for blog, services, portfolio, testimonials, FAQs, careers, pricing
+- content tables for blog, services, testimonials, FAQs, careers
 - lead and career application tables
 - media, SEO overrides, site settings, newsletter, and redirects tables
 - RLS policies for public published reads, public form inserts, and authenticated admin/editor management
@@ -118,8 +119,8 @@ The schema creates:
 Go to `/admin/login`, sign in with a Supabase Auth user, then manage:
 
 - Blog posts, categories, tags
-- Services and portfolio
-- Testimonials, pricing, FAQs
+- Services
+- Testimonials and FAQs
 - Careers and applications
 - Contact leads
 - Media assets
@@ -140,7 +141,6 @@ Images go in:
 public/images/home/
 public/images/about/
 public/images/services/
-public/images/portfolio/
 public/images/blog/
 public/images/contact/
 public/images/og/

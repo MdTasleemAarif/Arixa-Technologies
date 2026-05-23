@@ -12,7 +12,6 @@ Use compressed image files and keep filenames descriptive. The current code refe
 | SEO service | `seo-services-growth-analytics-visual.png` | `/public/images/services/` | SEO growth analytics dashboard representing on-page SEO, technical SEO, and performance optimization |
 | E-commerce service | `ecommerce-development-online-store-experience.png` | `/public/images/services/` | Premium e-commerce development showcase with online store user experience and checkout flow |
 | Software automation | `custom-software-automation-business-workflow.png` | `/public/images/services/` | Custom software and business automation workflow dashboard for enterprise solutions |
-| Portfolio cover | `arixa-portfolio-project-showcase.png` | `/public/images/portfolio/` | Portfolio showcase of premium digital projects by Arixa Technologies |
 | Contact CTA | `contact-arixa-technologies-client-support.png` | `/public/images/contact/` | Professional digital consultation and support visual for contacting Arixa Technologies |
 | Open Graph | `arixa-technologies-og-image.png` | `/public/images/og/` | Arixa Technologies premium digital solutions brand image for social sharing |
 | Blog image | `<blog-slug>.png` | `/public/images/blog/` | Featured image for [Blog Title] on Arixa Technologies |
@@ -41,12 +40,6 @@ Create a premium about-page image for a software company. Show a refined creativ
 
 ```txt
 Create a premium service image for [SERVICE TOPIC]. Show a polished interface or workflow related to the service. Use a dark premium background with glowing fuchsia, purple, violet, and pink accents. Make it sleek, professional, conversion-focused, and high-end. No text inside the image.
-```
-
-### Portfolio
-
-```txt
-Create a premium portfolio showcase image for a software and digital agency. Show multiple high-end project previews such as websites, mobile apps, dashboards, and e-commerce interfaces arranged elegantly in a dark luxury environment with soft glassmorphism and vibrant fuchsia, purple, violet, and pink gradients. No text inside the image.
 ```
 
 ### Contact

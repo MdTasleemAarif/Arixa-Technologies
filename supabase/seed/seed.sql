@@ -180,14 +180,6 @@ on conflict (slug) do update set
   description = excluded.description,
   status = excluded.status;
 
-insert into public.pricing_plans (name, slug, price, description, features, cta, sort_order, status)
-values
-  ('Starter', 'starter', 'Starting from Rs 24,999', 'For small businesses that need a polished online presence.', array['Up to 5 website pages','Responsive design','Basic on-page SEO','Contact form'], 'Start with Starter', 1, 'published'),
-  ('Business', 'business', 'Starting from Rs 59,999', 'For brands that need stronger content, SEO, and conversion structure.', array['Up to 12 pages','Blog-ready structure','Advanced SEO setup','Lead generation sections'], 'Choose Business', 2, 'published'),
-  ('Premium', 'premium', 'Starting from Rs 1,49,999', 'For companies that need custom UX, CMS, integrations, and premium polish.', array['Custom design system','CMS/admin panel','Supabase integration','Deployment and training'], 'Build Premium', 3, 'published'),
-  ('Custom', 'custom', 'Custom quote', 'For web apps, mobile apps, automation, CRM, billing, and custom software.', array['Requirement discovery','Custom database schema','Role-based workflows','Integrations'], 'Request Quote', 4, 'published')
-on conflict (slug) do update set price = excluded.price, description = excluded.description, features = excluded.features, status = excluded.status;
-
 insert into public.testimonials (name, role, quote, status)
 values
   ('Rohit Sharma', 'Founder, Growth Retail Brand', 'Arixa helped us turn a basic idea into a professional digital presence with a clear service structure and lead path.', 'published'),
@@ -197,7 +189,7 @@ values
 insert into public.faqs (question, answer, page_path, category, status)
 values
   ('What does Arixa Technologies do?', 'Arixa Technologies builds websites, web apps, mobile apps, SEO systems, e-commerce platforms, custom software, branding assets, and AI automation for businesses.', '/', 'General', 'published'),
-  ('Can you build a custom CMS?', 'Yes. The website includes a custom CMS/admin panel pattern for blogs, services, portfolio items, leads, careers, media, SEO settings, and site settings.', '/', 'CMS', 'published'),
+  ('Can you build a custom CMS?', 'Yes. The website includes a custom CMS/admin panel pattern for blogs, services, leads, careers, media, SEO settings, and site settings.', '/', 'CMS', 'published'),
   ('Do you support SEO from launch?', 'Yes. We include metadata, sitemap, robots, schema, semantic headings, internal links, image SEO guidance, and performance-minded implementation.', '/', 'SEO', 'published'),
   ('Can the website move from Vercel to Hostinger VPS later?', 'Yes. The app uses standard Next.js, PostgreSQL, environment variables, and documented production commands so a future VPS migration is practical.', '/', 'Hosting', 'published');
 
@@ -206,13 +198,6 @@ values
   ('Frontend Developer', 'frontend-developer', 'Remote / Hybrid', 'Full-time', 'Build responsive Next.js interfaces and polished product experiences.', array['Develop UI with Next.js and Tailwind CSS','Collaborate on component architecture','Optimize accessibility and performance'], 'published'),
   ('SEO Content Strategist', 'seo-content-strategist', 'Remote', 'Contract', 'Plan service pages, article briefs, and answer-first SEO content.', array['Research keywords and entities','Prepare content outlines','Review metadata and FAQs'], 'published'),
   ('UI/UX Designer', 'ui-ux-designer', 'Remote / Hybrid', 'Project-based', 'Design premium web, app, dashboard, and landing page interfaces.', array['Create wireframes and high-fidelity screens','Design responsive states','Support developer handoff'], 'published')
-on conflict (slug) do update set summary = excluded.summary, status = excluded.status;
-
-insert into public.portfolio_items (title, slug, category, summary, problem, solution, result, stack, image, image_alt, status)
-values
-  ('Luxury Service Business Website', 'luxury-service-business-website', 'Website', 'A premium lead-generation website concept for a service business.', 'The business needed stronger credibility and quote paths.', 'We created service pages, proof sections, FAQ schema, and CTA areas.', 'The structure is ready for ranking and lead generation.', array['Next.js','Tailwind CSS','PostgreSQL','Supabase'], '/images/portfolio/arixa-portfolio-project-showcase.png', 'Portfolio showcase of premium digital projects by Arixa Technologies', 'published'),
-  ('Operations Admin Dashboard', 'operations-admin-dashboard', 'Web App', 'A custom admin dashboard concept for leads, clients, invoices, tasks, and reports.', 'Operations were tracked through scattered spreadsheets.', 'We planned a role-based dashboard with filtered views and reports.', 'The workflow reduces duplication and improves visibility.', array['Next.js','Supabase Auth','PostgreSQL'], '/images/portfolio/arixa-portfolio-project-showcase.png', 'Portfolio showcase of premium digital projects by Arixa Technologies', 'published'),
-  ('E-Commerce Growth Storefront', 'ecommerce-growth-storefront', 'E-Commerce', 'A modern storefront concept with product discovery and SEO-friendly category structure.', 'The store needed a cleaner shopping journey.', 'We mapped category, checkout, image SEO, and conversion sections.', 'The storefront supports performance tuning and product discovery.', array['Next.js','Commerce APIs','SEO Schema'], '/images/portfolio/arixa-portfolio-project-showcase.png', 'Portfolio showcase of premium digital projects by Arixa Technologies', 'published')
 on conflict (slug) do update set summary = excluded.summary, status = excluded.status;
 
 insert into public.blog_posts (
@@ -225,7 +210,7 @@ Every serious business needs a website because customers use search, referrals, 
 ## What a good website includes
 A strong website needs fast loading, mobile-first design, clear CTAs, useful FAQs, schema markup, and a CMS for future content.$$,'Website Development', array['Websites','Lead Generation','Digital Presence'], 'Arixa Editorial Team', '/images/blog/why-every-business-needs-a-website.png', 'Featured image for Why Every Business Needs a Website in 2026 on Arixa Technologies', 'published', '2026-01-08', '[]'::jsonb),
   ('Benefits of SEO for Local Businesses', 'benefits-of-seo-for-local-businesses', 'Local SEO helps nearby customers discover, compare, and contact your business.', $$## The direct answer
-SEO helps local businesses appear when nearby customers search for services, pricing, reviews, directions, and trusted providers.
+SEO helps local businesses appear when nearby customers search for services, reviews, directions, and trusted providers.
 
 ## What local SEO needs
 Local SEO needs optimized service pages, profile signals, citations, reviews, schema, speed, and helpful FAQs.$$,'SEO', array['Local SEO','Search','Small Business'], 'Arixa Editorial Team', '/images/blog/benefits-of-seo-for-local-businesses.png', 'Featured image for Benefits of SEO for Local Businesses on Arixa Technologies', 'published', '2026-01-18', '[]'::jsonb),
@@ -248,7 +233,7 @@ Dashboards and reports help owners understand what is pending, delayed, complete
 Conversion-focused UI/UX makes the next step obvious, reduces uncertainty, and gives visitors enough proof to act confidently.
 
 ## Add trust signals
-Testimonials, portfolios, contact details, process sections, and FAQs help visitors evaluate the business.$$,'UI/UX Design', array['UI UX','Conversion','Design'], 'Arixa Editorial Team', '/images/blog/best-ui-ux-practices-for-conversions.png', 'Featured image for Best UI/UX Practices for Higher Website Conversions on Arixa Technologies', 'published', '2026-03-04', '[]'::jsonb),
+Testimonials, service detail, contact details, process sections, and FAQs help visitors evaluate the business.$$,'UI/UX Design', array['UI UX','Conversion','Design'], 'Arixa Editorial Team', '/images/blog/best-ui-ux-practices-for-conversions.png', 'Featured image for Best UI/UX Practices for Higher Website Conversions on Arixa Technologies', 'published', '2026-03-04', '[]'::jsonb),
   ('Technical SEO Essentials for Business Websites', 'technical-seo-essentials', 'Technical SEO makes sure search engines can crawl, index, understand, and rank important pages.', $$## The direct answer
 Technical SEO covers crawlability, indexability, page speed, canonical URLs, structured data, metadata, sitemap, and robots.
 
@@ -278,7 +263,10 @@ on conflict (slug) do update set
 insert into public.site_settings (key, value, group_name)
 values
   ('company_name', 'Arixa Technologies', 'company'),
-  ('contact_email', 'hello@arixatechnologies.com', 'contact'),
-  ('contact_phone', '+91 90000 00000', 'contact'),
-  ('whatsapp_number', '919000000000', 'contact')
+  ('contact_email', 'arixatechnologies@gmail.com', 'contact'),
+  ('contact_phone', '+91 74169 98886', 'contact'),
+  ('contact_phone_secondary', '+91 74169 98887', 'contact'),
+  ('whatsapp_number', '917416998886', 'contact'),
+  ('instagram_url', 'https://www.instagram.com/arixa_technologies', 'social'),
+  ('facebook_url', 'https://www.facebook.com/share/1DxQFrmWNk/', 'social')
 on conflict (key) do update set value = excluded.value, group_name = excluded.group_name;

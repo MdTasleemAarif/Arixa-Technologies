@@ -104,7 +104,6 @@ export async function submitCareerApplication(formData: FormData) {
     name: optionalString(formData.get("name")),
     email: optionalString(formData.get("email")),
     phone: optionalString(formData.get("phone")),
-    portfolioUrl: optionalString(formData.get("portfolioUrl")) || "",
     message: optionalString(formData.get("message")),
     website: optionalString(formData.get("website")) || "",
   });
@@ -156,7 +155,6 @@ export async function submitCareerApplication(formData: FormData) {
       name: parsed.data.name,
       email: parsed.data.email,
       phone: parsed.data.phone,
-      portfolio_url: parsed.data.portfolioUrl || null,
       message: parsed.data.message,
       resume_url: resumeUrl,
       status: "new",

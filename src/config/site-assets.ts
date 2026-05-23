@@ -90,15 +90,6 @@ export const siteAssets = {
     width: 1200,
     height: 900,
   },
-  portfolioCover: {
-    key: "portfolioCover",
-    src: "/images/portfolio/arixa-portfolio-project-showcase.png",
-    folder: "/public/images/portfolio/",
-    purpose: "Portfolio page cover and project placeholders",
-    alt: "Portfolio showcase of premium digital projects by Arixa Technologies",
-    width: 1200,
-    height: 900,
-  },
   contact: {
     key: "contact",
     src: "/images/contact/contact-arixa-technologies-client-support.png",

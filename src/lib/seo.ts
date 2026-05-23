@@ -79,7 +79,7 @@ export function organizationSchema() {
     email: siteConfig.email,
     telephone: siteConfig.phone,
     address: siteConfig.address,
-    sameAs: Object.values(siteConfig.social),
+    sameAs: Object.values(siteConfig.social).filter(Boolean),
     logo: absoluteUrl("/images/og/arixa-technologies-og-image.png"),
     knowsAbout: siteConfig.keywords,
   };

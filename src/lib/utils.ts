@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export function absoluteUrl(path = "") {
   const baseUrl =
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-    "http://localhost:3000";
+    "https://www.arixatechnologies.in";
 
   if (!path) {
     return baseUrl;
