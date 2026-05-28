@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/config/site";
+import { siteAssets } from "@/config/site-assets";
 import { listBlogPosts, listServices } from "@/lib/supabase/data";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -7,6 +8,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const services = await listServices();
   const posts = await listBlogPosts();
+
+  const staticRouteImages: Record<string, string[]> = {
+    "": [`${base}${siteAssets.homeHero.src}`, `${base}${siteAssets.homeServices.src}`],
+    "/about": [`${base}${siteAssets.about.src}`],
+    "/contact": [`${base}${siteAssets.contact.src}`],
+  };
 
   const staticRoutes = [
     "",
@@ -22,6 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: now,
     changeFrequency: "weekly" as const,
     priority: path === "" ? 1 : 0.75,
+    images: staticRouteImages[path],
   }));
 
   const serviceRoutes = services.map((service) => ({

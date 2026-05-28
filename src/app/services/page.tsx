@@ -7,14 +7,16 @@ import { ImageSlot } from "@/components/image-slot";
 import { JsonLd } from "@/components/json-ld";
 import { SectionHeading } from "@/components/section-heading";
 import { listServices } from "@/lib/supabase/data";
-import { createMetadata, breadcrumbSchema } from "@/lib/seo";
+import { createPageMetadata, breadcrumbSchema } from "@/lib/seo";
 
-export const metadata = createMetadata({
-  title: "Services",
-  description:
-    "Explore Arixa Technologies services including website development, web apps, mobile apps, SEO, e-commerce, custom software, design, and AI automation.",
-  path: "/services",
-});
+export async function generateMetadata() {
+  return createPageMetadata({
+    title: "Software, Website, App & SEO Services for Global Businesses",
+    description:
+      "Explore Arixa Technologies services for global businesses, including website development, web apps, mobile apps, SEO, e-commerce, custom software, design, and AI automation.",
+    path: "/services",
+  });
+}
 
 export default async function ServicesPage() {
   const services = await listServices();

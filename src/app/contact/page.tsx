@@ -8,14 +8,16 @@ import { SectionHeading } from "@/components/section-heading";
 import { siteConfig } from "@/config/site";
 import { siteAssets } from "@/config/site-assets";
 import { gmailComposeUrl } from "@/lib/contact-links";
-import { breadcrumbSchema, createMetadata, organizationSchema } from "@/lib/seo";
+import { breadcrumbSchema, createPageMetadata, localBusinessSchema, organizationSchema } from "@/lib/seo";
 
-export const metadata = createMetadata({
-  title: "Contact",
-  description:
-    "Contact Arixa Technologies for website development, web app development, SEO services, e-commerce, custom software, branding, and AI automation.",
-  path: "/contact",
-});
+export async function generateMetadata() {
+  return createPageMetadata({
+    title: "Contact Arixa Technologies for Global Software Projects",
+    description:
+      "Contact Arixa Technologies for website development, web app development, SEO services, e-commerce, custom software, branding, and AI automation for global businesses.",
+    path: "/contact",
+  });
+}
 
 export default function ContactPage() {
   return (
@@ -23,6 +25,7 @@ export default function ContactPage() {
       <JsonLd
         data={[
           organizationSchema(),
+          localBusinessSchema(),
           breadcrumbSchema([
             { name: "Home", url: "/" },
             { name: "Contact", url: "/contact" },
@@ -72,13 +75,23 @@ export default function ContactPage() {
                 <ContactForm />
                 <div className="mt-6 rounded-lg border border-teal-500/20 bg-white/65 p-5">
                   <h2 className="text-base font-semibold text-[#07304d]">Find us</h2>
-                  <div className="mt-4 flex h-52 items-center justify-center rounded-lg border border-teal-500/20 bg-[linear-gradient(135deg,rgba(7,151,165,0.1),rgba(244,127,95,0.07),rgba(70,199,199,0.1))] text-sm text-[#587487]">
-                    <span className="flex max-w-xs flex-col items-center gap-3 text-center">
-                      <MapPin className="text-[#087987]" size={26} aria-hidden="true" />
-                      Office location
-                      <span className="text-xs text-[#6d8797]">{siteConfig.address}</span>
-                    </span>
-                  </div>
+                  {siteConfig.mapEmbedUrl ? (
+                    <iframe
+                      title="Arixa Technologies service area map"
+                      src={siteConfig.mapEmbedUrl}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      className="mt-4 h-52 w-full rounded-lg border border-teal-500/20"
+                    />
+                  ) : (
+                    <div className="mt-4 flex h-52 items-center justify-center rounded-lg border border-teal-500/20 bg-[linear-gradient(135deg,rgba(7,151,165,0.1),rgba(244,127,95,0.07),rgba(70,199,199,0.1))] text-sm text-[#587487]">
+                      <span className="flex max-w-xs flex-col items-center gap-3 text-center">
+                        <MapPin className="text-[#087987]" size={26} aria-hidden="true" />
+                        Office location
+                        <span className="text-xs text-[#6d8797]">{siteConfig.address}</span>
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
             </AnimateIn>

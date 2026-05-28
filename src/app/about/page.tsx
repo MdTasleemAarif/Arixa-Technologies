@@ -6,14 +6,16 @@ import { ImageSlot } from "@/components/image-slot";
 import { JsonLd } from "@/components/json-ld";
 import { SectionHeading } from "@/components/section-heading";
 import { siteAssets } from "@/config/site-assets";
-import { createMetadata, breadcrumbSchema, organizationSchema } from "@/lib/seo";
+import { breadcrumbSchema, createPageMetadata, localBusinessSchema, organizationSchema } from "@/lib/seo";
 
-export const metadata = createMetadata({
-  title: "About Arixa Technologies",
-  description:
-    "Learn about Arixa Technologies, a premium software and digital solutions company focused on websites, apps, SEO, custom software, and automation.",
-  path: "/about",
-});
+export async function generateMetadata() {
+  return createPageMetadata({
+    title: "About Arixa Technologies",
+    description:
+      "Learn about Arixa Technologies, a premium software and digital solutions company serving global businesses with websites, apps, SEO, custom software, and automation.",
+    path: "/about",
+  });
+}
 
 export default function AboutPage() {
   const values = [
@@ -45,6 +47,7 @@ export default function AboutPage() {
       <JsonLd
         data={[
           organizationSchema(),
+          localBusinessSchema(),
           breadcrumbSchema([
             { name: "Home", url: "/" },
             { name: "About", url: "/about" },

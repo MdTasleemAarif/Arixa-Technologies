@@ -160,7 +160,7 @@ Implemented:
 - `src/app/feed.xml/route.ts`
 - `src/app/llms.txt/route.ts`
 - metadata helpers in `src/lib/seo.ts`
-- Organization, Website, BreadcrumbList, FAQPage, Service, and BlogPosting JSON-LD
+- Organization, LocalBusiness/ProfessionalService, Website, BreadcrumbList, FAQPage, Service, Article/BlogPosting JSON-LD
 - canonical URLs and Open Graph/Twitter metadata
 - blog categories, tags, related posts, reading time, and table of contents
 
@@ -173,7 +173,7 @@ Search Console checklist:
 5. Fix crawl issues, redirects, duplicate titles, and missing image assets.
 6. Add analytics and conversion tracking after launch.
 
-Off-page SEO guidance is in `docs/OFFPAGE-SEO-PLAN.md`.
+Off-page SEO guidance is in `docs/seo/offpage-seo-plan.md`. Technical SEO, redirect, crawl budget, HTTPS, and broken-link guidance is in `docs/seo/technical-seo-checklist.md`.
 
 ## Security Notes
 

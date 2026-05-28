@@ -69,6 +69,7 @@ import { HeroSlider } from "@/components/hero-slider";
 import { ImageSlot } from "@/components/image-slot";
 import { JsonLd } from "@/components/json-ld";
 import { SectionHeading } from "@/components/section-heading";
+import { siteConfig } from "@/config/site";
 import { siteAssets } from "@/config/site-assets";
 import {
   blogPosts,
@@ -76,14 +77,22 @@ import {
   siteFaqs,
   testimonials,
 } from "@/data/site-data";
-import { createMetadata, faqSchema, organizationSchema, websiteSchema } from "@/lib/seo";
+import {
+  createPageMetadata,
+  faqSchema,
+  localBusinessSchema,
+  organizationSchema,
+  websiteSchema,
+} from "@/lib/seo";
 
-export const metadata = createMetadata({
-  title: "Premium Software, Website, App & SEO Company",
-  description:
-    "Arixa Technologies builds premium websites, apps, custom software, SEO systems, e-commerce platforms, and AI automation for businesses.",
-  path: "/",
-});
+export async function generateMetadata() {
+  return createPageMetadata({
+    title: "Premium Software, Website, App & SEO Company for Global Businesses",
+    description:
+      "Arixa Technologies builds premium websites, apps, custom software, SEO systems, e-commerce platforms, and AI automation for growth-focused businesses worldwide.",
+    path: "/",
+  });
+}
 
 const homeServiceVisuals = [
   {
@@ -347,7 +356,7 @@ const avatarGradients = [
 export default function Home() {
   return (
     <>
-      <JsonLd data={[organizationSchema(), websiteSchema(), faqSchema(siteFaqs)]} />
+      <JsonLd data={[organizationSchema(), localBusinessSchema(), websiteSchema(), faqSchema(siteFaqs)]} />
 
 
       {/* Hero Slider */}
@@ -449,6 +458,30 @@ export default function Home() {
               );
             })}
           </AnimateInStagger>
+        </div>
+      </section>
+
+      <section className="section-band px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+          <div>
+            <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-[#087987]">
+              Global Delivery
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-normal text-[#07304d]">
+              Built for global businesses with clear location, trust, and delivery signals.
+            </h2>
+          </div>
+          <div className="grid gap-3 text-sm leading-7 text-[#365b70] sm:grid-cols-3">
+            <p>
+              <strong className="text-[#07304d]">Base:</strong> {siteConfig.city}, {siteConfig.country}
+            </p>
+            <p>
+              <strong className="text-[#07304d]">Service area:</strong> Worldwide remote delivery
+            </p>
+            <p>
+              <strong className="text-[#07304d]">Contact:</strong> {siteConfig.phone}
+            </p>
+          </div>
         </div>
       </section>
 

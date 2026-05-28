@@ -191,6 +191,8 @@ values
   ('What does Arixa Technologies do?', 'Arixa Technologies builds websites, web apps, mobile apps, SEO systems, e-commerce platforms, custom software, branding assets, and AI automation for businesses.', '/', 'General', 'published'),
   ('Can you build a custom CMS?', 'Yes. The website includes a custom CMS/admin panel pattern for blogs, services, leads, careers, media, SEO settings, and site settings.', '/', 'CMS', 'published'),
   ('Do you support SEO from launch?', 'Yes. We include metadata, sitemap, robots, schema, semantic headings, internal links, image SEO guidance, and performance-minded implementation.', '/', 'SEO', 'published'),
+  ('Does Arixa Technologies work with global clients?', 'Yes. Arixa Technologies serves businesses worldwide through remote-first delivery for websites, apps, SEO, custom software, e-commerce, and automation projects.', '/', 'Global SEO', 'published'),
+  ('How does Arixa support global SEO visibility?', 'We structure service pages, metadata, schema, FAQs, technical SEO, image SEO, content clusters, and GEO-friendly summaries so search engines and AI systems understand the business clearly.', '/', 'Global SEO', 'published'),
   ('Can the website move from Vercel to Hostinger VPS later?', 'Yes. The app uses standard Next.js, PostgreSQL, environment variables, and documented production commands so a future VPS migration is practical.', '/', 'Hosting', 'published');
 
 insert into public.careers (title, slug, location, type, summary, responsibilities, status)
@@ -267,6 +269,12 @@ values
   ('contact_phone', '+91 74169 98886', 'contact'),
   ('contact_phone_secondary', '+91 74169 98887', 'contact'),
   ('whatsapp_number', '917416998886', 'contact'),
+  ('address', 'Arixa Technologies, Visakhapatnam, Andhra Pradesh, India', 'local_seo'),
+  ('city', 'Visakhapatnam', 'local_seo'),
+  ('region', 'Andhra Pradesh', 'local_seo'),
+  ('country', 'India', 'local_seo'),
+  ('service_area', 'Global, India, United States, United Kingdom, Canada, Australia, United Arab Emirates, Remote and international clients', 'global_seo'),
+  ('map_embed_url', 'https://www.google.com/maps?q=Visakhapatnam%2C%20Andhra%20Pradesh%2C%20India&output=embed', 'local_seo'),
   ('instagram_url', 'https://www.instagram.com/arixa_technologies', 'social'),
   ('facebook_url', 'https://www.facebook.com/share/1DxQFrmWNk/', 'social')
 on conflict (key) do update set value = excluded.value, group_name = excluded.group_name;

@@ -128,6 +128,9 @@ create table if not exists public.services (
   status text not null default 'draft' check (status in ('draft', 'published', 'archived')),
   meta_title text,
   meta_description text,
+  canonical_url text,
+  og_image text,
+  noindex boolean not null default false,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
@@ -313,7 +316,7 @@ create policy "Public tags" on public.blog_tags
 
 create policy "Public published blog posts" on public.blog_posts
   for select to anon, authenticated
-  using (status = 'published' and (published_at is null or published_at <= now()) and noindex = false);
+  using (status = 'published' and (published_at is null or published_at <= now()));
 
 create policy "Public published services" on public.services
   for select to anon, authenticated using (status = 'published');
@@ -338,6 +341,9 @@ create policy "Career application insert from website" on public.career_applicat
 
 create policy "Newsletter insert from website" on public.newsletters
   for insert to anon, authenticated with check (true);
+
+create policy "Public active redirects" on public.redirects
+  for select to anon, authenticated using (is_active = true);
 
 do $$
 declare

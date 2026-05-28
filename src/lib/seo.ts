@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { defaultOpenGraph, siteConfig } from "@/config/site";
+import { getSeoOverride, type SeoOverride } from "@/lib/supabase/data";
 import { absoluteUrl } from "@/lib/utils";
 
 type SeoInput = {
@@ -7,6 +8,10 @@ type SeoInput = {
   description: string;
   path?: string;
   image?: string;
+  imageAlt?: string;
+  canonicalUrl?: string;
+  ogTitle?: string;
+  ogDescription?: string;
   noIndex?: boolean;
   type?: "website" | "article";
   publishedTime?: string;
@@ -18,15 +23,22 @@ export function createMetadata({
   description,
   path = "/",
   image = "/images/og/arixa-technologies-og-image.png",
+  imageAlt,
+  canonicalUrl,
+  ogTitle,
+  ogDescription,
   noIndex = false,
   type = "website",
   publishedTime,
   modifiedTime,
 }: SeoInput): Metadata {
-  const url = absoluteUrl(path);
+  const url = absoluteUrl(canonicalUrl || path);
   const fullTitle = title.includes(siteConfig.name)
     ? title
     : `${title} | ${siteConfig.name}`;
+  const graphTitle = ogTitle || fullTitle;
+  const graphDescription = ogDescription || description;
+  const graphImageAlt = imageAlt || title;
 
   return {
     title: fullTitle,
@@ -46,8 +58,8 @@ export function createMetadata({
         },
     openGraph: {
       ...defaultOpenGraph,
-      title: fullTitle,
-      description,
+      title: graphTitle,
+      description: graphDescription,
       url,
       type,
       images: [
@@ -55,7 +67,7 @@ export function createMetadata({
           url: absoluteUrl(image),
           width: type === "article" ? 1200 : 1200,
           height: type === "article" ? 675 : 630,
-          alt: title,
+          alt: graphImageAlt,
         },
       ],
       publishedTime,
@@ -63,11 +75,33 @@ export function createMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: fullTitle,
-      description,
+      title: graphTitle,
+      description: graphDescription,
       images: [absoluteUrl(image)],
     },
   };
+}
+
+function applySeoOverride(input: SeoInput, override: SeoOverride | null): SeoInput {
+  if (!override) {
+    return input;
+  }
+
+  return {
+    ...input,
+    title: override.metaTitle || input.title,
+    description: override.metaDescription || input.description,
+    canonicalUrl: override.canonicalUrl || input.canonicalUrl,
+    ogTitle: override.ogTitle || input.ogTitle,
+    ogDescription: override.ogDescription || input.ogDescription,
+    image: override.ogImage || input.image,
+    noIndex: override.noindex || input.noIndex,
+  };
+}
+
+export async function createPageMetadata(input: SeoInput): Promise<Metadata> {
+  const override = await getSeoOverride(input.path || "/");
+  return createMetadata(applySeoOverride(input, override));
 }
 
 export function organizationSchema() {
@@ -78,10 +112,58 @@ export function organizationSchema() {
     url: siteConfig.url,
     email: siteConfig.email,
     telephone: siteConfig.phone,
-    address: siteConfig.address,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.address,
+      addressLocality: siteConfig.city,
+      addressRegion: siteConfig.region,
+      postalCode: siteConfig.postalCode,
+      addressCountry: siteConfig.country,
+    },
+    areaServed: siteConfig.serviceArea,
     sameAs: Object.values(siteConfig.social).filter(Boolean),
     logo: absoluteUrl("/images/og/arixa-technologies-og-image.png"),
     knowsAbout: siteConfig.keywords,
+  };
+}
+
+export function localBusinessSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    name: siteConfig.name,
+    url: siteConfig.url,
+    image: absoluteUrl("/images/og/arixa-technologies-og-image.png"),
+    logo: absoluteUrl("/images/og/arixa-technologies-og-image.png"),
+    email: siteConfig.email,
+    telephone: siteConfig.phone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.address,
+      addressLocality: siteConfig.city,
+      addressRegion: siteConfig.region,
+      postalCode: siteConfig.postalCode,
+      addressCountry: siteConfig.country,
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.geo.latitude,
+      longitude: siteConfig.geo.longitude,
+    },
+    areaServed: siteConfig.serviceArea.map((area) => ({
+      "@type": "Place",
+      name: area,
+    })),
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "10:00",
+        closes: "19:00",
+      },
+    ],
+    priceRange: "$$",
+    sameAs: Object.values(siteConfig.social).filter(Boolean),
   };
 }
 

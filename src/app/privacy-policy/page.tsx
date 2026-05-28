@@ -2,13 +2,15 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
 import { SectionHeading } from "@/components/section-heading";
 import { siteConfig } from "@/config/site";
-import { breadcrumbSchema, createMetadata } from "@/lib/seo";
+import { breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata = createMetadata({
-  title: "Privacy Policy",
-  description: "Privacy Policy for Arixa Technologies website visitors, leads, applicants, and CMS users.",
-  path: "/privacy-policy",
-});
+export async function generateMetadata() {
+  return createPageMetadata({
+    title: "Privacy Policy",
+    description: "Privacy Policy for Arixa Technologies website visitors, leads, applicants, and CMS users.",
+    path: "/privacy-policy",
+  });
+}
 
 export default function PrivacyPolicyPage() {
   return (

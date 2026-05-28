@@ -11,7 +11,7 @@ import { siteConfig } from "@/config/site";
 import { services as staticServices } from "@/data/site-data";
 import { getService, listServices } from "@/lib/supabase/data";
 import { absoluteUrl } from "@/lib/utils";
-import { breadcrumbSchema, createMetadata, faqSchema } from "@/lib/seo";
+import { breadcrumbSchema, createPageMetadata, faqSchema } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -26,18 +26,21 @@ export async function generateMetadata({ params }: Props) {
   const service = await getService(slug);
 
   if (!service) {
-    return createMetadata({
+    return createPageMetadata({
       title: "Service",
       description: siteConfig.description,
       path: `/services/${slug}`,
     });
   }
 
-  return createMetadata({
-    title: service.title,
-    description: service.summary,
+  return createPageMetadata({
+    title: service.metaTitle || service.title,
+    description: service.metaDescription || service.summary,
     path: `/services/${service.slug}`,
-    image: service.image,
+    image: service.ogImage || service.image,
+    imageAlt: service.imageAlt,
+    canonicalUrl: service.canonicalUrl,
+    noIndex: service.noindex,
   });
 }
 

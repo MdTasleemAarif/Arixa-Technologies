@@ -19,7 +19,7 @@ import { siteConfig } from "@/config/site";
 const heroSlides = [
   {
     id: 1,
-    image: "/images/home/hero-slide-1.png",
+    image: "/images/home/hero-slide-1.webp",
     eyebrow: "Premium Digital Solutions",
     eyebrowIcon: Globe2,
     headline: "Premium digital systems that",
@@ -47,7 +47,7 @@ const heroSlides = [
   },
   {
     id: 2,
-    image: "/images/home/hero-slide-2.png",
+    image: "/images/home/hero-slide-2.webp",
     eyebrow: "Custom Software & Mobile Apps",
     eyebrowIcon: Code2,
     headline: "Web apps and automation that",
@@ -75,7 +75,7 @@ const heroSlides = [
   },
   {
     id: 3,
-    image: "/images/home/hero-slide-3.png",
+    image: "/images/home/hero-slide-3.webp",
     eyebrow: "SEO & Growth Systems",
     eyebrowIcon: TrendingUp,
     headline: "SEO and content systems that",

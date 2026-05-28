@@ -18,6 +18,11 @@ export type Service = {
   features: string[];
   process: string[];
   faqs: FaqItem[];
+  metaTitle?: string;
+  metaDescription?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  noindex?: boolean;
 };
 
 export type BlogPost = {
@@ -33,6 +38,11 @@ export type BlogPost = {
   featuredImageAlt: string;
   content: string;
   faqs: FaqItem[];
+  metaTitle?: string;
+  metaDescription?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  noindex?: boolean;
 };
 
 export const services: Service[] = [
@@ -418,6 +428,16 @@ export const siteFaqs: FaqItem[] = [
     question: "Do you support SEO from launch?",
     answer:
       "Yes. We include metadata, sitemap, robots, schema, semantic headings, internal links, image SEO guidance, and performance-minded implementation.",
+  },
+  {
+    question: "Does Arixa Technologies work with global clients?",
+    answer:
+      "Yes. Arixa Technologies serves businesses worldwide through remote-first delivery for websites, apps, SEO, custom software, e-commerce, and automation projects.",
+  },
+  {
+    question: "How does Arixa support global SEO visibility?",
+    answer:
+      "We structure service pages, metadata, schema, FAQs, technical SEO, image SEO, content clusters, and GEO-friendly summaries so search engines and AI systems understand the business clearly.",
   },
   {
     question: "Can the website move from Vercel to Hostinger VPS later?",

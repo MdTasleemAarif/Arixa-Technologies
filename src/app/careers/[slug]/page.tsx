@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/json-ld";
 import { SectionHeading } from "@/components/section-heading";
 import { careers as staticCareers } from "@/data/site-data";
 import { getCareer } from "@/lib/supabase/data";
-import { breadcrumbSchema, createMetadata } from "@/lib/seo";
+import { breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const career = await getCareer(slug);
 
-  return createMetadata({
+  return createPageMetadata({
     title: career?.title || "Career Role",
     description: career?.summary || "Career opportunity at Arixa Technologies.",
     path: `/careers/${slug}`,

@@ -9,15 +9,17 @@ import { JsonLd } from "@/components/json-ld";
 import { SectionHeading } from "@/components/section-heading";
 import { blogCategories, blogTags } from "@/data/site-data";
 import { listBlogPosts } from "@/lib/supabase/data";
-import { breadcrumbSchema, createMetadata } from "@/lib/seo";
+import { breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 
-export const metadata = createMetadata({
-  title: "Blog",
-  description:
-    "Read Arixa Technologies insights on website development, SEO, AEO, GEO, e-commerce, custom software, mobile apps, UI/UX, and automation.",
-  path: "/blog",
-});
+export async function generateMetadata() {
+  return createPageMetadata({
+    title: "Blog",
+    description:
+      "Read Arixa Technologies insights on website development, SEO, AEO, GEO, e-commerce, custom software, mobile apps, UI/UX, automation, and digital growth for global businesses.",
+    path: "/blog",
+  });
+}
 
 type Props = {
   searchParams: Promise<{ query?: string }>;

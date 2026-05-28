@@ -2,13 +2,15 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
 import { SectionHeading } from "@/components/section-heading";
 import { siteConfig } from "@/config/site";
-import { breadcrumbSchema, createMetadata } from "@/lib/seo";
+import { breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata = createMetadata({
-  title: "Terms and Conditions",
-  description: "Terms and Conditions for using the Arixa Technologies website.",
-  path: "/terms-and-conditions",
-});
+export async function generateMetadata() {
+  return createPageMetadata({
+    title: "Terms and Conditions",
+    description: "Terms and Conditions for using the Arixa Technologies website.",
+    path: "/terms-and-conditions",
+  });
+}
 
 export default function TermsPage() {
   return (

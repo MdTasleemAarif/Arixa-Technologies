@@ -17,6 +17,33 @@ type QueryOptions = {
   tag?: string;
 };
 
+export type SeoOverride = {
+  path: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  canonicalUrl?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  noindex: boolean;
+};
+
+function normalizePath(path: string) {
+  if (!path) {
+    return "/";
+  }
+
+  try {
+    const url = new URL(path);
+    path = url.pathname;
+  } catch {
+    // Already a path.
+  }
+
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return normalized.length > 1 ? normalized.replace(/\/+$/, "") : normalized;
+}
+
 function normalizePost(row: Record<string, unknown>): BlogPost {
   return {
     slug: String(row.slug),
@@ -33,6 +60,11 @@ function normalizePost(row: Record<string, unknown>): BlogPost {
     faqs: Array.isArray(row.faqs)
       ? (row.faqs as BlogPost["faqs"])
       : [],
+    metaTitle: row.meta_title ? String(row.meta_title) : undefined,
+    metaDescription: row.meta_description ? String(row.meta_description) : undefined,
+    canonicalUrl: row.canonical_url ? String(row.canonical_url) : undefined,
+    ogImage: row.og_image ? String(row.og_image) : undefined,
+    noindex: Boolean(row.noindex),
   };
 }
 
@@ -50,6 +82,11 @@ function normalizeService(row: Record<string, unknown>): Service {
     features: Array.isArray(row.features) ? (row.features as string[]) : [],
     process: Array.isArray(row.process) ? (row.process as string[]) : [],
     faqs: Array.isArray(row.faqs) ? (row.faqs as Service["faqs"]) : [],
+    metaTitle: row.meta_title ? String(row.meta_title) : undefined,
+    metaDescription: row.meta_description ? String(row.meta_description) : undefined,
+    canonicalUrl: row.canonical_url ? String(row.canonical_url) : undefined,
+    ogImage: row.og_image ? String(row.og_image) : undefined,
+    noindex: Boolean(row.noindex),
   };
 }
 
@@ -89,6 +126,7 @@ export async function listServices() {
     .from("services")
     .select("*")
     .eq("status", "published")
+    .eq("noindex", false)
     .order("sort_order", { ascending: true });
 
   if (error || !data?.length) {
@@ -99,8 +137,22 @@ export async function listServices() {
 }
 
 export async function getService(slug: string) {
-  const allServices = await listServices();
-  return allServices.find((service) => service.slug === slug);
+  const supabase = await createSupabaseServerClient();
+
+  if (supabase) {
+    const { data } = await supabase
+      .from("services")
+      .select("*")
+      .eq("slug", slug)
+      .eq("status", "published")
+      .maybeSingle();
+
+    if (data) {
+      return normalizeService(data);
+    }
+  }
+
+  return services.find((service) => service.slug === slug);
 }
 
 export async function listBlogPosts(options: QueryOptions = {}) {
@@ -114,6 +166,7 @@ export async function listBlogPosts(options: QueryOptions = {}) {
     .from("blog_posts")
     .select("*")
     .eq("status", "published")
+    .eq("noindex", false)
     .lte("published_at", new Date().toISOString())
     .order("published_at", { ascending: false });
 
@@ -149,6 +202,35 @@ export async function getBlogPost(slug: string) {
   }
 
   return blogPosts.find((post) => post.slug === slug);
+}
+
+export async function getSeoOverride(path: string): Promise<SeoOverride | null> {
+  const supabase = await createSupabaseServerClient();
+
+  if (!supabase) {
+    return null;
+  }
+
+  const { data, error } = await supabase
+    .from("seo_overrides")
+    .select("path, meta_title, meta_description, canonical_url, og_title, og_description, og_image, noindex")
+    .eq("path", normalizePath(path))
+    .maybeSingle();
+
+  if (error || !data) {
+    return null;
+  }
+
+  return {
+    path: String(data.path),
+    metaTitle: data.meta_title ? String(data.meta_title) : undefined,
+    metaDescription: data.meta_description ? String(data.meta_description) : undefined,
+    canonicalUrl: data.canonical_url ? String(data.canonical_url) : undefined,
+    ogTitle: data.og_title ? String(data.og_title) : undefined,
+    ogDescription: data.og_description ? String(data.og_description) : undefined,
+    ogImage: data.og_image ? String(data.og_image) : undefined,
+    noindex: Boolean(data.noindex),
+  };
 }
 
 export async function listTestimonials() {

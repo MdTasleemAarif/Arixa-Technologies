@@ -6,14 +6,16 @@ import { CtaSection } from "@/components/cta-section";
 import { JsonLd } from "@/components/json-ld";
 import { SectionHeading } from "@/components/section-heading";
 import { listCareers } from "@/lib/supabase/data";
-import { breadcrumbSchema, createMetadata } from "@/lib/seo";
+import { breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata = createMetadata({
-  title: "Careers",
-  description:
-    "Explore career opportunities at Arixa Technologies for frontend development, SEO content strategy, UI/UX design, and digital product work.",
-  path: "/careers",
-});
+export async function generateMetadata() {
+  return createPageMetadata({
+    title: "Careers",
+    description:
+      "Explore career opportunities at Arixa Technologies for frontend development, SEO content strategy, UI/UX design, and digital product work for remote and global projects.",
+    path: "/careers",
+  });
+}
 
 export default async function CareersPage() {
   const careers = await listCareers();

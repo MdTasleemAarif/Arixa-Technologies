@@ -13,7 +13,7 @@ import { blogPosts as staticBlogPosts } from "@/data/site-data";
 import { gmailComposeUrl } from "@/lib/contact-links";
 import { getBlogPost, listBlogPosts } from "@/lib/supabase/data";
 import { absoluteUrl, formatDate, slugify } from "@/lib/utils";
-import { breadcrumbSchema, createMetadata, faqSchema } from "@/lib/seo";
+import { breadcrumbSchema, createPageMetadata, faqSchema } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
 
 type Props = {
@@ -28,11 +28,14 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const post = await getBlogPost(slug);
 
-  return createMetadata({
-    title: post?.title || "Blog Article",
-    description: post?.excerpt || siteConfig.description,
+  return createPageMetadata({
+    title: post?.metaTitle || post?.title || "Blog Article",
+    description: post?.metaDescription || post?.excerpt || siteConfig.description,
     path: `/blog/${slug}`,
-    image: post?.featuredImage,
+    image: post?.ogImage || post?.featuredImage,
+    imageAlt: post?.featuredImageAlt,
+    canonicalUrl: post?.canonicalUrl,
+    noIndex: post?.noindex,
     type: "article",
     publishedTime: post?.publishedAt,
     modifiedTime: post?.updatedAt,
@@ -64,7 +67,7 @@ export default async function BlogDetailPage({ params }: Props) {
 
   const articleSchema = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": ["Article", "BlogPosting"],
     headline: post.title,
     description: post.excerpt,
     image: absoluteUrl(post.featuredImage),
@@ -119,7 +122,14 @@ export default async function BlogDetailPage({ params }: Props) {
                 <span>{readingTime(post.content).text}</span>
               </div>
             </div>
-            <ImageSlot src={post.featuredImage} alt={post.featuredImageAlt} width={1200} height={675} priority />
+            <ImageSlot
+              src={post.featuredImage}
+              alt={post.featuredImageAlt}
+              width={1200}
+              height={675}
+              priority
+              caption={post.featuredImageAlt}
+            />
           </header>
 
           <div className="mt-12 grid gap-10 lg:grid-cols-[260px_1fr_220px]">
@@ -149,24 +159,35 @@ export default async function BlogDetailPage({ params }: Props) {
             </div>
 
             <aside className="h-max rounded-md border border-teal-500/20 bg-white/70 p-5 lg:sticky lg:top-24">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#173f5f]">
-                Share
-              </h2>
-              <div className="mt-4 grid gap-2">
-                <Link href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`} className="inline-flex items-center gap-2 text-sm text-[#365b70] hover:text-[#07304d]">
-                  <Share2 size={16} aria-hidden="true" /> LinkedIn
-                </Link>
-                <Link href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(post.title)}`} className="inline-flex items-center gap-2 text-sm text-[#365b70] hover:text-[#07304d]">
-                  <Share2 size={16} aria-hidden="true" /> X
-                </Link>
-                <Link
-                  href={gmailComposeUrl({ subject: post.title, body: url })}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-[#365b70] hover:text-[#07304d]"
-                >
-                  <Mail size={16} aria-hidden="true" /> Email
-                </Link>
+              <div>
+                <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#173f5f]">
+                  Author
+                </h2>
+                <p className="mt-3 text-sm font-semibold text-[#07304d]">{post.author}</p>
+                <p className="mt-2 text-xs leading-5 text-[#587487]">
+                  Arixa Technologies publishes practical guidance on websites, SEO, software, automation, and digital growth.
+                </p>
+              </div>
+              <div className="mt-6 border-t border-teal-500/15 pt-5">
+                <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#173f5f]">
+                  Share
+                </h2>
+                <div className="mt-4 grid gap-2">
+                  <Link href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`} className="inline-flex items-center gap-2 text-sm text-[#365b70] hover:text-[#07304d]">
+                    <Share2 size={16} aria-hidden="true" /> LinkedIn
+                  </Link>
+                  <Link href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(post.title)}`} className="inline-flex items-center gap-2 text-sm text-[#365b70] hover:text-[#07304d]">
+                    <Share2 size={16} aria-hidden="true" /> X
+                  </Link>
+                  <Link
+                    href={gmailComposeUrl({ subject: post.title, body: url })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-[#365b70] hover:text-[#07304d]"
+                  >
+                    <Mail size={16} aria-hidden="true" /> Email
+                  </Link>
+                </div>
               </div>
             </aside>
           </div>

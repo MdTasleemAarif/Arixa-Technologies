@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/json-ld";
 import { SectionHeading } from "@/components/section-heading";
 import { blogTags } from "@/data/site-data";
 import { listBlogPosts } from "@/lib/supabase/data";
-import { breadcrumbSchema, createMetadata } from "@/lib/seo";
+import { breadcrumbSchema, createPageMetadata } from "@/lib/seo";
 import { formatDate } from "@/lib/utils";
 
 type Props = {
@@ -20,9 +20,9 @@ export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const tag = blogTags.find((item) => item.slug === slug);
 
-  return createMetadata({
+  return createPageMetadata({
     title: `${tag?.name || "Blog Tag"} Articles`,
-    description: `Read ${tag?.name || "tag"} articles from Arixa Technologies.`,
+    description: `Read ${tag?.name || "tag"} articles from Arixa Technologies for software, SEO, website, app, and automation insights.`,
     path: `/blog/tag/${slug}`,
   });
 }

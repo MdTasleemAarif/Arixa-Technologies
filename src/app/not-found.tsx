@@ -1,5 +1,13 @@
 import Link from "next/link";
 import { Home, ArrowLeft } from "lucide-react";
+import { createMetadata } from "@/lib/seo";
+
+export const metadata = createMetadata({
+  title: "Page Not Found",
+  description: "The requested Arixa Technologies page could not be found.",
+  path: "/404",
+  noIndex: true,
+});
 
 export default function NotFound() {
   return (

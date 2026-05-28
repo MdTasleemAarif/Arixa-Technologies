@@ -15,6 +15,12 @@ export function GET() {
     `- Blog: ${siteConfig.url}/blog`,
     `- Contact: ${siteConfig.url}/contact`,
     "",
+    "## Entity And Location",
+    `- Brand: ${siteConfig.name}`,
+    `- Primary location: ${siteConfig.city}, ${siteConfig.region}, ${siteConfig.country}`,
+    `- Service area: ${siteConfig.serviceArea.join("; ")}`,
+    `- Official website: ${siteConfig.url}`,
+    "",
     "## Services",
     ...services.map((service) => `- ${service.title}: ${siteConfig.url}/services/${service.slug} - ${service.summary}`),
     "",
@@ -25,6 +31,7 @@ export function GET() {
     `- Email: ${siteConfig.email}`,
     `- Phone: ${siteConfig.phone}`,
     `- Alternate phone: ${siteConfig.phoneSecondary}`,
+    `- Address: ${siteConfig.address}`,
   ];
 
   return new NextResponse(lines.join("\n"), {
